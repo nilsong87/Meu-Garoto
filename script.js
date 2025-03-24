@@ -163,13 +163,11 @@ function showLetters(category) {
             letters = ['BA', 'BE', 'BI', 'BO', 'BU', 'CA', 'CE', 'CI', 'CO', 'CU',
                 'DA', 'DE', 'DI', 'DO', 'DU', 'FA', 'FE', 'FI', 'FO', 'FU', 'GA',
                 'GE', 'GI', 'GO', 'GU', 'HA', 'HE', 'HI', 'HO', 'HU', 'JA', 'JE',
-                'JI', 'JO', 'JU', 'KA', 'KE', 'KI', 'KO', 'KU', 'LA', 'LE', 'LI',
-                'LO', 'LU', 'MA', 'ME', 'MI', 'MO', 'MU', 'NA', 'NE', 'NI', 'NO',
-                'NU', 'PA', 'PE', 'PI', 'PO', 'PU', 'RA', 'RE', 'RI', 'RO', 'RU',
-                'SA', 'SE', 'SI', 'SO', 'SU', 'TA', 'TE', 'TI', 'TO', 'TU', 'VA',
-                'VE', 'VI', 'VO', 'VU', 'WA', 'WE', 'WI', 'WO', 'WU', 'XA', 'XE',
-                'XI', 'XO', 'XU', 'YA', 'YE', 'YI', 'YO', 'YU', 'ZA', 'ZE', 'ZI',
-                'ZO', 'ZU'
+                'JI', 'JO', 'JU', 'LA', 'LE', 'LI', 'LO', 'LU', 'MA', 'ME', 'MI',
+                'MO', 'MU', 'NA', 'NE', 'NI', 'NO', 'NU', 'PA', 'PE', 'PI', 'PO',
+                'PU', 'RA', 'RE', 'RI', 'RO', 'RU', 'SA', 'SE', 'SI', 'SO', 'SU',
+                'TA', 'TE', 'TI', 'TO', 'TU', 'VA', 'VE', 'VI', 'VO', 'VU', 'XA',
+                'XE', 'XI', 'XO', 'XU', 'ZA', 'ZE', 'ZI', 'ZO', 'ZU'
             ];
             break;
     }
@@ -358,124 +356,109 @@ function showLetterDetails(letter) {
                 examples = ['Guitarra', 'Guitarrista', 'Guarda', 'Guloseima', 'Guerreiro'];
                 break;
             case 'JA':
-                examples = ['Vacê', 'Vaso', 'Veneno', 'Voltar', 'Vê'];
+                examples = ['Janela', 'Jarro', 'Jardim', 'Jato', 'Jantar'];
                 break;
             case 'JE':
-                examples = ['Wafe', 'webcam', 'website', 'walkie-talkie', 'walkman'];
+                examples = ['Jejum', 'Jesus', 'Jegue', 'Jeguinho', 'Jequitibá'];
                 break;
             case 'JI':
-                examples = ['Xadrez', 'xarope', 'xeque-mate', 'Xaveco', 'Xenofobia'];
+                examples = ['Jiboia', 'Jiló', 'Jipe', 'Jinga', 'Jiboia-Verde'];
                 break;
             case 'JO':
-                examples = ['Youtube', 'Yahoo', 'Yakut', 'Yamaha', 'Yoki'];
+                examples = ['Jogo', 'Joelho', 'Jóia', 'Jornal', 'Jovem'];
                 break;
             case 'JU':
-                examples = ['Zebra', 'Zangado', 'Zagueiro', 'Zangão', 'Zarpar'];
-                break;
-            case 'KA':
-                examples = ['Vacê', 'Vaso', 'Veneno', 'Voltar', 'Vê'];
-                break;
-            case 'KE':
-                examples = ['Wafe', 'webcam', 'website', 'walkie-talkie', 'walkman'];
-                break;
-            case 'KI':
-                examples = ['Xadrez', 'xarope', 'xeque-mate', 'Xaveco', 'Xenofobia'];
-                break;
-            case 'KO':
-                examples = ['Youtube', 'Yahoo', 'Yakut', 'Yamaha', 'Yoki'];
-                break;
-            case 'KU':
-                examples = ['Zebra', 'Zangado', 'Zagueiro', 'Zangão', 'Zarpar'];
+                examples = ['Juiz', 'Júri', 'Justiça', 'Juramento', 'Junho'];
                 break;
             case 'LA':
-                examples = ['Vacê', 'Vaso', 'Veneno', 'Voltar', 'Vê'];
+                examples = ['Lagarto', 'Lâmpada', 'Lago', 'Lagoa', 'Lápis'];
                 break;
             case 'LE':
-                examples = ['Wafe', 'webcam', 'website', 'walkie-talkie', 'walkman'];
+                examples = ['Leão', 'Leoa', 'Leitura', 'Leite', 'Lenha'];
                 break;
             case 'LI':
-                examples = ['Xadrez', 'xarope', 'xeque-mate', 'Xaveco', 'Xenofobia'];
+                examples = ['Livro', 'Liberdade', 'Licença', 'Lixo', 'Lixeira'];
                 break;
             case 'LO':
-                examples = ['Youtube', 'Yahoo', 'Yakut', 'Yamaha', 'Yoki'];
+                examples = ['Loja', 'Loucura', 'Louco', 'Lobisomem', 'Local'];
                 break;
             case 'LU':
-                examples = ['Zebra', 'Zangado', 'Zagueiro', 'Zangão', 'Zarpar'];
+                examples = ['Luz', 'Lugar', 'Luxo', 'Lutador', 'Luta'];
                 break;
             case 'MA':
-                examples = ['Vacê', 'Vaso', 'Veneno', 'Voltar', 'Vê'];
+                examples = ['Mamãe', 'Mãe', 'Maçã', 'Manta', 'Manhâ'];
                 break;
             case 'ME':
-                examples = ['Wafe', 'webcam', 'website', 'walkie-talkie', 'walkman'];
+                examples = ['Memória', 'Medo', 'Melodia', 'Mesa', 'Mercado'];
                 break;
             case 'MI':
-                examples = ['Xadrez', 'xarope', 'xeque-mate', 'Xaveco', 'Xenofobia'];
+                examples = ['Milho', 'Misterio', 'Milagre', 'Minuto', 'Miúdo'];
                 break;
             case 'MO':
-                examples = ['Youtube', 'Yahoo', 'Yakut', 'Yamaha', 'Yoki'];
+                examples = ['Moça', 'Montanha', 'Monumento', 'Moço', 'Morte'];
                 break;
             case 'MU':
-                examples = ['Zebra', 'Zangado', 'Zagueiro', 'Zangão', 'Zarpar'];
+                examples = ['Múmia', 'Muralha', 'Muro', 'Música', 'Mundo'];
                 break;
             case 'NA':
-                examples = ['Vacê', 'Vaso', 'Veneno', 'Voltar', 'Vê'];
+                examples = ['Nadar', 'Nada', 'Návio', 'Nascimento', 'Namorada'];
                 break;
             case 'NE':
-                examples = ['Wafe', 'webcam', 'website', 'walkie-talkie', 'walkman'];
+                examples = ['Névoa', 'Negócio', 'Necessário', 'Nenhum', 'Nervoso'];
                 break;
             case 'NI':
-                examples = ['Xadrez', 'xarope', 'xeque-mate', 'Xaveco', 'Xenofobia'];
+                examples = ['Ninho', 'Nível', 'Nitidez', 'Nitrogênio', 'Nítido'];
                 break;
             case 'NO':
-                examples = ['Youtube', 'Yahoo', 'Yakut', 'Yamaha', 'Yoki'];
+                examples = ['Noite', 'Notícia', 'Normas', 'Nota', 'Nome'];
                 break;
             case 'NU':
-                examples = ['Zebra', 'Zangado', 'Zagueiro', 'Zangão', 'Zarpar'];
+                examples = ['Número', 'Nuvem', 'Nutrição', 'Núcleo', 'Nudez'];
                 break;
             case 'PA':
-                examples = ['Vacê', 'Vaso', 'Veneno', 'Voltar', 'Vê'];
+                examples = ['Palavra', 'Pássaro', 'Pano', 'Palco', 'Papel'];
                 break;
             case 'PE':
-                examples = ['Wafe', 'webcam', 'website', 'walkie-talkie', 'walkman'];
+                examples = ['Pessoa', 'Personagem', 'Pássaro', 'Paredão', 'Pastel'];
                 break;
             case 'PI':
-                examples = ['Xadrez', 'xarope', 'xeque-mate', 'Xaveco', 'Xenofobia'];
+                examples = ['Picolé', 'Piano', 'Pintura', 'Pilha', 'Pipoca'];
                 break;
             case 'PO':
-                examples = ['Youtube', 'Yahoo', 'Yakut', 'Yamaha', 'Yoki'];
+                examples = ['Poder', 'Poema', 'Polícia', 'Poço', 'Porta'];
                 break;
             case 'PU':
-                examples = ['Zebra', 'Zangado', 'Zagueiro', 'Zangão', 'Zarpar'];
+                examples = ['Pulga', 'Pulmão', 'Pular', 'Pulso', 'Pudim'];
                 break;
             case 'RA':
-                examples = ['Vacê', 'Vaso', 'Veneno', 'Voltar', 'Vê'];
+                examples = ['Raio', 'Rainha', 'Rato', 'Ração', 'Raposa'];
                 break;
             case 'RE':
-                examples = ['Wafe', 'webcam', 'website', 'walkie-talkie', 'walkman'];
+                examples = ['Resposta', 'Refeição', 'Residência', 'Reset', 'Restart'];
                 break;
             case 'RI':
-                examples = ['Xadrez', 'xarope', 'xeque-mate', 'Xaveco', 'Xenofobia'];
+                examples = ['Ridículo', 'Ritmo', 'Risada', 'Rima', 'Risco'];
                 break;
             case 'RO':
-                examples = ['Youtube', 'Yahoo', 'Yakut', 'Yamaha', 'Yoki'];
+                examples = ['Rosa', 'Roda', 'Rosto', 'Roupa', 'Robô'];
                 break;
             case 'RU':
-                examples = ['Zebra', 'Zangado', 'Zagueiro', 'Zangão', 'Zarpar'];
+                examples = ['Rua', 'Rumo', 'Rugido', 'Ruína', 'Rumor'];
                 break;
             case 'SA':
-                examples = ['Vacê', 'Vaso', 'Veneno', 'Voltar', 'Vê'];
+                examples = ['Sapo', 'Sapato', 'Saboneteira', 'Sal', 'Salvador'];
                 break;
             case 'SE':
-                examples = ['Wafe', 'webcam', 'website', 'walkie-talkie', 'walkman'];
+                examples = ['Semana', 'Segredo', 'Selva', 'Sentido', 'Seguro'];
                 break;
             case 'SI':
-                examples = ['Xadrez', 'xarope', 'xeque-mate', 'Xaveco', 'Xenofobia'];
+                examples = ['Sinal', 'Sistema', 'Sílaba', 'Simples', 'Símbolo'];
                 break;
             case 'SO':
-                examples = ['Youtube', 'Yahoo', 'Yakut', 'Yamaha', 'Yoki'];
+                examples = ['Sol', 'Som', 'Soldado', 'Sorriso', 'Sociedade'];
                 break;
             case 'SU':
-                examples = ['Zebra', 'Zangado', 'Zagueiro', 'Zangão', 'Zarpar'];
+                examples = ['Submarino', 'Sul', 'Sucesso', 'Surpresa', 'Suporte'];
                 break;
             case 'TA':
                 examples = ['Vacê', 'Vaso', 'Veneno', 'Voltar', 'Vê'];
@@ -507,21 +490,6 @@ function showLetterDetails(letter) {
             case 'VU':
                 examples = ['Zebra', 'Zangado', 'Zagueiro', 'Zangão', 'Zarpar'];
                 break;
-            case 'WA':
-                examples = ['Vacê', 'Vaso', 'Veneno', 'Voltar', 'Vê'];
-                break;
-            case 'WE':
-                examples = ['Wafe', 'webcam', 'website', 'walkie-talkie', 'walkman'];
-                break;
-            case 'WI':
-                examples = ['Xadrez', 'xarope', 'xeque-mate', 'Xaveco', 'Xenofobia'];
-                break;
-            case 'WO':
-                examples = ['Youtube', 'Yahoo', 'Yakut', 'Yamaha', 'Yoki'];
-                break;
-            case 'WU':
-                examples = ['Zebra', 'Zangado', 'Zagueiro', 'Zangão', 'Zarpar'];
-                break;
             case 'XA':
                 examples = ['Vacê', 'Vaso', 'Veneno', 'Voltar', 'Vê'];
                 break;
@@ -535,21 +503,6 @@ function showLetterDetails(letter) {
                 examples = ['Youtube', 'Yahoo', 'Yakut', 'Yamaha', 'Yoki'];
                 break;
             case 'XU':
-                examples = ['Zebra', 'Zangado', 'Zagueiro', 'Zangão', 'Zarpar'];
-                break;
-            case 'YA':
-                examples = ['Vacê', 'Vaso', 'Veneno', 'Voltar', 'Vê'];
-                break;
-            case 'YE':
-                examples = ['Wafe', 'webcam', 'website', 'walkie-talkie', 'walkman'];
-                break;
-            case 'YI':
-                examples = ['Xadrez', 'xarope', 'xeque-mate', 'Xaveco', 'Xenofobia'];
-                break;
-            case 'YO':
-                examples = ['Youtube', 'Yahoo', 'Yakut', 'Yamaha', 'Yoki'];
-                break;
-            case 'YU':
                 examples = ['Zebra', 'Zangado', 'Zagueiro', 'Zangão', 'Zarpar'];
                 break;
             case 'ZA':
