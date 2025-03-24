@@ -167,8 +167,7 @@ function showLetters(category) {
                 'MO', 'MU', 'NA', 'NE', 'NI', 'NO', 'NU', 'PA', 'PE', 'PI', 'PO',
                 'PU', 'RA', 'RE', 'RI', 'RO', 'RU', 'SA', 'SE', 'SI', 'SO', 'SU',
                 'TA', 'TE', 'TI', 'TO', 'TU', 'VA', 'VE', 'VI', 'VO', 'VU', 'XA',
-                'XE', 'XI', 'XO', 'XU', 'ZA', 'ZE', 'ZI', 'ZO', 'ZU'
-            ];
+                'XE', 'XI', 'XO', 'XU', 'ZA', 'ZE', 'ZI', 'ZO', 'ZU'];
             break;
     }
 
@@ -280,6 +279,11 @@ function showLetterDetails(letter) {
             case 'Z':
                 examples = ['Zebra', 'Zangado', 'Zagueiro', 'Zangão', 'Zarpar'];
                 break;
+            default:
+                examples = [`${letter}ato`, `${letter}ola`, `${letter}aca`, `${letter}arte`, `${letter}isco`];
+        }
+    } else { // Sílabas
+        switch (letter.toUpperCase()) {
             case 'BA':
                 examples = ['Banana', 'Bananeira', 'Bacia', 'Balde', 'Bala'];
                 break;
@@ -406,504 +410,500 @@ function showLetterDetails(letter) {
             case 'NE':
                 examples = ['Névoa', 'Negócio', 'Necessário', 'Nenhum', 'Nervoso'];
                 break;
-            case 'NI':
-                examples = ['Ninho', 'Nível', 'Nitidez', 'Nitrogênio', 'Nítido'];
-                break;
-            case 'NO':
-                examples = ['Noite', 'Notícia', 'Normas', 'Nota', 'Nome'];
-                break;
-            case 'NU':
-                examples = ['Número', 'Nuvem', 'Nutrição', 'Núcleo', 'Nudez'];
-                break;
-            case 'PA':
-                examples = ['Palavra', 'Pássaro', 'Pano', 'Palco', 'Papel'];
-                break;
-            case 'PE':
-                examples = ['Pessoa', 'Personagem', 'Pássaro', 'Paredão', 'Pastel'];
-                break;
-            case 'PI':
-                examples = ['Picolé', 'Piano', 'Pintura', 'Pilha', 'Pipoca'];
-                break;
-            case 'PO':
-                examples = ['Poder', 'Poema', 'Polícia', 'Poço', 'Porta'];
-                break;
-            case 'PU':
-                examples = ['Pulga', 'Pulmão', 'Pular', 'Pulso', 'Pudim'];
-                break;
-            case 'RA':
-                examples = ['Raio', 'Rainha', 'Rato', 'Ração', 'Raposa'];
-                break;
-            case 'RE':
-                examples = ['Resposta', 'Refeição', 'Residência', 'Reset', 'Restart'];
-                break;
-            case 'RI':
-                examples = ['Ridículo', 'Ritmo', 'Risada', 'Rima', 'Risco'];
-                break;
-            case 'RO':
-                examples = ['Rosa', 'Roda', 'Rosto', 'Roupa', 'Robô'];
-                break;
-            case 'RU':
-                examples = ['Rua', 'Rumo', 'Rugido', 'Ruína', 'Rumor'];
-                break;
-            case 'SA':
-                examples = ['Sapo', 'Sapato', 'Saboneteira', 'Sal', 'Salvador'];
-                break;
-            case 'SE':
-                examples = ['Semana', 'Segredo', 'Selva', 'Sentido', 'Seguro'];
-                break;
-            case 'SI':
-                examples = ['Sinal', 'Sistema', 'Sílaba', 'Simples', 'Símbolo'];
-                break;
-            case 'SO':
-                examples = ['Sol', 'Som', 'Soldado', 'Sorriso', 'Sociedade'];
-                break;
-            case 'SU':
-                examples = ['Submarino', 'Sul', 'Sucesso', 'Surpresa', 'Suporte'];
-                break;
-            case 'TA':
-                examples = ['Tarde', 'Tabuleiro', 'Tatuagem', 'Talento', 'Tarefa'];
-                break;
-            case 'TE':
-                examples = ['Terra', 'Terreno', 'Tempo', 'Texto', 'Telefone'];
-                break;
-            case 'TI':
-                examples = ['Time', 'Tinta', 'Tijolo', 'Timido', 'Tigre'];
-                break;
-            case 'TO':
-                examples = ['Torneio', 'Toalha', 'Total', 'Tomada', 'Tocar'];
-                break;
-            case 'TU':
-                examples = ['Tulipa', 'Tucano', 'Turista', 'Túnel', 'Tumulto'];
-                break;
-            case 'VA':
-                examples = ['Vaca', 'Vaso', 'Varanda', 'Vaqueiro', 'Vassoura'];
-                break;
-            case 'VE':
-                examples = ['Velocidade', 'Verdade', 'Ventania', 'Vento', 'Vegetal'];
-                break;
-            case 'VI':
-                examples = ['Vida', 'Visão', 'Vitamina', 'Vingança', 'Visinho'];
-                break;
-            case 'VO':
-                examples = ['Você', 'Vontade', 'Voz', 'Voltar', 'Volante'];
-                break;
-            case 'VU':
-                examples = ['Vulcão', 'Vulto', 'Vulgar', 'Vudu', 'Vulcanismo'];
-                break;
-            case 'XA':
-                examples = ['Xadrez', 'Xarope', 'Xale', 'Xará', 'Xamego'];
-                break;
-            case 'XE':
-                examples = ['Xerife', 'Xereta', 'Xerocópia', 'Xenofobia', 'Xerém'];
-                break;
-            case 'XI':
-                examples = ['Xícara', 'Xique', 'Xilocaína', 'Xilofone', 'Xisto'];
-                break;
-            case 'XO':
-                examples = ['Xodó', 'Xoxo', 'Xonar', 'Xopotó', 'Xoque'];
-                break;
-            case 'XU':
-                examples = ['Xuxa', 'Xucro', 'Xuvisco', 'Xulé', 'Xulipa'];
-                break;
-            case 'ZA':
-                examples = ['Zangão', 'Zangado', 'Zarpar', 'Zarcão', 'Zabumba'];
-                break;
-            case 'ZE':
-                examples = ['Zebra', 'Zelador', 'Zelo', 'Zero', 'Zerar'];
-                break;
-            case 'ZI':
-                examples = ['Zíper', 'Zigoto', 'Zimbro', 'Zinco', 'Zigue'];
-                break;
-            case 'ZO':
-                examples = ['Zoológico', 'Zona', 'Zombaria', 'Zoom', 'Zodíaco'];
-                break;
-            case 'ZU':
-                examples = ['Zumbido', 'Zumbi', 'Zunir', 'Zumir', 'Zumbo'];
-                break;
-            // Adicione mais casos para outras letras...
-            default:
-                examples = [`${letter}ato`, `${letter}ola`, `${letter}aca`, `${letter}arte`, `${letter}isco`];
+                case 'NI':
+                    examples = ['Ninho', 'Nível', 'Nitidez', 'Nitrogênio', 'Nítido'];
+                    break;
+                case 'NO':
+                    examples = ['Noite', 'Notícia', 'Normas', 'Nota', 'Nome'];
+                    break;
+                case 'NU':
+                    examples = ['Número', 'Nuvem', 'Nutrição', 'Núcleo', 'Nudez'];
+                    break;
+                case 'PA':
+                    examples = ['Palavra', 'Pássaro', 'Pano', 'Palco', 'Papel'];
+                    break;
+                case 'PE':
+                    examples = ['Pessoa', 'Personagem', 'Pássaro', 'Paredão', 'Pastel'];
+                    break;
+                case 'PI':
+                    examples = ['Picolé', 'Piano', 'Pintura', 'Pilha', 'Pipoca'];
+                    break;
+                case 'PO':
+                    examples = ['Poder', 'Poema', 'Polícia', 'Poço', 'Porta'];
+                    break;
+                case 'PU':
+                    examples = ['Pulga', 'Pulmão', 'Pular', 'Pulso', 'Pudim'];
+                    break;
+                case 'RA':
+                    examples = ['Raio', 'Rainha', 'Rato', 'Ração', 'Raposa'];
+                    break;
+                case 'RE':
+                    examples = ['Resposta', 'Refeição', 'Residência', 'Reset', 'Restart'];
+                    break;
+                case 'RI':
+                    examples = ['Ridículo', 'Ritmo', 'Risada', 'Rima', 'Risco'];
+                    break;
+                case 'RO':
+                    examples = ['Rosa', 'Roda', 'Rosto', 'Roupa', 'Robô'];
+                    break;
+                case 'RU':
+                    examples = ['Rua', 'Rumo', 'Rugido', 'Ruína', 'Rumor'];
+                    break;
+                case 'SA':
+                    examples = ['Sapo', 'Sapato', 'Saboneteira', 'Sal', 'Salvador'];
+                    break;
+                case 'SE':
+                    examples = ['Semana', 'Segredo', 'Selva', 'Sentido', 'Seguro'];
+                    break;
+                case 'SI':
+                    examples = ['Sinal', 'Sistema', 'Sílaba', 'Simples', 'Símbolo'];
+                    break;
+                case 'SO':
+                    examples = ['Sol', 'Som', 'Soldado', 'Sorriso', 'Sociedade'];
+                    break;
+                case 'SU':
+                    examples = ['Submarino', 'Sul', 'Sucesso', 'Surpresa', 'Suporte'];
+                    break;
+                case 'TA':
+                    examples = ['Tarde', 'Tabuleiro', 'Tatuagem', 'Talento', 'Tarefa'];
+                    break;
+                case 'TE':
+                    examples = ['Terra', 'Terreno', 'Tempo', 'Texto', 'Telefone'];
+                    break;
+                case 'TI':
+                    examples = ['Time', 'Tinta', 'Tijolo', 'Timido', 'Tigre'];
+                    break;
+                case 'TO':
+                    examples = ['Torneio', 'Toalha', 'Total', 'Tomada', 'Tocar'];
+                    break;
+                case 'TU':
+                    examples = ['Tulipa', 'Tucano', 'Turista', 'Túnel', 'Tumulto'];
+                    break;
+                case 'VA':
+                    examples = ['Vaca', 'Vaso', 'Varanda', 'Vaqueiro', 'Vassoura'];
+                    break;
+                case 'VE':
+                    examples = ['Velocidade', 'Verdade', 'Ventania', 'Vento', 'Vegetal'];
+                    break;
+                case 'VI':
+                    examples = ['Vida', 'Visão', 'Vitamina', 'Vingança', 'Visinho'];
+                    break;
+                case 'VO':
+                    examples = ['Você', 'Vontade', 'Voz', 'Voltar', 'Volante'];
+                    break;
+                case 'VU':
+                    examples = ['Vulcão', 'Vulto', 'Vulgar', 'Vudu', 'Vulcanismo'];
+                    break;
+                case 'XA':
+                    examples = ['Xadrez', 'Xarope', 'Xale', 'Xará', 'Xamego'];
+                    break;
+                case 'XE':
+                    examples = ['Xerife', 'Xereta', 'Xerocópia', 'Xenofobia', 'Xerém'];
+                    break;
+                case 'XI':
+                    examples = ['Xícara', 'Xique', 'Xilocaína', 'Xilofone', 'Xisto'];
+                    break;
+                case 'XO':
+                    examples = ['Xodó', 'Xoxo', 'Xonar', 'Xopotó', 'Xoque'];
+                    break;
+                case 'XU':
+                    examples = ['Xuxa', 'Xucro', 'Xuvisco', 'Xulé', 'Xulipa'];
+                    break;
+                case 'ZA':
+                    examples = ['Zangão', 'Zangado', 'Zarpar', 'Zarcão', 'Zabumba'];
+                    break;
+                case 'ZE':
+                    examples = ['Zebra', 'Zelador', 'Zelo', 'Zero', 'Zerar'];
+                    break;
+                case 'ZI':
+                    examples = ['Zíper', 'Zigoto', 'Zimbro', 'Zinco', 'Zigue'];
+                    break;
+                case 'ZO':
+                    examples = ['Zoológico', 'Zona', 'Zombaria', 'Zoom', 'Zodíaco'];
+                    break;
+                case 'ZU':
+                    examples = ['Zumbido', 'Zumbi', 'Zunir', 'Zumir', 'Zumbo'];
+                    break;
+                default:
+                    examples = [`${letter}la`, `${letter}to`, `${letter}ca`, `${letter}rin`, `${letter}de`];
+            }
         }
-    } else { // Sílabas
-        examples = [`${letter}la`, `${letter}to`, `${letter}ca`, `${letter}rin`, `${letter}de`];
-    }
-
-    examples.forEach(example => {
-        const li = document.createElement('li');
-        li.textContent = example;
-        examplesList.appendChild(li);
-    });
-
-    // Atualiza o áudio da letra (simulado)
-    const letterSound = document.getElementById('letterSound');
-    letterSound.src = `sons/letra_${letter.toLowerCase()}.mp3`;
-}
-
-// Toca o som da letra
-function playLetterSound(letter = null) {
-    if (letter) {
+    
+        examples.forEach(example => {
+            const li = document.createElement('li');
+            li.textContent = example;
+            examplesList.appendChild(li);
+        });
+    
+        // Atualiza o áudio da letra (simulado)
         const letterSound = document.getElementById('letterSound');
         letterSound.src = `sons/letra_${letter.toLowerCase()}.mp3`;
-        letterSound.play();
-    } else {
-        document.getElementById('letterSound').play();
     }
-
-    // Animação de feedback
-    const letterElement = document.getElementById('currentLetter');
-    letterElement.style.transform = 'scale(1.2)';
-    setTimeout(() => {
-        letterElement.style.transform = 'scale(1)';
-    }, 300);
-}
-
-// Configura o canvas de escrita
-function setupWritingCanvas() {
-    const canvas = document.getElementById('writingCanvas');
-    const ctx = canvas.getContext('2d');
-    let isDrawing = false;
-    let lastX = 0;
-    let lastY = 0;
-
-    // Configurações do pincel
-    ctx.strokeStyle = '#9b59b6';
-    ctx.lineWidth = 8;
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-
-    // Eventos do mouse/touch
-    canvas.addEventListener('mousedown', startDrawing);
-    canvas.addEventListener('touchstart', handleTouchStart);
-    canvas.addEventListener('mousemove', draw);
-    canvas.addEventListener('touchmove', handleTouchMove);
-    canvas.addEventListener('mouseup', stopDrawing);
-    canvas.addEventListener('touchend', stopDrawing);
-    canvas.addEventListener('mouseout', stopDrawing);
-
-    function handleTouchStart(e) {
-        e.preventDefault();
-        const touch = e.touches[0];
-        const mouseEvent = new MouseEvent('mousedown', {
-            clientX: touch.clientX,
-            clientY: touch.clientY
-        });
-        canvas.dispatchEvent(mouseEvent);
-    }
-
-    function handleTouchMove(e) {
-        e.preventDefault();
-        const touch = e.touches[0];
-        const mouseEvent = new MouseEvent('mousemove', {
-            clientX: touch.clientX,
-            clientY: touch.clientY
-        });
-        canvas.dispatchEvent(mouseEvent);
-    }
-
-    function startDrawing(e) {
-        isDrawing = true;
-        [lastX, lastY] = [e.offsetX, e.offsetY];
-    }
-
-    function draw(e) {
-        if (!isDrawing) return;
-
-        ctx.beginPath();
-        ctx.moveTo(lastX, lastY);
-        ctx.lineTo(e.offsetX, e.offsetY);
-        ctx.stroke();
-        [lastX, lastY] = [e.offsetX, e.offsetY];
-    }
-
-    function stopDrawing() {
-        isDrawing = false;
-    }
-}
-
-// Limpa o canvas
-function clearCanvas() {
-    const canvas = document.getElementById('writingCanvas');
-    const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    playSound('erase');
-
-    // Esconde o feedback
-    document.getElementById('writingFeedback').style.display = 'none';
-}
-
-// Verifica a escrita (simplificado)
-function checkWriting() {
-    const canvas = document.getElementById('writingCanvas');
-    const ctx = canvas.getContext('2d');
-    const feedback = document.getElementById('writingFeedback');
-    const letterToWrite = document.getElementById('letterToWrite').textContent;
-
-    // Simulação de verificação (em uma aplicação real, isso seria mais complexo)
-    const isEmpty = ctx.getImageData(0, 0, canvas.width, canvas.height).data.some(channel => channel !== 0);
-
-    if (!isEmpty) {
-        feedback.textContent = 'Desenhe a letra primeiro!';
-        feedback.className = 'writing-feedback error';
-        feedback.style.display = 'block';
-        playSound('error');
-        return;
-    }
-
-    // Simula uma verificação aleatória (80% de acerto)
-    const isCorrect = Math.random() < 0.8;
-
-    if (isCorrect) {
-        feedback.textContent = 'Parabéns! Você escreveu a letra corretamente!';
-        feedback.className = 'writing-feedback success';
-        playSound('success');
-
-        // Atualiza o progresso
-        updateProgress(5);
-
-        // Muda para a próxima letra após 2 segundos
+    
+    // Toca o som da letra
+    function playLetterSound(letter = null) {
+        if (letter) {
+            const letterSound = document.getElementById('letterSound');
+            letterSound.src = `sons/letra_${letter.toLowerCase()}.mp3`;
+            letterSound.play();
+        } else {
+            document.getElementById('letterSound').play();
+        }
+    
+        // Animação de feedback
+        const letterElement = document.getElementById('currentLetter');
+        letterElement.style.transform = 'scale(1.2)';
         setTimeout(() => {
-            const currentLetter = letterToWrite.charCodeAt(0);
-            const nextLetter = currentLetter < 90 ? String.fromCharCode(currentLetter + 1) : 'A';
-            document.getElementById('letterToWrite').textContent = nextLetter;
-            clearCanvas();
-            feedback.style.display = 'none';
-        }, 2000);
-    } else {
-        feedback.textContent = 'Quase lá! Tente novamente.';
-        feedback.className = 'writing-feedback error';
-        playSound('error');
+            letterElement.style.transform = 'scale(1)';
+        }, 300);
     }
-
-    feedback.style.display = 'block';
-}
-
-// Inicia uma atividade de prática
-function startPractice(type) {
-    const practiceArea = document.getElementById('practiceArea');
-
-    // Esconde todas as práticas
-    document.querySelectorAll('.practice-area > div').forEach(div => {
-        div.style.display = 'none';
-    });
-
-    switch (type) {
-        case 'escrita':
-            document.getElementById('writingPractice').style.display = 'block';
-            // Define uma letra aleatória para praticar
-            const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            const randomLetter = letters[Math.floor(Math.random() * letters.length)];
-            document.getElementById('letterToWrite').textContent = randomLetter;
-            clearCanvas();
-            break;
-        case 'leitura':
-            // Implementar prática de leitura
-            break;
-        case 'formacao':
-            // Implementar formação de palavras
-            break;
-    }
-
-    playSound('click');
-}
-
-// Configura os jogos
-function setupGames() {
-    // Implementação básica dos jogos
-    const gameArea = document.getElementById('gameArea');
-
-    // Configura o evento de clique nos cards de jogo
-    document.querySelectorAll('.game-card').forEach(card => {
-        card.addEventListener('click', function () {
-            const gameType = this.getAttribute('onclick').match(/'([^']+)'/)[1];
-            startGame(gameType);
-        });
-    });
-}
-
-// Inicia um jogo
-function startGame(gameType) {
-    const gameArea = document.getElementById('gameArea');
-
-    // Limpa a área de jogo
-    gameArea.innerHTML = '';
-
-    switch (gameType) {
-        case 'memoria':
-            gameArea.innerHTML = `
-                <h3>Jogo da Memória</h3>
-                <p>Encontre os pares de letras e imagens correspondentes.</p>
-                <div class="memory-grid" id="memoryGrid"></div>
-            `;
-            setupMemoryGame();
-            break;
-        case 'forca':
-            gameArea.innerHTML = `
-                <h3>Jogo da Forca</h3>
-                <p>Adivinhe a palavra antes do boneco ser enforcado.</p>
-                <div class="hangman-container" id="hangmanContainer"></div>
-            `;
-            setupHangmanGame();
-            break;
-        case 'quiz':
-            gameArea.innerHTML = `
-                <h3>Quiz das Letras</h3>
-                <p>Responda perguntas sobre as letras do alfabeto.</p>
-                <div class="quiz-container" id="quizContainer"></div>
-            `;
-            setupQuizGame();
-            break;
-    }
-
-    playSound('game-start');
-}
-
-// Configura o jogo da memória (simplificado)
-function setupMemoryGame() {
-    const gameArea = document.getElementById('gameArea');
-    const memoryGrid = document.getElementById('memoryGrid');
-    const pairs = 8; // Número de pares
-    const letters = 'ABCDEFGH'.split(''); // Letras para o jogo
-
-    // Cria os cards
-    let cards = [];
-    letters.forEach(letter => {
-        cards.push({ type: 'letter', content: letter });
-        cards.push({ type: 'image', content: letter });
-    });
-
-    // Embaralha os cards
-    cards = shuffleArray(cards);
-
-    // Cria a grade
-    memoryGrid.style.gridTemplateColumns = `repeat(4, 1fr)`;
-
-    cards.forEach((card, index) => {
-        const cardElement = document.createElement('div');
-        cardElement.className = 'memory-card';
-        cardElement.dataset.index = index;
-        cardElement.dataset.type = card.type;
-        cardElement.dataset.content = card.content;
-        cardElement.innerHTML = '<div class="memory-card-back"></div><div class="memory-card-front"></div>';
-
-        cardElement.addEventListener('click', flipCard);
-        memoryGrid.appendChild(cardElement);
-    });
-
-    function flipCard() {
-        if (this.classList.contains('flipped')) return;
-
-        this.classList.add('flipped');
-        playSound('flip');
-
-        // Verifica por pares
-        const flippedCards = document.querySelectorAll('.memory-card.flipped');
-        if (flippedCards.length === 2) {
-            const [card1, card2] = flippedCards;
-
-            if (card1.dataset.content === card2.dataset.content) {
-                // Par encontrado
-                setTimeout(() => {
-                    card1.classList.add('matched');
-                    card2.classList.add('matched');
-                    checkGameWin();
-                    playSound('match');
-
-                    // Atualiza o progresso
-                    updateProgress(2);
-                }, 500);
-            } else {
-                // Par errado
-                setTimeout(() => {
-                    card1.classList.remove('flipped');
-                    card2.classList.remove('flipped');
-                    playSound('error');
-                }, 1000);
-            }
+    
+    // Configura o canvas de escrita
+    function setupWritingCanvas() {
+        const canvas = document.getElementById('writingCanvas');
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false;
+        let lastX = 0;
+        let lastY = 0;
+    
+        // Configurações do pincel
+        ctx.strokeStyle = '#9b59b6';
+        ctx.lineWidth = 8;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+    
+        // Eventos do mouse/touch
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('touchstart', handleTouchStart);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('touchmove', handleTouchMove);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('touchend', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+    
+        function handleTouchStart(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent('mousedown', {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            canvas.dispatchEvent(mouseEvent);
+        }
+    
+        function handleTouchMove(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent('mousemove', {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            canvas.dispatchEvent(mouseEvent);
+        }
+    
+        function startDrawing(e) {
+            isDrawing = true;
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        }
+    
+        function draw(e) {
+            if (!isDrawing) return;
+    
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.stroke();
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        }
+    
+        function stopDrawing() {
+            isDrawing = false;
         }
     }
-
-    function checkGameWin() {
-        const matchedCards = document.querySelectorAll('.memory-card.matched');
-        if (matchedCards.length === cards.length) {
+    
+    // Limpa o canvas
+    function clearCanvas() {
+        const canvas = document.getElementById('writingCanvas');
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        playSound('erase');
+    
+        // Esconde o feedback
+        document.getElementById('writingFeedback').style.display = 'none';
+    }
+    
+    // Verifica a escrita (simplificado)
+    function checkWriting() {
+        const canvas = document.getElementById('writingCanvas');
+        const ctx = canvas.getContext('2d');
+        const feedback = document.getElementById('writingFeedback');
+        const letterToWrite = document.getElementById('letterToWrite').textContent;
+    
+        // Simulação de verificação (em uma aplicação real, isso seria mais complexo)
+        const isEmpty = ctx.getImageData(0, 0, canvas.width, canvas.height).data.some(channel => channel !== 0);
+    
+        if (!isEmpty) {
+            feedback.textContent = 'Desenhe a letra primeiro!';
+            feedback.className = 'writing-feedback error';
+            feedback.style.display = 'block';
+            playSound('error');
+            return;
+        }
+    
+        // Simula uma verificação aleatória (80% de acerto)
+        const isCorrect = Math.random() < 0.8;
+    
+        if (isCorrect) {
+            feedback.textContent = 'Parabéns! Você escreveu a letra corretamente!';
+            feedback.className = 'writing-feedback success';
+            playSound('success');
+    
+            // Atualiza o progresso
+            updateProgress(5);
+    
+            // Muda para a próxima letra após 2 segundos
             setTimeout(() => {
-                gameArea.innerHTML += `
-                    <div class="game-win-message">
-                        <h4>Parabéns! Você venceu!</h4>
-                        <button onclick="startGame('memoria')">Jogar Novamente</button>
-                    </div>
-                `;
-                playSound('win');
-
-                // Atualiza o progresso
-                updateProgress(10);
-            }, 500);
+                const currentLetter = letterToWrite.charCodeAt(0);
+                const nextLetter = currentLetter < 90 ? String.fromCharCode(currentLetter + 1) : 'A';
+                document.getElementById('letterToWrite').textContent = nextLetter;
+                clearCanvas();
+                feedback.style.display = 'none';
+            }, 2000);
+        } else {
+            feedback.textContent = 'Quase lá! Tente novamente.';
+            feedback.className = 'writing-feedback error';
+            playSound('error');
         }
+    
+        feedback.style.display = 'block';
     }
-}
-
-// Configura o jogo da forca (simplificado)
-function setupHangmanGame() {
-    const words = ['ABACAXI', 'BANANA', 'CASA', 'DADO', 'ELEFANTE', 'FADA', 'GATO', 'HORA'];
-    const word = words[Math.floor(Math.random() * words.length)];
-    const hangmanContainer = document.getElementById('hangmanContainer');
-
-    let guessedLetters = [];
-    let errors = 0;
-    const maxErrors = 6;
-
-    // Inicializa o jogo
-    updateHangmanDisplay();
-
-    // Continuação do jogo da forca
-    function updateHangmanDisplay() {
-        // Mostra a palavra com as letras adivinhadas
-        let displayWord = '';
-        for (const letter of word) {
-            if (guessedLetters.includes(letter)) {
-                displayWord += letter + ' ';
-            } else {
-                displayWord += '_ ';
+    
+    // Inicia uma atividade de prática
+    function startPractice(type) {
+        const practiceArea = document.getElementById('practiceArea');
+    
+        // Esconde todas as práticas
+        document.querySelectorAll('.practice-area > div').forEach(div => {
+            div.style.display = 'none';
+        });
+    
+        switch (type) {
+            case 'escrita':
+                document.getElementById('writingPractice').style.display = 'block';
+                // Define uma letra aleatória para praticar
+                const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                const randomLetter = letters[Math.floor(Math.random() * letters.length)];
+                document.getElementById('letterToWrite').textContent = randomLetter;
+                clearCanvas();
+                break;
+            case 'leitura':
+                // Implementar prática de leitura
+                break;
+            case 'formacao':
+                // Implementar formação de palavras
+                break;
+        }
+    
+        playSound('click');
+    }
+    
+    // Configura os jogos
+    function setupGames() {
+        // Implementação básica dos jogos
+        const gameArea = document.getElementById('gameArea');
+    
+        // Configura o evento de clique nos cards de jogo
+        document.querySelectorAll('.game-card').forEach(card => {
+            card.addEventListener('click', function () {
+                const gameType = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+                startGame(gameType);
+            });
+        });
+    }
+    
+    // Inicia um jogo
+    function startGame(gameType) {
+        const gameArea = document.getElementById('gameArea');
+    
+        // Limpa a área de jogo
+        gameArea.innerHTML = '';
+    
+        switch (gameType) {
+            case 'memoria':
+                gameArea.innerHTML = `
+                    <h3>Jogo da Memória</h3>
+                    <p>Encontre os pares de letras e imagens correspondentes.</p>
+                    <div class="memory-grid" id="memoryGrid"></div>
+                `;
+                setupMemoryGame();
+                break;
+            case 'forca':
+                gameArea.innerHTML = `
+                    <h3>Jogo da Forca</h3>
+                    <p>Adivinhe a palavra antes do boneco ser enforcado.</p>
+                    <div class="hangman-container" id="hangmanContainer"></div>
+                `;
+                setupHangmanGame();
+                break;
+            case 'quiz':
+                gameArea.innerHTML = `
+                    <h3>Quiz das Letras</h3>
+                    <p>Responda perguntas sobre as letras do alfabeto.</p>
+                    <div class="quiz-container" id="quizContainer"></div>
+                `;
+                setupQuizGame();
+                break;
+        }
+    
+        playSound('game-start');
+    }
+    
+    // Configura o jogo da memória (simplificado)
+    function setupMemoryGame() {
+        const gameArea = document.getElementById('gameArea');
+        const memoryGrid = document.getElementById('memoryGrid');
+        const pairs = 8; // Número de pares
+        const letters = 'ABCDEFGH'.split(''); // Letras para o jogo
+    
+        // Cria os cards
+        let cards = [];
+        letters.forEach(letter => {
+            cards.push({ type: 'letter', content: letter });
+            cards.push({ type: 'image', content: letter });
+        });
+    
+        // Embaralha os cards
+        cards = shuffleArray(cards);
+    
+        // Cria a grade
+        memoryGrid.style.gridTemplateColumns = `repeat(4, 1fr)`;
+    
+        cards.forEach((card, index) => {
+            const cardElement = document.createElement('div');
+            cardElement.className = 'memory-card';
+            cardElement.dataset.index = index;
+            cardElement.dataset.type = card.type;
+            cardElement.dataset.content = card.content;
+            cardElement.innerHTML = '<div class="memory-card-back"></div><div class="memory-card-front"></div>';
+    
+            cardElement.addEventListener('click', flipCard);
+            memoryGrid.appendChild(cardElement);
+        });
+    
+        function flipCard() {
+            if (this.classList.contains('flipped')) return;
+    
+            this.classList.add('flipped');
+            playSound('flip');
+    
+            // Verifica por pares
+            const flippedCards = document.querySelectorAll('.memory-card.flipped');
+            if (flippedCards.length === 2) {
+                const [card1, card2] = flippedCards;
+    
+                if (card1.dataset.content === card2.dataset.content) {
+                    // Par encontrado
+                    setTimeout(() => {
+                        card1.classList.add('matched');
+                        card2.classList.add('matched');
+                        checkGameWin();
+                        playSound('match');
+    
+                        // Atualiza o progresso
+                        updateProgress(2);
+                    }, 500);
+                } else {
+                    // Par errado
+                    setTimeout(() => {
+                        card1.classList.remove('flipped');
+                        card2.classList.remove('flipped');
+                        playSound('error');
+                    }, 1000);
+                }
             }
         }
-
-        // Mostra as letras erradas
-        const wrongLetters = guessedLetters.filter(l => !word.includes(l));
-
-        hangmanContainer.innerHTML = `
-        <div class="hangman-word">${displayWord}</div>
-        <div class="hangman-drawing">
-            <svg width="200" height="200" viewBox="0 0 200 200">
-                ${errors >= 1 ? '<circle cx="100" cy="40" r="20" fill="none" stroke="#333" stroke-width="3"/>' : ''}
-                ${errors >= 2 ? '<line x1="100" y1="60" x2="100" y2="100" stroke="#333" stroke-width="3"/>' : ''}
-                ${errors >= 3 ? '<line x1="100" y1="70" x2="80" y2="90" stroke="#333" stroke-width="3"/>' : ''}
-                ${errors >= 4 ? '<line x1="100" y1="70" x2="120" y2="90" stroke="#333" stroke-width="3"/>' : ''}
-                ${errors >= 5 ? '<line x1="100" y1="100" x2="80" y2="130" stroke="#333" stroke-width="3"/>' : ''}
-                ${errors >= 6 ? '<line x1="100" y1="100" x2="120" y2="130" stroke="#333" stroke-width="3"/>' : ''}
-            </svg>
-        </div>
-        <div class="hangman-wrong-letters">Letras erradas: ${wrongLetters.join(', ')}</div>
-        <div class="hangman-keyboard">
-            ${'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(letter => `
-                <button 
-                    class="hangman-letter-btn ${guessedLetters.includes(letter) ? 'guessed' : ''}"
-                    onclick="guessLetter('${letter}')"
-                    ${guessedLetters.includes(letter) ? 'disabled' : ''}
-                >
-                    ${letter}
-                </button>
-            `).join('')}
-        </div>
-    `;
+    
+        function checkGameWin() {
+            const matchedCards = document.querySelectorAll('.memory-card.matched');
+            if (matchedCards.length === cards.length) {
+                setTimeout(() => {
+                    gameArea.innerHTML += `
+                        <div class="game-win-message">
+                            <h4>Parabéns! Você venceu!</h4>
+                            <button onclick="startGame('memoria')">Jogar Novamente</button>
+                        </div>
+                    `;
+                    playSound('win');
+    
+                    // Atualiza o progresso
+                    updateProgress(10);
+                }, 500);
+            }
+        }
+    }
+    
+    // Configura o jogo da forca (simplificado)
+    function setupHangmanGame() {
+        const words = ['ABACAXI', 'BANANA', 'CASA', 'DADO', 'ELEFANTE', 'FADA', 'GATO', 'HORA'];
+        const word = words[Math.floor(Math.random() * words.length)];
+        const hangmanContainer = document.getElementById('hangmanContainer');
+    
+        let guessedLetters = [];
+        let errors = 0;
+        const maxErrors = 6;
+    
+        // Inicializa o jogo
+        updateHangmanDisplay();
+    
+        function updateHangmanDisplay() {
+            // Mostra a palavra com as letras adivinhadas
+            let displayWord = '';
+            for (const letter of word) {
+                if (guessedLetters.includes(letter)) {
+                    displayWord += letter + ' ';
+                } else {
+                    displayWord += '_ ';
+                }
+            }
+    
+            // Mostra as letras erradas
+            const wrongLetters = guessedLetters.filter(l => !word.includes(l));
+    
+            hangmanContainer.innerHTML = `
+                <div class="hangman-word">${displayWord}</div>
+                <div class="hangman-drawing">
+                    <svg width="200" height="200" viewBox="0 0 200 200">
+                        ${errors >= 1 ? '<circle cx="100" cy="40" r="20" fill="none" stroke="#333" stroke-width="3"/>' : ''}
+                        ${errors >= 2 ? '<line x1="100" y1="60" x2="100" y2="100" stroke="#333" stroke-width="3"/>' : ''}
+                        ${errors >= 3 ? '<line x1="100" y1="70" x2="80" y2="90" stroke="#333" stroke-width="3"/>' : ''}
+                        ${errors >= 4 ? '<line x1="100" y1="70" x2="120" y2="90" stroke="#333" stroke-width="3"/>' : ''}
+                                            ${errors >= 5 ? '<line x1="100" y1="100" x2="80" y2="130" stroke="#333" stroke-width="3"/>' : ''}
+                    ${errors >= 6 ? '<line x1="100" y1="100" x2="120" y2="130" stroke="#333" stroke-width="3"/>' : ''}
+                </svg>
+            </div>
+            <div class="hangman-wrong-letters">Letras erradas: ${wrongLetters.join(', ')}</div>
+            <div class="hangman-keyboard">
+                ${'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(letter => `
+                    <button 
+                        class="hangman-letter-btn ${guessedLetters.includes(letter) ? 'guessed' : ''}"
+                        onclick="guessLetter('${letter}')"
+                        ${guessedLetters.includes(letter) ? 'disabled' : ''}
+                    >
+                        ${letter}
+                    </button>
+                `).join('')}
+            </div>
+        `;
 
         // Verifica se o jogador ganhou
         if ((word.split('').every(letter => guessedLetters.includes(letter)))) {
             setTimeout(() => {
                 hangmanContainer.innerHTML += `
-                <div class="game-win-message">
-                    <h4>Parabéns! Você acertou a palavra: ${word}</h4>
-                    <button onclick="startGame('forca')">Jogar Novamente</button>
-                </div>
-            `;
+                    <div class="game-win-message">
+                        <h4>Parabéns! Você acertou a palavra: ${word}</h4>
+                        <button onclick="startGame('forca')">Jogar Novamente</button>
+                    </div>
+                `;
                 playSound('win');
 
                 // Atualiza o progresso
@@ -915,11 +915,11 @@ function setupHangmanGame() {
         if (errors >= maxErrors) {
             setTimeout(() => {
                 hangmanContainer.innerHTML += `
-                <div class="game-lose-message">
-                    <h4>Que pena! A palavra era: ${word}</h4>
-                    <button onclick="startGame('forca')">Tentar Novamente</button>
-                </div>
-            `;
+                    <div class="game-lose-message">
+                        <h4>Que pena! A palavra era: ${word}</h4>
+                        <button onclick="startGame('forca')">Tentar Novamente</button>
+                    </div>
+                `;
                 playSound('lose');
             }, 500);
         }
@@ -940,37 +940,38 @@ function setupHangmanGame() {
             updateHangmanDisplay();
         }
     };
+}
 
-    // Configura o jogo de quiz (simplificado)
-    function setupQuizGame() {
-        const quizContainer = document.getElementById('quizContainer');
-        const questions = [
-            {
-                question: "Qual letra vem depois do A?",
-                options: ["B", "C", "D", "E"],
-                answer: "B"
-            },
-            {
-                question: "Qual palavra começa com a letra C?",
-                options: ["Casa", "Bola", "Dado", "Faca"],
-                answer: "Casa"
-            },
-            {
-                question: "Quantas vogais existem no alfabeto?",
-                options: ["3", "5", "7", "9"],
-                answer: "5"
-            }
-        ];
+// Configura o jogo de quiz (simplificado)
+function setupQuizGame() {
+    const quizContainer = document.getElementById('quizContainer');
+    const questions = [
+        {
+            question: "Qual letra vem depois do A?",
+            options: ["B", "C", "D", "E"],
+            answer: "B"
+        },
+        {
+            question: "Qual palavra começa com a letra C?",
+            options: ["Casa", "Bola", "Dado", "Faca"],
+            answer: "Casa"
+        },
+        {
+            question: "Quantas vogais existem no alfabeto?",
+            options: ["3", "5", "7", "9"],
+            answer: "5"
+        }
+    ];
 
-        let currentQuestion = 0;
-        let score = 0;
+    let currentQuestion = 0;
+    let score = 0;
 
-        showQuestion();
+    showQuestion();
 
-        function showQuestion() {
-            if (currentQuestion >= questions.length) {
-                // Fim do quiz
-                quizContainer.innerHTML = `
+    function showQuestion() {
+        if (currentQuestion >= questions.length) {
+            // Fim do quiz
+            quizContainer.innerHTML = `
                 <div class="quiz-result">
                     <h4>Quiz Concluído!</h4>
                     <p>Sua pontuação: ${score} de ${questions.length}</p>
@@ -978,14 +979,14 @@ function setupHangmanGame() {
                 </div>
             `;
 
-                // Atualiza o progresso baseado na pontuação
-                updateProgress(score * 3);
-                return;
-            }
+            // Atualiza o progresso baseado na pontuação
+            updateProgress(score * 3);
+            return;
+        }
 
-            const q = questions[currentQuestion];
+        const q = questions[currentQuestion];
 
-            quizContainer.innerHTML = `
+        quizContainer.innerHTML = `
             <div class="quiz-question">
                 <h4>${q.question}</h4>
                 <div class="quiz-options">
@@ -1000,211 +1001,210 @@ function setupHangmanGame() {
                 </div>
             </div>
         `;
-        }
-
-        // Função global para verificar a resposta
-        window.checkAnswer = function (selectedOption) {
-            const correctAnswer = questions[currentQuestion].answer;
-
-            if (selectedOption === correctAnswer) {
-                score++;
-                playSound('correct');
-            } else {
-                playSound('error');
-            }
-
-            currentQuestion++;
-            showQuestion();
-        };
     }
 
-    // Configura as histórias
-    function setupStories() {
-        const stories = {
-            'chapeuzinho': {
-                title: "Chapeuzinho Vermelho",
-                content: `
+    // Função global para verificar a resposta
+    window.checkAnswer = function (selectedOption) {
+        const correctAnswer = questions[currentQuestion].answer;
+
+        if (selectedOption === correctAnswer) {
+            score++;
+            playSound('correct');
+        } else {
+            playSound('error');
+        }
+
+        currentQuestion++;
+        showQuestion();
+    };
+}
+
+// Configura as histórias
+function setupStories() {
+    const stories = {
+        'chapeuzinho': {
+            title: "Chapeuzinho Vermelho",
+            content: `
                 <p>Era uma vez uma menina chamada Chapeuzinho Vermelho...</p>
                 <p>Sua mãe pediu que ela levasse doces para a vovó que estava doente...</p>
                 <p>No caminho, ela encontrou o Lobo Mau...</p>
             `,
-                audio: "sons/chapeuzinho.mp3"
-            },
-            'tres-porquinhos': {
-                title: "Os Três Porquinhos",
-                content: `
+            audio: "sons/chapeuzinho.mp3"
+        },
+        'tres-porquinhos': {
+            title: "Os Três Porquinhos",
+            content: `
                 <p>Era uma vez três porquinhos que decidiram construir suas casas...</p>
                 <p>O primeiro fez uma casa de palha, o segundo de madeira e o terceiro de tijolos...</p>
                 <p>Então veio o Lobo Mau e soprou a casa de palha...</p>
             `,
-                audio: "sons/porquinhos.mp3"
-            },
-            'joao-feijao': {
-                title: "João e o Pé de Feijão",
-                content: `
+            audio: "sons/porquinhos.mp3"
+        },
+        'joao-feijao': {
+            title: "João e o Pé de Feijão",
+            content: `
                 <p>João era um menino pobre que vivia com sua mãe...</p>
                 <p>Um dia, trocou a vaca da família por feijões mágicos...</p>
                 <p>Os feijões cresceram e formaram um pé gigante que levava ao céu...</p>
             `,
-                audio: "sons/joao-feijao.mp3"
-            }
-        };
+            audio: "sons/joao-feijao.mp3"
+        }
+    };
 
-        // Configura o evento de clique nos cards de história
-        document.querySelectorAll('.story-card').forEach(card => {
-            card.addEventListener('click', function () {
-                const storyId = this.getAttribute('onclick').match(/'([^']+)'/)[1];
-                readStory(storyId);
-            });
+    // Configura o evento de clique nos cards de história
+    document.querySelectorAll('.story-card').forEach(card => {
+        card.addEventListener('click', function () {
+            const storyId = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+            readStory(storyId);
         });
+    });
 
-        // Função global para ler uma história
-        window.readStory = function (storyId) {
-            const story = stories[storyId];
-            const storyContent = document.getElementById('storyContent');
+    // Função global para ler uma história
+    window.readStory = function (storyId) {
+        const story = stories[storyId];
+        const storyContent = document.getElementById('storyContent');
 
-            document.getElementById('storyAudio').src = story.audio;
+        document.getElementById('storyAudio').src = story.audio;
 
-            storyContent.innerHTML = `
+        storyContent.innerHTML = `
             <h3>${story.title}</h3>
             ${story.content}
         `;
 
-            playSound('story-open');
+        playSound('story-open');
 
-            // Atualiza o progresso
-            updateProgress(3);
-        };
+        // Atualiza o progresso
+        updateProgress(3);
+    };
 
-        // Funções globais para controlar o áudio da história
-        window.playStoryAudio = function () {
-            document.getElementById('storyAudio').play();
-        };
+    // Funções globais para controlar o áudio da história
+    window.playStoryAudio = function () {
+        document.getElementById('storyAudio').play();
+    };
 
-        window.stopStoryAudio = function () {
-            document.getElementById('storyAudio').pause();
-            document.getElementById('storyAudio').currentTime = 0;
-        };
-    }
+    window.stopStoryAudio = function () {
+        document.getElementById('storyAudio').pause();
+        document.getElementById('storyAudio').currentTime = 0;
+    };
+}
 
-    // Configura a ajuda flutuante
-    function setupFloatingHelp() {
-        const helpButton = document.querySelector('.floating-help button');
-        const helpBox = document.getElementById('helpBox');
-        const helpText = document.getElementById('helpText');
+// Configura a ajuda flutuante
+function setupFloatingHelp() {
+    const helpButton = document.querySelector('.floating-help button');
+    const helpBox = document.getElementById('helpBox');
+    const helpText = document.getElementById('helpText');
 
-        helpButton.addEventListener('click', function () {
-            playSound('click');
-        });
+    helpButton.addEventListener('click', function () {
+        playSound('click');
+    });
 
-        // Função global para alternar a ajuda
-        window.toggleHelp = function () {
-            helpBox.style.display = helpBox.style.display === 'block' ? 'none' : 'block';
-        };
+    // Função global para alternar a ajuda
+    window.toggleHelp = function () {
+        helpBox.style.display = helpBox.style.display === 'block' ? 'none' : 'block';
+    };
 
-        // Função global para falar a ajuda
-        window.speakHelp = function () {
-            // Em uma aplicação real, usaria a Web Speech API
-            playSound('help');
-        };
+    // Função global para falar a ajuda
+    window.speakHelp = function () {
+        // Em uma aplicação real, usaria a Web Speech API
+        playSound('help');
+    };
 
-        // Atualiza o texto de ajuda baseado na seção atual
-        document.addEventListener('click', function () {
-            const activeSection = document.querySelector('.content-section.active-section');
+    // Atualiza o texto de ajuda baseado na seção atual
+    document.addEventListener('click', function () {
+        const activeSection = document.querySelector('.content-section.active-section');
 
-            if (activeSection.id === 'aprender') {
-                helpText.textContent = 'Clique nas letras para ver detalhes e ouvir seus sons!';
-            } else if (activeSection.id === 'praticar') {
-                helpText.textContent = 'Escolha um tipo de prática e treine sua escrita e leitura!';
-            } else if (activeSection.id === 'jogar') {
-                helpText.textContent = 'Escolha um jogo para aprender de forma divertida!';
-            } else if (activeSection.id === 'historias') {
-                helpText.textContent = 'Escolha uma história para ler e ouvir!';
-            } else if (activeSection.id === 'premiacao') {
-                helpText.textContent = 'Acompanhe seu progresso e conquistas aqui!';
-            }
-        });
-    }
-
-    // Atualiza o progresso do usuário
-    function updateProgress(points = 0) {
-        // Simula armazenamento do progresso (em uma aplicação real, seria no localStorage ou backend)
-        if (!window.userProgress) {
-            window.userProgress = 0;
+        if (activeSection.id === 'aprender') {
+            helpText.textContent = 'Clique nas letras para ver detalhes e ouvir seus sons!';
+        } else if (activeSection.id === 'praticar') {
+            helpText.textContent = 'Escolha um tipo de prática e treine sua escrita e leitura!';
+        } else if (activeSection.id === 'jogar') {
+            helpText.textContent = 'Escolha um jogo para aprender de forma divertida!';
+        } else if (activeSection.id === 'historias') {
+            helpText.textContent = 'Escolha uma história para ler e ouvir!';
+        } else if (activeSection.id === 'premiacao') {
+            helpText.textContent = 'Acompanhe seu progresso e conquistas aqui!';
         }
+    });
+}
 
-        window.userProgress += points;
-        if (window.userProgress > 100) window.userProgress = 100;
-
-        // Atualiza a barra de progresso
-        document.getElementById('progressFill').style.width = `${window.userProgress}%`;
-        document.getElementById('progressText').textContent =
-            `Você completou ${window.userProgress}% das atividades!`;
-
-        // Verifica conquistas (simplificado)
-        updateTrophies();
+// Atualiza o progresso do usuário
+function updateProgress(points = 0) {
+    // Simula armazenamento do progresso (em uma aplicação real, seria no localStorage ou backend)
+    if (!window.userProgress) {
+        window.userProgress = 0;
     }
 
-    // Atualiza as conquistas do usuário
-    function updateTrophies() {
-        const trophiesGrid = document.getElementById('trophiesGrid');
-        const progress = window.userProgress || 0;
+    window.userProgress += points;
+    if (window.userProgress > 100) window.userProgress = 100;
 
-        const trophies = [
-            { id: 1, name: 'Primeiros Passos', earned: progress >= 10, icon: 'fas fa-star' },
-            { id: 2, name: 'Leitor Iniciante', earned: progress >= 30, icon: 'fas fa-book-open' },
-            { id: 3, name: 'Escritor Mirim', earned: progress >= 50, icon: 'fas fa-pencil-alt' },
-            { id: 4, name: 'Jogador Expert', earned: progress >= 70, icon: 'fas fa-gamepad' },
-            { id: 5, name: 'Mestre do ABC', earned: progress >= 90, icon: 'fas fa-trophy' }
-        ];
+    // Atualiza a barra de progresso
+    document.getElementById('progressFill').style.width = `${window.userProgress}%`;
+    document.getElementById('progressText').textContent =
+        `Você completou ${window.userProgress}% das atividades!`;
 
-        trophiesGrid.innerHTML = '';
+    // Verifica conquistas (simplificado)
+    updateTrophies();
+}
 
-        trophies.forEach(trophy => {
-            const trophyElement = document.createElement('div');
-            trophyElement.className = `trophy ${trophy.earned ? '' : 'locked'}`;
-            trophyElement.innerHTML = `
+// Atualiza as conquistas do usuário
+function updateTrophies() {
+    const trophiesGrid = document.getElementById('trophiesGrid');
+    const progress = window.userProgress || 0;
+
+    const trophies = [
+        { id: 1, name: 'Primeiros Passos', earned: progress >= 10, icon: 'fas fa-star' },
+        { id: 2, name: 'Leitor Iniciante', earned: progress >= 30, icon: 'fas fa-book-open' },
+        { id: 3, name: 'Escritor Mirim', earned: progress >= 50, icon: 'fas fa-pencil-alt' },
+        { id: 4, name: 'Jogador Expert', earned: progress >= 70, icon: 'fas fa-gamepad' },
+        { id: 5, name: 'Mestre do ABC', earned: progress >= 90, icon: 'fas fa-trophy' }
+    ];
+
+    trophiesGrid.innerHTML = '';
+
+    trophies.forEach(trophy => {
+        const trophyElement = document.createElement('div');
+        trophyElement.className = `trophy ${trophy.earned ? '' : 'locked'}`;
+        trophyElement.innerHTML = `
             <i class="${trophy.icon}"></i>
             <span>${trophy.name}</span>
         `;
-            trophiesGrid.appendChild(trophyElement);
-        });
-    }
+        trophiesGrid.appendChild(trophyElement);
+    });
+}
 
-    // Funções auxiliares
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
+// Funções auxiliares
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+// Inicializa o mascote interativo
+function setupMascot() {
+    const mascote = document.getElementById('mascote');
+
+    mascote.addEventListener('click', function () {
+        // Animações aleatórias ao clicar no mascote
+        const animations = ['jump', 'spin', 'shake', 'dance'];
+        const randomAnim = animations[Math.floor(Math.random() * animations.length)];
+
+        this.style.animation = `${randomAnim} 0.5s`;
+
+        setTimeout(() => {
+            this.style.animation = '';
+        }, 500);
+
+        playSound('mascot');
+    });
+
+    // Animações periódicas
+    setInterval(() => {
+        if (Math.random() > 0.7) {
+            mascote.style.transform = 'scaleX(-1)';
+        } else {
+            mascote.style.transform = 'scaleX(1)';
         }
-        return array;
-    }
-
-    // Inicializa o mascote interativo
-    function setupMascot() {
-        const mascote = document.getElementById('mascote');
-
-        mascote.addEventListener('click', function () {
-            // Animações aleatórias ao clicar no mascote
-            const animations = ['jump', 'spin', 'shake', 'dance'];
-            const randomAnim = animations[Math.floor(Math.random() * animations.length)];
-
-            this.style.animation = `${randomAnim} 0.5s`;
-
-            setTimeout(() => {
-                this.style.animation = '';
-            }, 500);
-
-            playSound('mascot');
-        });
-
-        // Animações periódicas
-        setInterval(() => {
-            if (Math.random() > 0.7) {
-                mascote.style.transform = 'scaleX(-1)';
-            } else {
-                mascote.style.transform = 'scaleX(1)';
-            }
-        }, 5000);
-    }
+    }, 5000);
 }
