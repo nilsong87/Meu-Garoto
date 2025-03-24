@@ -343,19 +343,19 @@ function showLetterDetails(letter) {
                 examples = ['Fumaça', 'Fungo', 'Fundo', 'Funil', 'Fuzil'];
                 break;
             case 'GA':
-                examples = ['Vacê', 'Vaso', 'Veneno', 'Voltar', 'Vê'];
+                examples = ['Gato', 'Gata', 'Garra', 'Galo', 'Galinha'];
                 break;
             case 'GE':
-                examples = ['Wafe', 'webcam', 'website', 'walkie-talkie', 'walkman'];
+                examples = ['Gelo', 'Gema', 'Gente', 'Gesto', 'Gesso'];
                 break;
             case 'GI':
-                examples = ['Xadrez', 'xarope', 'xeque-mate', 'Xaveco', 'Xenofobia'];
+                examples = ['Girafa', 'Gíz', 'Gincana', 'Gilete', 'Ginástica'];
                 break;
             case 'GO':
-                examples = ['Youtube', 'Yahoo', 'Yakut', 'Yamaha', 'Yoki'];
+                examples = ['Gol', 'Goleiro', 'Gosto', 'Gostoso', 'Golpe'];
                 break;
             case 'GU':
-                examples = ['Zebra', 'Zangado', 'Zagueiro', 'Zangão', 'Zarpar'];
+                examples = ['Guitarra', 'Guitarrista', 'Guarda', 'Guloseima', 'Guerreiro'];
                 break;
             case 'JA':
                 examples = ['Vacê', 'Vaso', 'Veneno', 'Voltar', 'Vê'];
