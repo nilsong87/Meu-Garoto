@@ -210,6 +210,39 @@ function showLetterDetails(letter) {
             case 'B':
                 examples = ['Bola', 'Bala', 'Bicicleta', 'Banana', 'Brinquedo'];
                 break;
+            case 'C':
+                examples = ['Cama', 'Caixa', 'Casa', 'Chiclete', 'Cinza'];
+                break;
+            case 'D':
+                examples = ['Dado', 'Dedo', 'Dia', 'Direita', 'Doce'];
+                break;
+            case 'E':
+                examples = ['Elefante', 'Escova', 'Escola', 'Estádio', 'Esquerda'];
+                break;
+            case 'F':
+                examples = ['Faca', 'Foice', 'Foca', 'Folha', 'Flexa'];
+                break;
+            case 'G':
+                examples = ['Gato', 'Galho', 'Galinha', 'Goleiro', 'Gol'];
+                break;
+            case 'H':
+                examples = ['Hamburguer', 'Helicoptero', 'Hortelã', 'Hino', 'Higiêne'];
+                break;
+            case 'I':
+                examples = ['Igreja', 'Inteligência', 'Impacto', 'Infinito', 'Inocente'];
+                break;
+            case 'J':
+                examples = ['Justiça', 'Jaula', 'Jegue', 'Jeguinho', 'Janela'];
+                break;
+            case 'K':
+                examples = ['kanga', 'kart', 'ketchup', 'Km', 'kg'];
+                break;
+            case 'L':
+                examples = ['Lápis', 'Lazer', 'Livro', 'Limão', 'Língua'];
+                break;         
+            case 'M':
+                examples = ['Mesa', 'Menssagem', 'Molho', 'Menino', 'Menina'];
+                break;                        
             // Adicione mais casos para outras letras...
             default:
                 examples = [`${letter}ato`, `${letter}ola`, `${letter}aca`, `${letter}arte`, `${letter}isco`];
