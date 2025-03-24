@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendendo a Ler e Escrever - Diversão Garantida!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Baloo+2:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+        <p>Preparando a diversão...</p>
+    </div>
+
+    <header class="main-header">
+        <div class="header-content">
+            <h1><i class="fas fa-book-open"></i> ABC da Diversão</h1>
+            <p class="subtitle">Aprendendo a ler e escrever de um jeito fácil e divertido!</p>
+        </div>
+        <div class="character">
+            <img src="imagens/mascote.png" alt="Mascote Amigo" id="mascote">
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#aprender" class="nav-link active"><i class="fas fa-graduation-cap"></i> Aprender</a></li>
+            <li><a href="#praticar" class="nav-link"><i class="fas fa-pencil-alt"></i> Praticar</a></li>
+            <li><a href="#jogar" class="nav-link"><i class="fas fa-gamepad"></i> Jogar</a></li>
+            <li><a href="#historias" class="nav-link"><i class="fas fa-book"></i> Histórias</a></li>
+            <li><a href="#premiacao" class="nav-link"><i class="fas fa-trophy"></i> Prêmios</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <section id="aprender" class="content-section active-section">
+            <h2><i class="fas fa-graduation-cap"></i> Vamos Aprender!</h2>
+            <div class="alphabet-container">
+                <div class="alphabet-nav">
+                    <button class="alphabet-nav-btn" onclick="showLetters('vogais')">Vogais</button>
+                    <button class="alphabet-nav-btn" onclick="showLetters('consoantes')">Consoantes</button>
+                    <button class="alphabet-nav-btn" onclick="showLetters('silabas')">Sílabas</button>
+                </div>
+                <div class="letters-display" id="lettersDisplay">
+                    <!-- As letras serão carregadas via JavaScript -->
+                </div>
+                <div class="letter-details" id="letterDetails">
+                    <div class="letter-card">
+                        <h3 id="currentLetter">A</h3>
+                        <div class="letter-image">
+                            <img src="imagens/letra_a.png" alt="Letra A" id="letterImage">
+                        </div>
+                        <div class="letter-sound">
+                            <button class="sound-btn" onclick="playLetterSound()"><i class="fas fa-volume-up"></i> Ouvir Som</button>
+                        </div>
+                        <div class="letter-examples">
+                            <p>Exemplos:</p>
+                            <ul id="letterExamples">
+                                <li>Abacaxi</li>
+                                <li>Amigo</li>
+                                <li>Arara</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="praticar" class="content-section">
+            <h2><i class="fas fa-pencil-alt"></i> Hora de Praticar!</h2>
+            <div class="practice-options">
+                <div class="practice-card" onclick="startPractice('escrita')">
+                    <i class="fas fa-pen-fancy"></i>
+                    <h3>Praticar Escrita</h3>
+                    <p>Treine escrever as letras corretamente</p>
+                </div>
+                <div class="practice-card" onclick="startPractice('leitura')">
+                    <i class="fas fa-book-reader"></i>
+                    <h3>Praticar Leitura</h3>
+                    <p>Leia palavras e frases simples</p>
+                </div>
+                <div class="practice-card" onclick="startPractice('formacao')">
+                    <i class="fas fa-puzzle-piece"></i>
+                    <h3>Formar Palavras</h3>
+                    <p>Junte sílabas para formar palavras</p>
+                </div>
+            </div>
+
+            <div class="practice-area" id="practiceArea">
+                <div class="writing-practice" id="writingPractice">
+                    <h3>Escreva a letra: <span id="letterToWrite">A</span></h3>
+                    <div class="writing-canvas-container">
+                        <canvas id="writingCanvas" width="300" height="300"></canvas>
+                        <div class="writing-controls">
+                            <button onclick="clearCanvas()"><i class="fas fa-eraser"></i> Limpar</button>
+                            <button onclick="checkWriting()"><i class="fas fa-check"></i> Verificar</button>
+                        </div>
+                    </div>
+                    <div class="writing-feedback" id="writingFeedback"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="jogar" class="content-section">
+            <h2><i class="fas fa-gamepad"></i> Vamos Jogar!</h2>
+            <div class="games-container">
+                <div class="game-card" onclick="startGame('memoria')">
+                    <img src="imagens/jogo-memoria.png" alt="Jogo da Memória">
+                    <h3>Jogo da Memória</h3>
+                    <p>Encontre os pares de letras e imagens</p>
+                </div>
+                <div class="game-card" onclick="startGame('forca')">
+                    <img src="imagens/jogo-forca.png" alt="Jogo da Forca">
+                    <h3>Jogo da Forca</h3>
+                    <p>Adivinhe a palavra antes do boneco ser enforcado</p>
+                </div>
+                <div class="game-card" onclick="startGame('quiz')">
+                    <img src="imagens/jogo-quiz.png" alt="Jogo de Quiz">
+                    <h3>Quiz das Letras</h3>
+                    <p>Responda perguntas sobre as letras</p>
+                </div>
+            </div>
+
+            <div class="game-area" id="gameArea">
+                <!-- Os jogos serão carregados dinamicamente via JavaScript -->
+            </div>
+        </section>
+
+        <section id="historias" class="content-section">
+            <h2><i class="fas fa-book"></i> Histórias Divertidas</h2>
+            <div class="stories-container">
+                <div class="story-card" onclick="readStory('chapeuzinho')">
+                    <img src="imagens/chapeuzinho.jpg" alt="Chapeuzinho Vermelho">
+                    <h3>Chapeuzinho Vermelho</h3>
+                </div>
+                <div class="story-card" onclick="readStory('tres-porquinhos')">
+                    <img src="imagens/porquinhos.jpg" alt="Os Três Porquinhos">
+                    <h3>Os Três Porquinhos</h3>
+                </div>
+                <div class="story-card" onclick="readStory('joao-feijao')">
+                    <img src="imagens/joao-feijao.jpg" alt="João e o Pé de Feijão">
+                    <h3>João e o Pé de Feijão</h3>
+                </div>
+            </div>
+
+            <div class="story-reader" id="storyReader">
+                <div class="story-content" id="storyContent">
+                    <!-- O conteúdo da história será carregado dinamicamente -->
+                </div>
+                <div class="story-controls">
+                    <button onclick="playStoryAudio()"><i class="fas fa-volume-up"></i> Ouvir</button>
+                    <button onclick="stopStoryAudio()"><i class="fas fa-stop"></i> Parar</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="premiacao" class="content-section">
+            <h2><i class="fas fa-trophy"></i> Meus Prêmios</h2>
+            <div class="progress-container">
+                <h3>Seu Progresso</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p id="progressText">Você completou 0% das atividades!</p>
+            </div>
+
+            <div class="trophies-container">
+                <h3>Conquistas</h3>
+                <div class="trophies-grid" id="trophiesGrid">
+                    <!-- As conquistas serão carregadas dinamicamente -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Sobre Nós</h4>
+                <p>ABC da Diversão é uma plataforma educacional criada para ajudar crianças no processo de alfabetização de forma lúdica e interativa.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p><i class="fas fa-envelope"></i> contato@abcdadiversao.com</p>
+                <p><i class="fas fa-phone"></i> (11) 1234-5678</p>
+            </div>
+            <div class="footer-section">
+                <h4>Siga-nos</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 ABC da Diversão. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <div class="floating-help" id="floatingHelp">
+        <button onclick="toggleHelp()"><i class="fas fa-question"></i></button>
+        <div class="help-box" id="helpBox">
+            <h4>Precisa de ajuda?</h4>
+            <p id="helpText">Clique nas seções acima para explorar diferentes atividades!</p>
+            <button onclick="speakHelp()"><i class="fas fa-volume-up"></i> Ouvir ajuda</button>
+        </div>
+    </div>
+
+    <audio id="soundEffect" src="sons/click.mp3"></audio>
+    <audio id="letterSound" src="sons/letra_a.mp3"></audio>
+    <audio id="storyAudio"></audio>
+    <audio id="backgroundMusic" loop src="sons/background.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
