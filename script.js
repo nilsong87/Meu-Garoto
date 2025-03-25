@@ -172,7 +172,7 @@ function showLetters(category) {
                 'GE', 'GI', 'GO', 'GU', 'HA', 'HE', 'HI', 'HO', 'HU', 'JA', 'JE',
                 'JI', 'JO', 'JU', 'LA', 'LE', 'LI', 'LO', 'LU', 'MA', 'ME', 'MI',
                 'MO', 'MU', 'NA', 'NE', 'NI', 'NO', 'NU', 'PA', 'PE', 'PI', 'PO',
-                'PU', 'RA', 'RE', 'RI', 'RO', 'RU', 'SA', 'SE', 'SI', 'SO', 'SU',
+                'PU', 'QUA', 'QUE', 'QUI', 'SA','RA', 'RE', 'RI', 'RO', 'RU', 'SA', 'SE', 'SI', 'SO', 'SU',
                 'TA', 'TE', 'TI', 'TO', 'TU', 'VA', 'VE', 'VI', 'VO', 'VU', 'XA',
                 'XE', 'XI', 'XO', 'XU', 'ZA', 'ZE', 'ZI', 'ZO', 'ZU'];
             break;
@@ -455,6 +455,15 @@ function showLetterDetails(letter) {
                 break;
             case 'PU':
                 examples = ['Pulga', 'Pulmão', 'Pular', 'Pulso', 'Pudim'];
+                break;
+            case 'QUA':
+                examples = ['Quadro', 'Quarto', 'Quando', 'Quasar', 'Quadrado'];
+                break;
+            case 'QUE':
+                examples = ['Quente', 'Queijo', 'Quem', 'Quebrar', 'Queda'];
+                break;
+            case 'QUI':
+                examples = ['Quilo', 'Quinta', 'Quiosque', 'Quiabo', 'Quimono'];
                 break;
             case 'RA':
                 examples = ['Raio', 'Rainha', 'Rato', 'Ração', 'Raposa'];
