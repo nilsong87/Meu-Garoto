@@ -799,9 +799,7 @@ function checkLetterShape(letter, canvas) {
             return height > width * 2.5;
         case 'Z':
             return width > 70 && height > 70;
-        default:
-            // Para outras letras, usa uma verificação genérica
-            return width > 30 && height > 30;
+        
     }
 }
 
