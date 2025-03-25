@@ -11,19 +11,16 @@ document.addEventListener('DOMContentLoaded', function () {
         const bgMusic = document.getElementById('backgroundMusic');
         bgMusic.volume = 0.3;
         // bgMusic.play(); // Descomente para ativar música automática
-
-        // Atualiza o progresso
-        updateProgress();
     }, 2000);
 });
 
-// Configura efeitos sonoros (movido para o início)
+// Configura efeitos sonoros
 function setupSoundEffects() {
     // Função global para tocar sons
     window.playSound = function (sound) {
         const soundEffect = document.getElementById('soundEffect');
 
-        // Mapeamento de sons (na prática, seriam arquivos diferentes)
+        // Mapeamento de sons
         switch (sound) {
             case 'click':
                 soundEffect.src = 'sons/click.mp3';
@@ -95,6 +92,16 @@ function initApp() {
 
     // Configura o mascote interativo
     setTimeout(setupMascot, 3000);
+
+    // Configura o sistema de progresso
+    initProgressSystem();
+    updateProgressUI();
+
+    // Configura a prática de leitura
+    setupReadingPractice();
+
+    // Configura a formação de palavras
+    setupWordFormation();
 }
 
 // Configura a navegação por tabs
@@ -188,12 +195,12 @@ function showLetters(category) {
 function showLetterDetails(letter) {
     document.getElementById('currentLetter').textContent = letter;
 
-    // Atualiza a imagem da letra (simulado - na prática seria um arquivo diferente para cada letra)
+    // Atualiza a imagem da letra
     const letterImage = document.getElementById('letterImage');
     letterImage.src = `imagens/letra_${letter.toLowerCase()}.png`;
     letterImage.alt = `Letra ${letter}`;
 
-    // Atualiza os exemplos (simulado)
+    // Atualiza os exemplos
     const examplesList = document.getElementById('letterExamples');
     examplesList.innerHTML = '';
 
@@ -359,6 +366,21 @@ function showLetterDetails(letter) {
             case 'GU':
                 examples = ['Guitarra', 'Guitarrista', 'Guarda', 'Guloseima', 'Guerreiro'];
                 break;
+            case 'HA':
+                examples = ['Habilidade', 'Habitante', 'Hábito', 'Hambúrguer', 'Harmonia'];
+                break;
+            case 'HE':
+                examples = ['Hebraico', 'Hegemonia', 'Hélice', 'Herói', 'Heterogêneo'];
+                break;
+            case 'HI':
+                examples = ['Hino', 'Hidrico', 'Higiene', 'Hipnose', 'Hipopótamo'];
+                break;
+            case 'HO':
+                examples = ['Hoje', 'Homem', 'Honra', 'Hora', 'Horizontal'];
+                break;
+            case 'HU':
+                examples = ['Humano', 'Humilde', 'Humor', 'Húmus', 'Húngaro'];
+                break;
             case 'JA':
                 examples = ['Janela', 'Jarro', 'Jardim', 'Jato', 'Jantar'];
                 break;
@@ -410,15 +432,15 @@ function showLetterDetails(letter) {
             case 'NE':
                 examples = ['Névoa', 'Negócio', 'Necessário', 'Nenhum', 'Nervoso'];
                 break;
-                case 'NI':
-                    examples = ['Ninho', 'Nível', 'Nitidez', 'Nitrogênio', 'Nítido'];
-                    break;
-                case 'NO':
-                    examples = ['Noite', 'Notícia', 'Normas', 'Nota', 'Nome'];
-                    break;
-                case 'NU':
-                    examples = ['Número', 'Nuvem', 'Nutrição', 'Núcleo', 'Nudez'];
-                    break;
+            case 'NI':
+                examples = ['Ninho', 'Nível', 'Nitidez', 'Nitrogênio', 'Nítido'];
+                break;
+            case 'NO':
+                examples = ['Noite', 'Notícia', 'Normas', 'Nota', 'Nome'];
+                break;
+            case 'NU':
+                examples = ['Número', 'Nuvem', 'Nutrição', 'Núcleo', 'Nudez'];
+                break;
                 case 'PA':
                     examples = ['Palavra', 'Pássaro', 'Pano', 'Palco', 'Papel'];
                     break;
@@ -535,7 +557,7 @@ function showLetterDetails(letter) {
             examplesList.appendChild(li);
         });
     
-        // Atualiza o áudio da letra (simulado)
+        // Atualiza o áudio da letra
         const letterSound = document.getElementById('letterSound');
         letterSound.src = `sons/letra_${letter.toLowerCase()}.mp3`;
     }
@@ -632,17 +654,18 @@ function showLetterDetails(letter) {
         document.getElementById('writingFeedback').style.display = 'none';
     }
     
-    // Verifica a escrita (simplificado)
+    // Verifica a escrita (versão melhorada)
     function checkWriting() {
         const canvas = document.getElementById('writingCanvas');
         const ctx = canvas.getContext('2d');
         const feedback = document.getElementById('writingFeedback');
         const letterToWrite = document.getElementById('letterToWrite').textContent;
     
-        // Simulação de verificação (em uma aplicação real, isso seria mais complexo)
-        const isEmpty = ctx.getImageData(0, 0, canvas.width, canvas.height).data.some(channel => channel !== 0);
+        // Verifica se o canvas está vazio
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const isEmpty = !Array.from(imageData.data).some(channel => channel !== 0);
     
-        if (!isEmpty) {
+        if (isEmpty) {
             feedback.textContent = 'Desenhe a letra primeiro!';
             feedback.className = 'writing-feedback error';
             feedback.style.display = 'block';
@@ -650,8 +673,8 @@ function showLetterDetails(letter) {
             return;
         }
     
-        // Simula uma verificação aleatória (80% de acerto)
-        const isCorrect = Math.random() < 0.8;
+        // Verificação melhorada
+        const isCorrect = checkLetterShape(letterToWrite, canvas);
     
         if (isCorrect) {
             feedback.textContent = 'Parabéns! Você escreveu a letra corretamente!';
@@ -659,7 +682,7 @@ function showLetterDetails(letter) {
             playSound('success');
     
             // Atualiza o progresso
-            updateProgress(5);
+            updateProgress(5, `write_${letterToWrite}`);
     
             // Muda para a próxima letra após 2 segundos
             setTimeout(() => {
@@ -676,6 +699,69 @@ function showLetterDetails(letter) {
         }
     
         feedback.style.display = 'block';
+    }
+    
+    // Função auxiliar para verificar o formato da letra
+    function checkLetterShape(letter, canvas) {
+        // Implementação simplificada - em produção use uma biblioteca de reconhecimento
+        const ctx = canvas.getContext('2d');
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const pixelData = imageData.data;
+    
+        // Verifica se há pixels desenhados
+        let hasDrawing = false;
+        for (let i = 0; i < pixelData.length; i += 4) {
+            if (pixelData[i] !== 0 || pixelData[i+1] !== 0 || pixelData[i+2] !== 0) {
+                hasDrawing = true;
+                break;
+            }
+        }
+    
+        if (!hasDrawing) return false;
+    
+        // Calcula a área do desenho
+        let minX = canvas.width, maxX = 0, minY = canvas.height, maxY = 0;
+        for (let y = 0; y < canvas.height; y++) {
+            for (let x = 0; x < canvas.width; x++) {
+                const index = (y * canvas.width + x) * 4;
+                if (pixelData[index] !== 0 || pixelData[index+1] !== 0 || pixelData[index+2] !== 0) {
+                    if (x < minX) minX = x;
+                    if (x > maxX) maxX = x;
+                    if (y < minY) minY = y;
+                    if (y > maxY) maxY = y;
+                }
+            }
+        }
+    
+        const width = maxX - minX;
+        const height = maxY - minY;
+    
+        // Verifica tamanho mínimo
+        if (width < 20 || height < 20) return false;
+    
+        // Verificação baseada na letra (simplificado)
+        const aspectRatio = width / height;
+        const centerX = (minX + maxX) / 2;
+        const centerY = (minY + maxY) / 2;
+    
+        // Verificações específicas para algumas letras
+        switch (letter.toUpperCase()) {
+            case 'A':
+                return aspectRatio > 0.7 && aspectRatio < 1.5;
+            case 'B':
+                return height > width * 1.5;
+            case 'C':
+                return aspectRatio > 1;
+            case 'D':
+                return height > width;
+            case 'E':
+                return aspectRatio > 1.2;
+            case 'O':
+                return Math.abs(aspectRatio - 1) < 0.3;
+            default:
+                // Para outras letras, usa uma verificação genérica
+                return width > 30 && height > 30;
+        }
     }
     
     // Inicia uma atividade de prática
@@ -697,514 +783,286 @@ function showLetterDetails(letter) {
                 clearCanvas();
                 break;
             case 'leitura':
-                // Implementar prática de leitura
+                showReadingPractice();
                 break;
             case 'formacao':
-                // Implementar formação de palavras
+                showWordFormation();
                 break;
         }
     
         playSound('click');
     }
     
-    // Configura os jogos
-    function setupGames() {
-        // Implementação básica dos jogos
-        const gameArea = document.getElementById('gameArea');
-    
-        // Configura o evento de clique nos cards de jogo
-        document.querySelectorAll('.game-card').forEach(card => {
-            card.addEventListener('click', function () {
-                const gameType = this.getAttribute('onclick').match(/'([^']+)'/)[1];
-                startGame(gameType);
-            });
-        });
-    }
-    
-    // Inicia um jogo
-    function startGame(gameType) {
-        const gameArea = document.getElementById('gameArea');
-    
-        // Limpa a área de jogo
-        gameArea.innerHTML = '';
-    
-        switch (gameType) {
-            case 'memoria':
-                gameArea.innerHTML = `
-                    <h3>Jogo da Memória</h3>
-                    <p>Encontre os pares de letras e imagens correspondentes.</p>
-                    <div class="memory-grid" id="memoryGrid"></div>
-                `;
-                setupMemoryGame();
-                break;
-            case 'forca':
-                gameArea.innerHTML = `
-                    <h3>Jogo da Forca</h3>
-                    <p>Adivinhe a palavra antes do boneco ser enforcado.</p>
-                    <div class="hangman-container" id="hangmanContainer"></div>
-                `;
-                setupHangmanGame();
-                break;
-            case 'quiz':
-                gameArea.innerHTML = `
-                    <h3>Quiz das Letras</h3>
-                    <p>Responda perguntas sobre as letras do alfabeto.</p>
-                    <div class="quiz-container" id="quizContainer"></div>
-                `;
-                setupQuizGame();
-                break;
-        }
-    
-        playSound('game-start');
-    }
-    
-    // Configura o jogo da memória (simplificado)
-    function setupMemoryGame() {
-        const gameArea = document.getElementById('gameArea');
-        const memoryGrid = document.getElementById('memoryGrid');
-        const pairs = 8; // Número de pares
-        const letters = 'ABCDEFGH'.split(''); // Letras para o jogo
-    
-        // Cria os cards
-        let cards = [];
-        letters.forEach(letter => {
-            cards.push({ type: 'letter', content: letter });
-            cards.push({ type: 'image', content: letter });
-        });
-    
-        // Embaralha os cards
-        cards = shuffleArray(cards);
-    
-        // Cria a grade
-        memoryGrid.style.gridTemplateColumns = `repeat(4, 1fr)`;
-    
-        cards.forEach((card, index) => {
-            const cardElement = document.createElement('div');
-            cardElement.className = 'memory-card';
-            cardElement.dataset.index = index;
-            cardElement.dataset.type = card.type;
-            cardElement.dataset.content = card.content;
-            cardElement.innerHTML = '<div class="memory-card-back"></div><div class="memory-card-front"></div>';
-    
-            cardElement.addEventListener('click', flipCard);
-            memoryGrid.appendChild(cardElement);
-        });
-    
-        function flipCard() {
-            if (this.classList.contains('flipped')) return;
-    
-            this.classList.add('flipped');
-            playSound('flip');
-    
-            // Verifica por pares
-            const flippedCards = document.querySelectorAll('.memory-card.flipped');
-            if (flippedCards.length === 2) {
-                const [card1, card2] = flippedCards;
-    
-                if (card1.dataset.content === card2.dataset.content) {
-                    // Par encontrado
-                    setTimeout(() => {
-                        card1.classList.add('matched');
-                        card2.classList.add('matched');
-                        checkGameWin();
-                        playSound('match');
-    
-                        // Atualiza o progresso
-                        updateProgress(2);
-                    }, 500);
-                } else {
-                    // Par errado
-                    setTimeout(() => {
-                        card1.classList.remove('flipped');
-                        card2.classList.remove('flipped');
-                        playSound('error');
-                    }, 1000);
-                }
+    // Configura a prática de leitura
+    function setupReadingPractice() {
+        const readingLevels = [
+            {
+                level: 1,
+                title: "Palavras Simples",
+                words: ["casa", "bola", "gato", "pato", "mão", "pé", "sol", "lua"],
+                audioPrefix: "sons/palavras/"
+            },
+            {
+                level: 2,
+                title: "Frases Curtas",
+                words: ["O gato mia.", "O sol brilha.", "A bola pula.", "Eu vejo a lua."],
+                audioPrefix: "sons/frases-curtas/"
+            },
+            {
+                level: 3,
+                title: "Frases Longas",
+                words: ["O gato preto pula alto.", "A menina come uma maçã.", "O carro azul é rápido."],
+                audioPrefix: "sons/frases-longas/"
             }
-        }
+        ];
     
-        function checkGameWin() {
-            const matchedCards = document.querySelectorAll('.memory-card.matched');
-            if (matchedCards.length === cards.length) {
-                setTimeout(() => {
-                    gameArea.innerHTML += `
-                        <div class="game-win-message">
-                            <h4>Parabéns! Você venceu!</h4>
-                            <button onclick="startGame('memoria')">Jogar Novamente</button>
-                        </div>
-                    `;
-                    playSound('win');
-    
-                    // Atualiza o progresso
-                    updateProgress(10);
-                }, 500);
-            }
-        }
-    }
-    
-    // Configura o jogo da forca (simplificado)
-    function setupHangmanGame() {
-        const words = ['ABACAXI', 'BANANA', 'CASA', 'DADO', 'ELEFANTE', 'FADA', 'GATO', 'HORA'];
-        const word = words[Math.floor(Math.random() * words.length)];
-        const hangmanContainer = document.getElementById('hangmanContainer');
-    
-        let guessedLetters = [];
-        let errors = 0;
-        const maxErrors = 6;
-    
-        // Inicializa o jogo
-        updateHangmanDisplay();
-    
-        function updateHangmanDisplay() {
-            // Mostra a palavra com as letras adivinhadas
-            let displayWord = '';
-            for (const letter of word) {
-                if (guessedLetters.includes(letter)) {
-                    displayWord += letter + ' ';
-                } else {
-                    displayWord += '_ ';
-                }
-            }
-    
-            // Mostra as letras erradas
-            const wrongLetters = guessedLetters.filter(l => !word.includes(l));
-    
-            hangmanContainer.innerHTML = `
-                <div class="hangman-word">${displayWord}</div>
-                <div class="hangman-drawing">
-                    <svg width="200" height="200" viewBox="0 0 200 200">
-                        ${errors >= 1 ? '<circle cx="100" cy="40" r="20" fill="none" stroke="#333" stroke-width="3"/>' : ''}
-                        ${errors >= 2 ? '<line x1="100" y1="60" x2="100" y2="100" stroke="#333" stroke-width="3"/>' : ''}
-                        ${errors >= 3 ? '<line x1="100" y1="70" x2="80" y2="90" stroke="#333" stroke-width="3"/>' : ''}
-                        ${errors >= 4 ? '<line x1="100" y1="70" x2="120" y2="90" stroke="#333" stroke-width="3"/>' : ''}
-                                            ${errors >= 5 ? '<line x1="100" y1="100" x2="80" y2="130" stroke="#333" stroke-width="3"/>' : ''}
-                    ${errors >= 6 ? '<line x1="100" y1="100" x2="120" y2="130" stroke="#333" stroke-width="3"/>' : ''}
-                </svg>
-            </div>
-            <div class="hangman-wrong-letters">Letras erradas: ${wrongLetters.join(', ')}</div>
-            <div class="hangman-keyboard">
-                ${'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(letter => `
-                    <button 
-                        class="hangman-letter-btn ${guessedLetters.includes(letter) ? 'guessed' : ''}"
-                        onclick="guessLetter('${letter}')"
-                        ${guessedLetters.includes(letter) ? 'disabled' : ''}
-                    >
-                        ${letter}
-                    </button>
-                `).join('')}
-            </div>
-        `;
-
-        // Verifica se o jogador ganhou
-        if ((word.split('').every(letter => guessedLetters.includes(letter)))) {
-            setTimeout(() => {
-                hangmanContainer.innerHTML += `
-                    <div class="game-win-message">
-                        <h4>Parabéns! Você acertou a palavra: ${word}</h4>
-                        <button onclick="startGame('forca')">Jogar Novamente</button>
+        // Função para mostrar a prática de leitura
+        window.showReadingPractice = function() {
+            const practiceArea = document.getElementById('practiceArea');
+            practiceArea.innerHTML = `
+                <div class="reading-practice">
+                    <h3>Praticar Leitura</h3>
+                    <div class="reading-levels">
+                        ${readingLevels.map(level => `
+                            <button class="reading-level-btn" onclick="startReadingLevel(${level.level})">
+                                ${level.title}
+                            </button>
+                        `).join('')}
                     </div>
-                `;
-                playSound('win');
-
-                // Atualiza o progresso
-                updateProgress(15);
-            }, 500);
-        }
-
-        // Verifica se o jogador perdeu
-        if (errors >= maxErrors) {
-            setTimeout(() => {
-                hangmanContainer.innerHTML += `
-                    <div class="game-lose-message">
-                        <h4>Que pena! A palavra era: ${word}</h4>
-                        <button onclick="startGame('forca')">Tentar Novamente</button>
-                    </div>
-                `;
-                playSound('lose');
-            }, 500);
-        }
-    }
-
-    // Função global para adivinhar uma letra
-    window.guessLetter = function (letter) {
-        if (!guessedLetters.includes(letter)) {
-            guessedLetters.push(letter);
-
-            if (!word.includes(letter)) {
-                errors++;
-                playSound('error');
-            } else {
-                playSound('correct');
-            }
-
-            updateHangmanDisplay();
-        }
-    };
-}
-
-// Configura o jogo de quiz (simplificado)
-function setupQuizGame() {
-    const quizContainer = document.getElementById('quizContainer');
-    const questions = [
-        {
-            question: "Qual letra vem depois do A?",
-            options: ["B", "C", "D", "E"],
-            answer: "B"
-        },
-        {
-            question: "Qual palavra começa com a letra C?",
-            options: ["Casa", "Bola", "Dado", "Faca"],
-            answer: "Casa"
-        },
-        {
-            question: "Quantas vogais existem no alfabeto?",
-            options: ["3", "5", "7", "9"],
-            answer: "5"
-        }
-    ];
-
-    let currentQuestion = 0;
-    let score = 0;
-
-    showQuestion();
-
-    function showQuestion() {
-        if (currentQuestion >= questions.length) {
-            // Fim do quiz
-            quizContainer.innerHTML = `
-                <div class="quiz-result">
-                    <h4>Quiz Concluído!</h4>
-                    <p>Sua pontuação: ${score} de ${questions.length}</p>
-                    <button onclick="startGame('quiz')">Jogar Novamente</button>
+                    <div class="reading-content" id="readingContent"></div>
                 </div>
             `;
-
-            // Atualiza o progresso baseado na pontuação
-            updateProgress(score * 3);
-            return;
-        }
-
-        const q = questions[currentQuestion];
-
-        quizContainer.innerHTML = `
-            <div class="quiz-question">
-                <h4>${q.question}</h4>
-                <div class="quiz-options">
-                    ${q.options.map(option => `
-                        <button class="quiz-option" onclick="checkAnswer('${option}')">
-                            ${option}
-                        </button>
+        };
+    
+        // Função para iniciar um nível de leitura
+        window.startReadingLevel = function(level) {
+            const selectedLevel = readingLevels.find(l => l.level === level);
+            const readingContent = document.getElementById('readingContent');
+            
+            readingContent.innerHTML = `
+                <h4>${selectedLevel.title}</h4>
+                <div class="reading-words">
+                    ${selectedLevel.words.map(word => `
+                        <div class="reading-word-card" onclick="speakWord('${word}', '${selectedLevel.audioPrefix}')">
+                            <p>${word}</p>
+                            <i class="fas fa-volume-up"></i>
+                        </div>
                     `).join('')}
                 </div>
-                <div class="quiz-progress">
-                    Pergunta ${currentQuestion + 1} de ${questions.length}
-                </div>
-            </div>
-        `;
-    }
-
-    // Função global para verificar a resposta
-    window.checkAnswer = function (selectedOption) {
-        const correctAnswer = questions[currentQuestion].answer;
-
-        if (selectedOption === correctAnswer) {
-            score++;
+                <button class="back-btn" onclick="showReadingPractice()">
+                    <i class="fas fa-arrow-left"></i> Voltar
+                </button>
+            `;
+    
+            // Atualiza o progresso
+            updateProgress(0, `reading_level_${level}_viewed`);
+        };
+    
+        // Função para falar a palavra/frase
+        window.speakWord = function(word, audioPrefix) {
+            // Tenta usar a API de síntese de voz
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(word);
+                utterance.lang = 'pt-BR';
+                utterance.rate = 0.8;
+                speechSynthesis.speak(utterance);
+            }
+            
+            // Tenta tocar o áudio gravado
+            try {
+                const audio = new Audio(`${audioPrefix}${word.toLowerCase().replace(/[^a-z]/g, '')}.mp3`);
+                audio.play().catch(e => console.log("Não foi possível tocar o áudio:", e));
+            } catch (e) {
+                console.log("Erro ao carregar áudio:", e);
+            }
+    
+            // Atualiza o progresso
+            updateProgress(1, `word_${word.toLowerCase().replace(/[^a-z]/g, '')}_read`);
             playSound('correct');
-        } else {
-            playSound('error');
-        }
-
-        currentQuestion++;
-        showQuestion();
-    };
-}
-
-// Configura as histórias
-function setupStories() {
-    const stories = {
-        'chapeuzinho': {
-            title: "Chapeuzinho Vermelho",
-            content: `
-                <p>Era uma vez uma menina chamada Chapeuzinho Vermelho...</p>
-                <p>Sua mãe pediu que ela levasse doces para a vovó que estava doente...</p>
-                <p>No caminho, ela encontrou o Lobo Mau...</p>
-            `,
-            audio: "sons/chapeuzinho.mp3"
-        },
-        'tres-porquinhos': {
-            title: "Os Três Porquinhos",
-            content: `
-                <p>Era uma vez três porquinhos que decidiram construir suas casas...</p>
-                <p>O primeiro fez uma casa de palha, o segundo de madeira e o terceiro de tijolos...</p>
-                <p>Então veio o Lobo Mau e soprou a casa de palha...</p>
-            `,
-            audio: "sons/porquinhos.mp3"
-        },
-        'joao-feijao': {
-            title: "João e o Pé de Feijão",
-            content: `
-                <p>João era um menino pobre que vivia com sua mãe...</p>
-                <p>Um dia, trocou a vaca da família por feijões mágicos...</p>
-                <p>Os feijões cresceram e formaram um pé gigante que levava ao céu...</p>
-            `,
-            audio: "sons/joao-feijao.mp3"
-        }
-    };
-
-    // Configura o evento de clique nos cards de história
-    document.querySelectorAll('.story-card').forEach(card => {
-        card.addEventListener('click', function () {
-            const storyId = this.getAttribute('onclick').match(/'([^']+)'/)[1];
-            readStory(storyId);
-        });
-    });
-
-    // Função global para ler uma história
-    window.readStory = function (storyId) {
-        const story = stories[storyId];
-        const storyContent = document.getElementById('storyContent');
-
-        document.getElementById('storyAudio').src = story.audio;
-
-        storyContent.innerHTML = `
-            <h3>${story.title}</h3>
-            ${story.content}
-        `;
-
-        playSound('story-open');
-
-        // Atualiza o progresso
-        updateProgress(3);
-    };
-
-    // Funções globais para controlar o áudio da história
-    window.playStoryAudio = function () {
-        document.getElementById('storyAudio').play();
-    };
-
-    window.stopStoryAudio = function () {
-        document.getElementById('storyAudio').pause();
-        document.getElementById('storyAudio').currentTime = 0;
-    };
-}
-
-// Configura a ajuda flutuante
-function setupFloatingHelp() {
-    const helpButton = document.querySelector('.floating-help button');
-    const helpBox = document.getElementById('helpBox');
-    const helpText = document.getElementById('helpText');
-
-    helpButton.addEventListener('click', function () {
-        playSound('click');
-    });
-
-    // Função global para alternar a ajuda
-    window.toggleHelp = function () {
-        helpBox.style.display = helpBox.style.display === 'block' ? 'none' : 'block';
-    };
-
-    // Função global para falar a ajuda
-    window.speakHelp = function () {
-        // Em uma aplicação real, usaria a Web Speech API
-        playSound('help');
-    };
-
-    // Atualiza o texto de ajuda baseado na seção atual
-    document.addEventListener('click', function () {
-        const activeSection = document.querySelector('.content-section.active-section');
-
-        if (activeSection.id === 'aprender') {
-            helpText.textContent = 'Clique nas letras para ver detalhes e ouvir seus sons!';
-        } else if (activeSection.id === 'praticar') {
-            helpText.textContent = 'Escolha um tipo de prática e treine sua escrita e leitura!';
-        } else if (activeSection.id === 'jogar') {
-            helpText.textContent = 'Escolha um jogo para aprender de forma divertida!';
-        } else if (activeSection.id === 'historias') {
-            helpText.textContent = 'Escolha uma história para ler e ouvir!';
-        } else if (activeSection.id === 'premiacao') {
-            helpText.textContent = 'Acompanhe seu progresso e conquistas aqui!';
-        }
-    });
-}
-
-// Atualiza o progresso do usuário
-function updateProgress(points = 0) {
-    // Simula armazenamento do progresso (em uma aplicação real, seria no localStorage ou backend)
-    if (!window.userProgress) {
-        window.userProgress = 0;
+        };
     }
-
-    window.userProgress += points;
-    if (window.userProgress > 100) window.userProgress = 100;
-
-    // Atualiza a barra de progresso
-    document.getElementById('progressFill').style.width = `${window.userProgress}%`;
-    document.getElementById('progressText').textContent =
-        `Você completou ${window.userProgress}% das atividades!`;
-
-    // Verifica conquistas (simplificado)
-    updateTrophies();
-}
-
-// Atualiza as conquistas do usuário
-function updateTrophies() {
-    const trophiesGrid = document.getElementById('trophiesGrid');
-    const progress = window.userProgress || 0;
-
-    const trophies = [
-        { id: 1, name: 'Primeiros Passos', earned: progress >= 10, icon: 'fas fa-star' },
-        { id: 2, name: 'Leitor Iniciante', earned: progress >= 30, icon: 'fas fa-book-open' },
-        { id: 3, name: 'Escritor Mirim', earned: progress >= 50, icon: 'fas fa-pencil-alt' },
-        { id: 4, name: 'Jogador Expert', earned: progress >= 70, icon: 'fas fa-gamepad' },
-        { id: 5, name: 'Mestre do ABC', earned: progress >= 90, icon: 'fas fa-trophy' }
-    ];
-
-    trophiesGrid.innerHTML = '';
-
-    trophies.forEach(trophy => {
-        const trophyElement = document.createElement('div');
-        trophyElement.className = `trophy ${trophy.earned ? '' : 'locked'}`;
-        trophyElement.innerHTML = `
-            <i class="${trophy.icon}"></i>
-            <span>${trophy.name}</span>
-        `;
-        trophiesGrid.appendChild(trophyElement);
-    });
-}
-
-// Funções auxiliares
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
-
-// Inicializa o mascote interativo
-function setupMascot() {
-    const mascote = document.getElementById('mascote');
-
-    mascote.addEventListener('click', function () {
-        // Animações aleatórias ao clicar no mascote
-        const animations = ['jump', 'spin', 'shake', 'dance'];
-        const randomAnim = animations[Math.floor(Math.random() * animations.length)];
-
-        this.style.animation = `${randomAnim} 0.5s`;
-
-        setTimeout(() => {
-            this.style.animation = '';
-        }, 500);
-
-        playSound('mascot');
-    });
-
-    // Animações periódicas
-    setInterval(() => {
-        if (Math.random() > 0.7) {
-            mascote.style.transform = 'scaleX(-1)';
-        } else {
-            mascote.style.transform = 'scaleX(1)';
+    
+    // Configura a formação de palavras
+    function setupWordFormation() {
+        const wordGroups = [
+            {
+                category: "Animais",
+                words: ["gato", "cachorro", "pássaro", "peixe"],
+                audio: "sons/animais/"
+            },
+            {
+                category: "Frutas",
+                words: ["maçã", "banana", "uva", "laranja"],
+                audio: "sons/frutas/"
+            },
+            {
+                category: "Casa",
+                words: ["casa", "porta", "janela", "mesa"],
+                audio: "sons/casa/"
+            }
+        ];
+    
+        // Função para mostrar a formação de palavras
+        window.showWordFormation = function() {
+            const practiceArea = document.getElementById('practiceArea');
+            practiceArea.innerHTML = `
+                <div class="word-formation">
+                    <h3>Formar Palavras</h3>
+                    <div class="word-categories">
+                        ${wordGroups.map(group => `
+                            <button class="word-category-btn" onclick="startWordCategory('${group.category}')">
+                                ${group.category}
+                            </button>
+                        `).join('')}
+                    </div>
+                    <div class="word-formation-area" id="wordFormationArea"></div>
+                </div>
+            `;
+        };
+    
+        // Função para iniciar uma categoria de palavras
+        window.startWordCategory = function(category) {
+            const selectedGroup = wordGroups.find(g => g.category === category);
+            const wordFormationArea = document.getElementById('wordFormationArea');
+            
+            // Seleciona uma palavra aleatória do grupo
+            const targetWord = selectedGroup.words[Math.floor(Math.random() * selectedGroup.words.length)];
+            const syllables = splitIntoSyllables(targetWord);
+            
+            // Embaralha as sílabas
+            const shuffledSyllables = shuffleArray([...syllables]);
+            
+            wordFormationArea.innerHTML = `
+                <h4>${category}: Forme a palavra</h4>
+                <div class="target-word" id="targetWord">${'_ '.repeat(syllables.length)}</div>
+                <div class="syllables-container" id="syllablesContainer">
+                    ${shuffledSyllables.map((syl, index) => `
+                        <div class="syllable" draggable="true" data-syllable="${syl}" id="syl${index}">
+                            ${syl}
+                        </div>
+                    `).join('')}
+                </div>
+                <button class="check-word-btn" onclick="checkFormedWord('${targetWord}', '${selectedGroup.audio}')">
+                    <i class="fas fa-check"></i> Verificar
+                </button>
+                <button class="back-btn" onclick="showWordFormation()">
+                    <i class="fas fa-arrow-left"></i> Voltar
+                </button>
+            `;
+            
+            setupDragAndDrop();
+        };
+    
+        // Função para dividir palavras em sílabas (simplificado)
+        function splitIntoSyllables(word) {
+            // Esta é uma implementação simplificada - na prática seria mais complexa
+            const vowels = ['a', 'e', 'i', 'o', 'u', 'á', 'é', 'í', 'ó', 'ú', 'ã', 'õ', 'â', 'ê', 'ô'];
+            let syllables = [];
+            let currentSyllable = '';
+            
+            for (let i = 0; i < word.length; i++) {
+                currentSyllable += word[i];
+                if (vowels.includes(word[i].toLowerCase())) {
+                    syllables.push(currentSyllable);
+                    currentSyllable = '';
+                }
+            }
+            
+            if (currentSyllable) {
+                syllables[syllables.length - 1] += currentSyllable;
+            }
+            
+            return syllables.length > 0 ? syllables : [word];
         }
-    }, 5000);
-}
+    
+        // Configura o arrastar e soltar
+        function setupDragAndDrop() {
+            const syllables = document.querySelectorAll('.syllable');
+            const targetWord = document.getElementById('targetWord');
+            let droppedSyllables = [];
+            
+            syllables.forEach(syllable => {
+                syllable.addEventListener('dragstart', function(e) {
+                    e.dataTransfer.setData('text/plain', this.id);
+                });
+            });
+            
+            targetWord.addEventListener('dragover', function(e) {
+                e.preventDefault();
+            });
+            
+            targetWord.addEventListener('drop', function(e) {
+                e.preventDefault();
+                const id = e.dataTransfer.getData('text/plain');
+                const draggedSyllable = document.getElementById(id);
+                const syllable = draggedSyllable.dataset.syllable;
+                
+                if (!droppedSyllables.includes(id)) {
+                    droppedSyllables.push(id);
+                    this.textContent = this.textContent.replace('_', syllable);
+                    draggedSyllable.style.visibility = 'hidden';
+                    playSound('click');
+                }
+            });
+        }
+    
+        // Função para verificar a palavra formada
+        window.checkFormedWord = function(targetWord, audioPrefix) {
+            const targetWordElement = document.getElementById('targetWord');
+            const syllablesContainer = document.getElementById('syllablesContainer');
+            const formedWord = targetWordElement.textContent.replace(/\s/g, '');
+            
+            if (formedWord === targetWord) {
+                targetWordElement.innerHTML = `<span style="color: #2ecc71">${formedWord}</span>`;
+                playSound('success');
+                
+                // Toca o áudio da palavra correta
+                try {
+                    const audio = new Audio(`${audioPrefix}${targetWord.toLowerCase().replace(/[^a-z]/g, '')}.mp3`);
+                    audio.play().catch(e => console.log("Não foi possível tocar o áudio:", e));
+                } catch (e) {
+                    console.log("Erro ao carregar áudio:", e);
+                }
+                
+                // Atualiza o progresso
+                updateProgress(5, `word_formed_${targetWord}`);
+                
+                // Mostra mensagem de sucesso
+                setTimeout(() => {
+                    syllablesContainer.innerHTML += `
+                        <div class="feedback success">
+                            Parabéns! Você formou a palavra corretamente!
+                        </div>
+                    `;
+                    
+                    // Mostra a próxima palavra após 3 segundos
+                    setTimeout(() => {
+                        const currentCategory = wordGroups.find(g => 
+                            g.words.includes(targetWord))?.category;
+                        if (currentCategory) {
+                            startWordCategory(currentCategory);
+                        }
+                    }, 3000);
+                }, 500);
+            } else {
+                playSound('error');
+                targetWordElement.innerHTML = `<span style="color: #e74c3c">${formedWord}</span>`;
+                
+                // Mostra mensagem de erro
+                syllablesContainer.innerHTML += `
+                    <div class="feedback error">
+                        Tente novamente! A palavra correta é: ${targetWord}
+                    </div>
+                `;
+                
+                // Reseta após 2 segundos
+                setTimeout(() => {
+                    const currentCategory = wordGroups.find(g => 
+                        g.words.includes(targetWord))?.category;
+                    if (currentCategory) {
+                        startWordCategory(currentCategory);
+                    }
+                }, 2000);
+            }
+        };
+    } 
