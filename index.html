@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aprendendo a Ler e Escrever - Diversão Garantida!</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Baloo+2:wght@600&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Baloo+2:wght@600&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-
 <body>
     <div class="loading-screen" id="loadingScreen">
         <div class="loader"></div>
@@ -56,8 +53,7 @@
                             <img src="imagens/letra_a.png" alt="Letra A" id="letterImage">
                         </div>
                         <div class="letter-sound">
-                            <button class="sound-btn" onclick="playLetterSound()"><i class="fas fa-volume-up"></i> Ouvir
-                                Som</button>
+                            <button class="sound-btn" onclick="playLetterSound()"><i class="fas fa-volume-up"></i> Ouvir Som</button>
                         </div>
                         <div class="letter-examples">
                             <p>Exemplos:</p>
@@ -183,13 +179,12 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h4>Sobre Nós</h4>
-                <p>ABC da Diversão é uma plataforma educacional criada para ajudar meu filho e outras crianças com
-                    dificuldade no aprendizado, ajudar no processo de alfabetização de forma lúdica e interativa.</p>
+                <p>ABC da Diversão é uma plataforma educacional criada para ajudar crianças no processo de alfabetização de forma lúdica e interativa.</p>
             </div>
             <div class="footer-section">
                 <h4>Contato</h4>
-                <p><i class="fas fa-envelope"></i> nilsonjosesilvagomes@hotmail.com</p>
-                <p><i class="fas fa-phone"></i> (71) 99938-5205</p>
+                <p><i class="fas fa-envelope"></i> contato@abcdadiversao.com</p>
+                <p><i class="fas fa-phone"></i> (11) 1234-5678</p>
             </div>
             <div class="footer-section">
                 <h4>Siga-nos</h4>
@@ -201,7 +196,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 ABC da Diversão (Nilson Gomes). Todos os direitos reservados.</p>
+            <p>&copy; 2023 ABC da Diversão. Todos os direitos reservados.</p>
         </div>
     </footer>
 
@@ -214,6 +209,10 @@
         </div>
     </div>
 
+    <!-- Elemento para detalhes dos troféus -->
+    <div id="trophyDetails" class="trophy-details" style="display: none;"></div>
+
+    <!-- Áudios -->
     <audio id="soundEffect" src="sons/click.mp3"></audio>
     <audio id="letterSound" src="sons/letra_a.mp3"></audio>
     <audio id="storyAudio"></audio>
@@ -221,5 +220,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>

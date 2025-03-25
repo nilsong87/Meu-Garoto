@@ -441,385 +441,426 @@ function showLetterDetails(letter) {
             case 'NU':
                 examples = ['Número', 'Nuvem', 'Nutrição', 'Núcleo', 'Nudez'];
                 break;
-                case 'PA':
-                    examples = ['Palavra', 'Pássaro', 'Pano', 'Palco', 'Papel'];
-                    break;
-                case 'PE':
-                    examples = ['Pessoa', 'Personagem', 'Pássaro', 'Paredão', 'Pastel'];
-                    break;
-                case 'PI':
-                    examples = ['Picolé', 'Piano', 'Pintura', 'Pilha', 'Pipoca'];
-                    break;
-                case 'PO':
-                    examples = ['Poder', 'Poema', 'Polícia', 'Poço', 'Porta'];
-                    break;
-                case 'PU':
-                    examples = ['Pulga', 'Pulmão', 'Pular', 'Pulso', 'Pudim'];
-                    break;
-                case 'RA':
-                    examples = ['Raio', 'Rainha', 'Rato', 'Ração', 'Raposa'];
-                    break;
-                case 'RE':
-                    examples = ['Resposta', 'Refeição', 'Residência', 'Reset', 'Restart'];
-                    break;
-                case 'RI':
-                    examples = ['Ridículo', 'Ritmo', 'Risada', 'Rima', 'Risco'];
-                    break;
-                case 'RO':
-                    examples = ['Rosa', 'Roda', 'Rosto', 'Roupa', 'Robô'];
-                    break;
-                case 'RU':
-                    examples = ['Rua', 'Rumo', 'Rugido', 'Ruína', 'Rumor'];
-                    break;
-                case 'SA':
-                    examples = ['Sapo', 'Sapato', 'Saboneteira', 'Sal', 'Salvador'];
-                    break;
-                case 'SE':
-                    examples = ['Semana', 'Segredo', 'Selva', 'Sentido', 'Seguro'];
-                    break;
-                case 'SI':
-                    examples = ['Sinal', 'Sistema', 'Sílaba', 'Simples', 'Símbolo'];
-                    break;
-                case 'SO':
-                    examples = ['Sol', 'Som', 'Soldado', 'Sorriso', 'Sociedade'];
-                    break;
-                case 'SU':
-                    examples = ['Submarino', 'Sul', 'Sucesso', 'Surpresa', 'Suporte'];
-                    break;
-                case 'TA':
-                    examples = ['Tarde', 'Tabuleiro', 'Tatuagem', 'Talento', 'Tarefa'];
-                    break;
-                case 'TE':
-                    examples = ['Terra', 'Terreno', 'Tempo', 'Texto', 'Telefone'];
-                    break;
-                case 'TI':
-                    examples = ['Time', 'Tinta', 'Tijolo', 'Timido', 'Tigre'];
-                    break;
-                case 'TO':
-                    examples = ['Torneio', 'Toalha', 'Total', 'Tomada', 'Tocar'];
-                    break;
-                case 'TU':
-                    examples = ['Tulipa', 'Tucano', 'Turista', 'Túnel', 'Tumulto'];
-                    break;
-                case 'VA':
-                    examples = ['Vaca', 'Vaso', 'Varanda', 'Vaqueiro', 'Vassoura'];
-                    break;
-                case 'VE':
-                    examples = ['Velocidade', 'Verdade', 'Ventania', 'Vento', 'Vegetal'];
-                    break;
-                case 'VI':
-                    examples = ['Vida', 'Visão', 'Vitamina', 'Vingança', 'Visinho'];
-                    break;
-                case 'VO':
-                    examples = ['Você', 'Vontade', 'Voz', 'Voltar', 'Volante'];
-                    break;
-                case 'VU':
-                    examples = ['Vulcão', 'Vulto', 'Vulgar', 'Vudu', 'Vulcanismo'];
-                    break;
-                case 'XA':
-                    examples = ['Xadrez', 'Xarope', 'Xale', 'Xará', 'Xamego'];
-                    break;
-                case 'XE':
-                    examples = ['Xerife', 'Xereta', 'Xerocópia', 'Xenofobia', 'Xerém'];
-                    break;
-                case 'XI':
-                    examples = ['Xícara', 'Xique', 'Xilocaína', 'Xilofone', 'Xisto'];
-                    break;
-                case 'XO':
-                    examples = ['Xodó', 'Xoxo', 'Xonar', 'Xopotó', 'Xoque'];
-                    break;
-                case 'XU':
-                    examples = ['Xuxa', 'Xucro', 'Xuvisco', 'Xulé', 'Xulipa'];
-                    break;
-                case 'ZA':
-                    examples = ['Zangão', 'Zangado', 'Zarpar', 'Zarcão', 'Zabumba'];
-                    break;
-                case 'ZE':
-                    examples = ['Zebra', 'Zelador', 'Zelo', 'Zero', 'Zerar'];
-                    break;
-                case 'ZI':
-                    examples = ['Zíper', 'Zigoto', 'Zimbro', 'Zinco', 'Zigue'];
-                    break;
-                case 'ZO':
-                    examples = ['Zoológico', 'Zona', 'Zombaria', 'Zoom', 'Zodíaco'];
-                    break;
-                case 'ZU':
-                    examples = ['Zumbido', 'Zumbi', 'Zunir', 'Zumir', 'Zumbo'];
-                    break;
-                default:
-                    examples = [`${letter}la`, `${letter}to`, `${letter}ca`, `${letter}rin`, `${letter}de`];
-            }
+            case 'PA':
+                examples = ['Palavra', 'Pássaro', 'Pano', 'Palco', 'Papel'];
+                break;
+            case 'PE':
+                examples = ['Pessoa', 'Personagem', 'Pássaro', 'Paredão', 'Pastel'];
+                break;
+            case 'PI':
+                examples = ['Picolé', 'Piano', 'Pintura', 'Pilha', 'Pipoca'];
+                break;
+            case 'PO':
+                examples = ['Poder', 'Poema', 'Polícia', 'Poço', 'Porta'];
+                break;
+            case 'PU':
+                examples = ['Pulga', 'Pulmão', 'Pular', 'Pulso', 'Pudim'];
+                break;
+            case 'RA':
+                examples = ['Raio', 'Rainha', 'Rato', 'Ração', 'Raposa'];
+                break;
+            case 'RE':
+                examples = ['Resposta', 'Refeição', 'Residência', 'Reset', 'Restart'];
+                break;
+            case 'RI':
+                examples = ['Ridículo', 'Ritmo', 'Risada', 'Rima', 'Risco'];
+                break;
+            case 'RO':
+                examples = ['Rosa', 'Roda', 'Rosto', 'Roupa', 'Robô'];
+                break;
+            case 'RU':
+                examples = ['Rua', 'Rumo', 'Rugido', 'Ruína', 'Rumor'];
+                break;
+            case 'SA':
+                examples = ['Sapo', 'Sapato', 'Saboneteira', 'Sal', 'Salvador'];
+                break;
+            case 'SE':
+                examples = ['Semana', 'Segredo', 'Selva', 'Sentido', 'Seguro'];
+                break;
+            case 'SI':
+                examples = ['Sinal', 'Sistema', 'Sílaba', 'Simples', 'Símbolo'];
+                break;
+            case 'SO':
+                examples = ['Sol', 'Som', 'Soldado', 'Sorriso', 'Sociedade'];
+                break;
+            case 'SU':
+                examples = ['Submarino', 'Sul', 'Sucesso', 'Surpresa', 'Suporte'];
+                break;
+            case 'TA':
+                examples = ['Tarde', 'Tabuleiro', 'Tatuagem', 'Talento', 'Tarefa'];
+                break;
+            case 'TE':
+                examples = ['Terra', 'Terreno', 'Tempo', 'Texto', 'Telefone'];
+                break;
+            case 'TI':
+                examples = ['Time', 'Tinta', 'Tijolo', 'Timido', 'Tigre'];
+                break;
+            case 'TO':
+                examples = ['Torneio', 'Toalha', 'Total', 'Tomada', 'Tocar'];
+                break;
+            case 'TU':
+                examples = ['Tulipa', 'Tucano', 'Turista', 'Túnel', 'Tumulto'];
+                break;
+            case 'VA':
+                examples = ['Vaca', 'Vaso', 'Varanda', 'Vaqueiro', 'Vassoura'];
+                break;
+            case 'VE':
+                examples = ['Velocidade', 'Verdade', 'Ventania', 'Vento', 'Vegetal'];
+                break;
+            case 'VI':
+                examples = ['Vida', 'Visão', 'Vitamina', 'Vingança', 'Visinho'];
+                break;
+            case 'VO':
+                examples = ['Você', 'Vontade', 'Voz', 'Voltar', 'Volante'];
+                break;
+            case 'VU':
+                examples = ['Vulcão', 'Vulto', 'Vulgar', 'Vudu', 'Vulcanismo'];
+                break;
+            case 'XA':
+                examples = ['Xadrez', 'Xarope', 'Xale', 'Xará', 'Xamego'];
+                break;
+            case 'XE':
+                examples = ['Xerife', 'Xereta', 'Xerocópia', 'Xenofobia', 'Xerém'];
+                break;
+            case 'XI':
+                examples = ['Xícara', 'Xique', 'Xilocaína', 'Xilofone', 'Xisto'];
+                break;
+            case 'XO':
+                examples = ['Xodó', 'Xoxo', 'Xonar', 'Xopotó', 'Xoque'];
+                break;
+            case 'XU':
+                examples = ['Xuxa', 'Xucro', 'Xuvisco', 'Xulé', 'Xulipa'];
+                break;
+            case 'ZA':
+                examples = ['Zangão', 'Zangado', 'Zarpar', 'Zarcão', 'Zabumba'];
+                break;
+            case 'ZE':
+                examples = ['Zebra', 'Zelador', 'Zelo', 'Zero', 'Zerar'];
+                break;
+            case 'ZI':
+                examples = ['Zíper', 'Zigoto', 'Zimbro', 'Zinco', 'Zigue'];
+                break;
+            case 'ZO':
+                examples = ['Zoológico', 'Zona', 'Zombaria', 'Zoom', 'Zodíaco'];
+                break;
+            case 'ZU':
+                examples = ['Zumbido', 'Zumbi', 'Zunir', 'Zumir', 'Zumbo'];
+                break;
+            default:
+                examples = [`${letter}la`, `${letter}to`, `${letter}ca`, `${letter}rin`, `${letter}de`];
         }
-    
-        examples.forEach(example => {
-            const li = document.createElement('li');
-            li.textContent = example;
-            examplesList.appendChild(li);
-        });
-    
-        // Atualiza o áudio da letra
+    }
+
+    examples.forEach(example => {
+        const li = document.createElement('li');
+        li.textContent = example;
+        examplesList.appendChild(li);
+    });
+
+    // Atualiza o áudio da letra
+    const letterSound = document.getElementById('letterSound');
+    letterSound.src = `sons/letra_${letter.toLowerCase()}.mp3`;
+}
+
+// Toca o som da letra
+function playLetterSound(letter = null) {
+    if (letter) {
         const letterSound = document.getElementById('letterSound');
         letterSound.src = `sons/letra_${letter.toLowerCase()}.mp3`;
+        letterSound.play();
+    } else {
+        document.getElementById('letterSound').play();
     }
-    
-    // Toca o som da letra
-    function playLetterSound(letter = null) {
-        if (letter) {
-            const letterSound = document.getElementById('letterSound');
-            letterSound.src = `sons/letra_${letter.toLowerCase()}.mp3`;
-            letterSound.play();
-        } else {
-            document.getElementById('letterSound').play();
-        }
-    
-        // Animação de feedback
-        const letterElement = document.getElementById('currentLetter');
-        letterElement.style.transform = 'scale(1.2)';
-        setTimeout(() => {
-            letterElement.style.transform = 'scale(1)';
-        }, 300);
-    }
-    
-    // Configura o canvas de escrita
-    function setupWritingCanvas() {
-        const canvas = document.getElementById('writingCanvas');
-        const ctx = canvas.getContext('2d');
-        let isDrawing = false;
-        let lastX = 0;
-        let lastY = 0;
-    
-        // Configurações do pincel
-        ctx.strokeStyle = '#9b59b6';
-        ctx.lineWidth = 8;
-        ctx.lineCap = 'round';
-        ctx.lineJoin = 'round';
-    
-        // Eventos do mouse/touch
-        canvas.addEventListener('mousedown', startDrawing);
-        canvas.addEventListener('touchstart', handleTouchStart);
-        canvas.addEventListener('mousemove', draw);
-        canvas.addEventListener('touchmove', handleTouchMove);
-        canvas.addEventListener('mouseup', stopDrawing);
-        canvas.addEventListener('touchend', stopDrawing);
-        canvas.addEventListener('mouseout', stopDrawing);
-    
-        function handleTouchStart(e) {
-            e.preventDefault();
-            const touch = e.touches[0];
-            const mouseEvent = new MouseEvent('mousedown', {
-                clientX: touch.clientX,
-                clientY: touch.clientY
-            });
-            canvas.dispatchEvent(mouseEvent);
-        }
-    
-        function handleTouchMove(e) {
-            e.preventDefault();
-            const touch = e.touches[0];
-            const mouseEvent = new MouseEvent('mousemove', {
-                clientX: touch.clientX,
-                clientY: touch.clientY
-            });
-            canvas.dispatchEvent(mouseEvent);
-        }
-    
-        function startDrawing(e) {
-            isDrawing = true;
-            [lastX, lastY] = [e.offsetX, e.offsetY];
-        }
-    
-        function draw(e) {
-            if (!isDrawing) return;
-    
-            ctx.beginPath();
-            ctx.moveTo(lastX, lastY);
-            ctx.lineTo(e.offsetX, e.offsetY);
-            ctx.stroke();
-            [lastX, lastY] = [e.offsetX, e.offsetY];
-        }
-    
-        function stopDrawing() {
-            isDrawing = false;
-        }
-    }
-    
-    // Limpa o canvas
-    function clearCanvas() {
-        const canvas = document.getElementById('writingCanvas');
-        const ctx = canvas.getContext('2d');
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        playSound('erase');
-    
-        // Esconde o feedback
-        document.getElementById('writingFeedback').style.display = 'none';
-    }
-    
-    // Verifica a escrita (versão melhorada)
-    function checkWriting() {
-        const canvas = document.getElementById('writingCanvas');
-        const ctx = canvas.getContext('2d');
-        const feedback = document.getElementById('writingFeedback');
-        const letterToWrite = document.getElementById('letterToWrite').textContent;
-    
-        // Verifica se o canvas está vazio
-        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        const isEmpty = !Array.from(imageData.data).some(channel => channel !== 0);
-    
-        if (isEmpty) {
-            feedback.textContent = 'Desenhe a letra primeiro!';
-            feedback.className = 'writing-feedback error';
-            feedback.style.display = 'block';
-            playSound('error');
-            return;
-        }
-    
-        // Verificação melhorada
-        const isCorrect = checkLetterShape(letterToWrite, canvas);
-    
-        if (isCorrect) {
-            feedback.textContent = 'Parabéns! Você escreveu a letra corretamente!';
-            feedback.className = 'writing-feedback success';
-            playSound('success');
-    
-            // Atualiza o progresso
-            updateProgress(5, `write_${letterToWrite}`);
-    
-            // Muda para a próxima letra após 2 segundos
-            setTimeout(() => {
-                const currentLetter = letterToWrite.charCodeAt(0);
-                const nextLetter = currentLetter < 90 ? String.fromCharCode(currentLetter + 1) : 'A';
-                document.getElementById('letterToWrite').textContent = nextLetter;
-                clearCanvas();
-                feedback.style.display = 'none';
-            }, 2000);
-        } else {
-            feedback.textContent = 'Quase lá! Tente novamente.';
-            feedback.className = 'writing-feedback error';
-            playSound('error');
-        }
-    
-        feedback.style.display = 'block';
-    }
-    
-    // Função auxiliar para verificar o formato da letra
-    function checkLetterShape(letter, canvas) {
-        // Implementação simplificada - em produção use uma biblioteca de reconhecimento
-        const ctx = canvas.getContext('2d');
-        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        const pixelData = imageData.data;
-    
-        // Verifica se há pixels desenhados
-        let hasDrawing = false;
-        for (let i = 0; i < pixelData.length; i += 4) {
-            if (pixelData[i] !== 0 || pixelData[i+1] !== 0 || pixelData[i+2] !== 0) {
-                hasDrawing = true;
-                break;
-            }
-        }
-    
-        if (!hasDrawing) return false;
-    
-        // Calcula a área do desenho
-        let minX = canvas.width, maxX = 0, minY = canvas.height, maxY = 0;
-        for (let y = 0; y < canvas.height; y++) {
-            for (let x = 0; x < canvas.width; x++) {
-                const index = (y * canvas.width + x) * 4;
-                if (pixelData[index] !== 0 || pixelData[index+1] !== 0 || pixelData[index+2] !== 0) {
-                    if (x < minX) minX = x;
-                    if (x > maxX) maxX = x;
-                    if (y < minY) minY = y;
-                    if (y > maxY) maxY = y;
-                }
-            }
-        }
-    
-        const width = maxX - minX;
-        const height = maxY - minY;
-    
-        // Verifica tamanho mínimo
-        if (width < 20 || height < 20) return false;
-    
-        // Verificação baseada na letra (simplificado)
-        const aspectRatio = width / height;
-        const centerX = (minX + maxX) / 2;
-        const centerY = (minY + maxY) / 2;
-    
-        // Verificações específicas para algumas letras
-        switch (letter.toUpperCase()) {
-            case 'A':
-                return aspectRatio > 0.7 && aspectRatio < 1.5;
-            case 'B':
-                return height > width * 1.5;
-            case 'C':
-                return aspectRatio > 1;
-            case 'D':
-                return height > width;
-            case 'E':
-                return aspectRatio > 1.2;
-            case 'O':
-                return Math.abs(aspectRatio - 1) < 0.3;
-            default:
-                // Para outras letras, usa uma verificação genérica
-                return width > 30 && height > 30;
-        }
-    }
-    
-    // Inicia uma atividade de prática
-    function startPractice(type) {
-        const practiceArea = document.getElementById('practiceArea');
-    
-        // Esconde todas as práticas
-        document.querySelectorAll('.practice-area > div').forEach(div => {
-            div.style.display = 'none';
+
+    // Animação de feedback
+    const letterElement = document.getElementById('currentLetter');
+    letterElement.style.transform = 'scale(1.2)';
+    setTimeout(() => {
+        letterElement.style.transform = 'scale(1)';
+    }, 300);
+}
+
+// Configura o canvas de escrita
+function setupWritingCanvas() {
+    const canvas = document.getElementById('writingCanvas');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+
+    // Configurações do pincel
+    ctx.strokeStyle = '#9b59b6';
+    ctx.lineWidth = 8;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+
+    // Eventos do mouse/touch
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('touchstart', handleTouchStart);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('touchmove', handleTouchMove);
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('touchend', stopDrawing);
+    canvas.addEventListener('mouseout', stopDrawing);
+
+    function handleTouchStart(e) {
+        e.preventDefault();
+        const touch = e.touches[0];
+        const mouseEvent = new MouseEvent('mousedown', {
+            clientX: touch.clientX,
+            clientY: touch.clientY
         });
-    
-        switch (type) {
-            case 'escrita':
-                document.getElementById('writingPractice').style.display = 'block';
-                // Define uma letra aleatória para praticar
-                const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                const randomLetter = letters[Math.floor(Math.random() * letters.length)];
-                document.getElementById('letterToWrite').textContent = randomLetter;
-                clearCanvas();
-                break;
-            case 'leitura':
-                showReadingPractice();
-                break;
-            case 'formacao':
-                showWordFormation();
-                break;
-        }
-    
-        playSound('click');
+        canvas.dispatchEvent(mouseEvent);
     }
-    
-    // Configura a prática de leitura
-    function setupReadingPractice() {
-        const readingLevels = [
-            {
-                level: 1,
-                title: "Palavras Simples",
-                words: ["casa", "bola", "gato", "pato", "mão", "pé", "sol", "lua"],
-                audioPrefix: "sons/palavras/"
-            },
-            {
-                level: 2,
-                title: "Frases Curtas",
-                words: ["O gato mia.", "O sol brilha.", "A bola pula.", "Eu vejo a lua."],
-                audioPrefix: "sons/frases-curtas/"
-            },
-            {
-                level: 3,
-                title: "Frases Longas",
-                words: ["O gato preto pula alto.", "A menina come uma maçã.", "O carro azul é rápido."],
-                audioPrefix: "sons/frases-longas/"
+
+    function handleTouchMove(e) {
+        e.preventDefault();
+        const touch = e.touches[0];
+        const mouseEvent = new MouseEvent('mousemove', {
+            clientX: touch.clientX,
+            clientY: touch.clientY
+        });
+        canvas.dispatchEvent(mouseEvent);
+    }
+
+    function startDrawing(e) {
+        isDrawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+    }
+
+    function draw(e) {
+        if (!isDrawing) return;
+
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+    }
+
+    function stopDrawing() {
+        isDrawing = false;
+    }
+}
+
+// Limpa o canvas
+function clearCanvas() {
+    const canvas = document.getElementById('writingCanvas');
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    playSound('erase');
+
+    // Esconde o feedback
+    document.getElementById('writingFeedback').style.display = 'none';
+}
+
+// Verifica a escrita (versão melhorada)
+function checkWriting() {
+    const canvas = document.getElementById('writingCanvas');
+    const ctx = canvas.getContext('2d');
+    const feedback = document.getElementById('writingFeedback');
+    const letterToWrite = document.getElementById('letterToWrite').textContent;
+
+    // Verifica se o canvas está vazio
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const isEmpty = !Array.from(imageData.data).some(channel => channel !== 0);
+
+    if (isEmpty) {
+        feedback.textContent = 'Desenhe a letra primeiro!';
+        feedback.className = 'writing-feedback error';
+        feedback.style.display = 'block';
+        playSound('error');
+        return;
+    }
+
+    // Verificação melhorada
+    const isCorrect = checkLetterShape(letterToWrite, canvas);
+
+    if (isCorrect) {
+        feedback.textContent = 'Parabéns! Você escreveu a letra corretamente!';
+        feedback.className = 'writing-feedback success';
+        playSound('success');
+
+        // Atualiza o progresso
+        updateProgress(5, `write_${letterToWrite}`);
+
+        // Muda para a próxima letra após 2 segundos
+        setTimeout(() => {
+            const currentLetter = letterToWrite.charCodeAt(0);
+            const nextLetter = currentLetter < 90 ? String.fromCharCode(currentLetter + 1) : 'A';
+            document.getElementById('letterToWrite').textContent = nextLetter;
+            clearCanvas();
+            feedback.style.display = 'none';
+        }, 2000);
+    } else {
+        feedback.textContent = 'Quase lá! Tente novamente.';
+        feedback.className = 'writing-feedback error';
+        playSound('error');
+    }
+
+    feedback.style.display = 'block';
+}
+
+// Função auxiliar para verificar o formato da letra
+function checkLetterShape(letter, canvas) {
+    // Implementação simplificada - em produção use uma biblioteca de reconhecimento
+    const ctx = canvas.getContext('2d');
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const pixelData = imageData.data;
+
+    // Verifica se há pixels desenhados
+    let hasDrawing = false;
+    for (let i = 0; i < pixelData.length; i += 4) {
+        if (pixelData[i] !== 0 || pixelData[i + 1] !== 0 || pixelData[i + 2] !== 0) {
+            hasDrawing = true;
+            break;
+        }
+    }
+
+    if (!hasDrawing) return false;
+
+    // Calcula a área do desenho
+    let minX = canvas.width, maxX = 0, minY = canvas.height, maxY = 0;
+    for (let y = 0; y < canvas.height; y++) {
+        for (let x = 0; x < canvas.width; x++) {
+            const index = (y * canvas.width + x) * 4;
+            if (pixelData[index] !== 0 || pixelData[index + 1] !== 0 || pixelData[index + 2] !== 0) {
+                if (x < minX) minX = x;
+                if (x > maxX) maxX = x;
+                if (y < minY) minY = y;
+                if (y > maxY) maxY = y;
             }
-        ];
-    
-        // Função para mostrar a prática de leitura
-        window.showReadingPractice = function() {
-            const practiceArea = document.getElementById('practiceArea');
-            practiceArea.innerHTML = `
+        }
+    }
+
+    const width = maxX - minX;
+    const height = maxY - minY;
+
+    // Verifica tamanho mínimo
+    if (width < 20 || height < 20) return false;
+
+    // Verificação baseada na letra (simplificado)
+    const aspectRatio = width / height;
+    const centerX = (minX + maxX) / 2;
+    const centerY = (minY + maxY) / 2;
+
+    // Verificações específicas para algumas letras
+    switch (letter.toUpperCase()) {
+
+        case 'A':
+            return aspectRatio > 0.7 && aspectRatio < 1.5;
+        case 'B':
+            return height > width * 1.5;
+        case 'C':
+            return aspectRatio > 1;
+        case 'D':
+            return height > width;
+        case 'E':
+            return aspectRatio > 1.2;
+        case 'O':
+            return Math.abs(aspectRatio - 1) < 0.3;
+        case 'F':
+            return width > height * 2;
+        case 'G':
+            return width > 50 && height < 50;
+        case 'H':
+            return width === height;
+        case 'I':
+            return height > width * 3;
+        case 'J':
+            return width > height * 1.5;
+        case 'K':
+            return height > 100;
+        case 'L':
+            return width > 100;
+        case 'M':
+            return width > height * 1.1 && width < height * 1.3;
+        case 'N':
+            return aspectRatio < 0.5;
+        case 'P':
+            return width > height && width < height * 1.5;
+        case 'Q':
+            return Math.abs(aspectRatio - 1) < 0.1;
+        case 'R':
+            return height > width && height < width * 1.5;
+        case 'S':
+            return width > 60 && height > 60;
+        case 'T':
+            return height > width * 2;
+        case 'U':
+            return width > 40 && height < 80;
+        case 'V':
+            return width < height / 2;
+        case 'W':
+            return width > height * 2.5;
+        case 'X':
+            return Math.abs(aspectRatio - 1) < 0.2;
+        case 'Y':
+            return height > width * 2.5;
+        case 'Z':
+            return width > 70 && height > 70;
+        default:
+            // Para outras letras, usa uma verificação genérica
+            return width > 30 && height > 30;
+    }
+}
+
+// Inicia uma atividade de prática
+function startPractice(type) {
+    const practiceArea = document.getElementById('practiceArea');
+
+    // Esconde todas as práticas
+    document.querySelectorAll('.practice-area > div').forEach(div => {
+        div.style.display = 'none';
+    });
+
+    switch (type) {
+        case 'escrita':
+            document.getElementById('writingPractice').style.display = 'block';
+            // Define uma letra aleatória para praticar
+            const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            const randomLetter = letters[Math.floor(Math.random() * letters.length)];
+            document.getElementById('letterToWrite').textContent = randomLetter;
+            clearCanvas();
+            break;
+        case 'leitura':
+            showReadingPractice();
+            break;
+        case 'formacao':
+            showWordFormation();
+            break;
+    }
+
+    playSound('click');
+}
+
+// Configura a prática de leitura
+function setupReadingPractice() {
+    const readingLevels = [
+        {
+            level: 1,
+            title: "Palavras Simples",
+            words: ["casa", "bola", "gato", "pato", "mão", "pé", "sol", "lua"],
+            audioPrefix: "sons/palavras/"
+        },
+        {
+            level: 2,
+            title: "Frases Curtas",
+            words: ["O gato mia.", "O sol brilha.", "A bola pula.", "Eu vejo a lua."],
+            audioPrefix: "sons/frases-curtas/"
+        },
+        {
+            level: 3,
+            title: "Frases Longas",
+            words: ["O gato preto pula alto.", "A menina come uma maçã.", "O carro azul é rápido."],
+            audioPrefix: "sons/frases-longas/"
+        }
+    ];
+
+    // Função para mostrar a prática de leitura
+    window.showReadingPractice = function () {
+        const practiceArea = document.getElementById('practiceArea');
+        practiceArea.innerHTML = `
                 <div class="reading-practice">
                     <h3>Praticar Leitura</h3>
                     <div class="reading-levels">
@@ -832,14 +873,14 @@ function showLetterDetails(letter) {
                     <div class="reading-content" id="readingContent"></div>
                 </div>
             `;
-        };
-    
-        // Função para iniciar um nível de leitura
-        window.startReadingLevel = function(level) {
-            const selectedLevel = readingLevels.find(l => l.level === level);
-            const readingContent = document.getElementById('readingContent');
-            
-            readingContent.innerHTML = `
+    };
+
+    // Função para iniciar um nível de leitura
+    window.startReadingLevel = function (level) {
+        const selectedLevel = readingLevels.find(l => l.level === level);
+        const readingContent = document.getElementById('readingContent');
+
+        readingContent.innerHTML = `
                 <h4>${selectedLevel.title}</h4>
                 <div class="reading-words">
                     ${selectedLevel.words.map(word => `
@@ -853,59 +894,59 @@ function showLetterDetails(letter) {
                     <i class="fas fa-arrow-left"></i> Voltar
                 </button>
             `;
-    
-            // Atualiza o progresso
-            updateProgress(0, `reading_level_${level}_viewed`);
-        };
-    
-        // Função para falar a palavra/frase
-        window.speakWord = function(word, audioPrefix) {
-            // Tenta usar a API de síntese de voz
-            if ('speechSynthesis' in window) {
-                const utterance = new SpeechSynthesisUtterance(word);
-                utterance.lang = 'pt-BR';
-                utterance.rate = 0.8;
-                speechSynthesis.speak(utterance);
-            }
-            
-            // Tenta tocar o áudio gravado
-            try {
-                const audio = new Audio(`${audioPrefix}${word.toLowerCase().replace(/[^a-z]/g, '')}.mp3`);
-                audio.play().catch(e => console.log("Não foi possível tocar o áudio:", e));
-            } catch (e) {
-                console.log("Erro ao carregar áudio:", e);
-            }
-    
-            // Atualiza o progresso
-            updateProgress(1, `word_${word.toLowerCase().replace(/[^a-z]/g, '')}_read`);
-            playSound('correct');
-        };
-    }
-    
-    // Configura a formação de palavras
-    function setupWordFormation() {
-        const wordGroups = [
-            {
-                category: "Animais",
-                words: ["gato", "cachorro", "pássaro", "peixe"],
-                audio: "sons/animais/"
-            },
-            {
-                category: "Frutas",
-                words: ["maçã", "banana", "uva", "laranja"],
-                audio: "sons/frutas/"
-            },
-            {
-                category: "Casa",
-                words: ["casa", "porta", "janela", "mesa"],
-                audio: "sons/casa/"
-            }
-        ];
-    
-        // Função para mostrar a formação de palavras
-        window.showWordFormation = function() {
-            const practiceArea = document.getElementById('practiceArea');
-            practiceArea.innerHTML = `
+
+        // Atualiza o progresso
+        updateProgress(0, `reading_level_${level}_viewed`);
+    };
+
+    // Função para falar a palavra/frase
+    window.speakWord = function (word, audioPrefix) {
+        // Tenta usar a API de síntese de voz
+        if ('speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance(word);
+            utterance.lang = 'pt-BR';
+            utterance.rate = 0.8;
+            speechSynthesis.speak(utterance);
+        }
+
+        // Tenta tocar o áudio gravado
+        try {
+            const audio = new Audio(`${audioPrefix}${word.toLowerCase().replace(/[^a-z]/g, '')}.mp3`);
+            audio.play().catch(e => console.log("Não foi possível tocar o áudio:", e));
+        } catch (e) {
+            console.log("Erro ao carregar áudio:", e);
+        }
+
+        // Atualiza o progresso
+        updateProgress(1, `word_${word.toLowerCase().replace(/[^a-z]/g, '')}_read`);
+        playSound('correct');
+    };
+}
+
+// Configura a formação de palavras
+function setupWordFormation() {
+    const wordGroups = [
+        {
+            category: "Animais",
+            words: ["gato", "cachorro", "pássaro", "peixe"],
+            audio: "sons/animais/"
+        },
+        {
+            category: "Frutas",
+            words: ["maçã", "banana", "uva", "laranja"],
+            audio: "sons/frutas/"
+        },
+        {
+            category: "Casa",
+            words: ["casa", "porta", "janela", "mesa"],
+            audio: "sons/casa/"
+        }
+    ];
+
+    // Função para mostrar a formação de palavras
+    window.showWordFormation = function () {
+        const practiceArea = document.getElementById('practiceArea');
+        practiceArea.innerHTML = `
                 <div class="word-formation">
                     <h3>Formar Palavras</h3>
                     <div class="word-categories">
@@ -918,21 +959,21 @@ function showLetterDetails(letter) {
                     <div class="word-formation-area" id="wordFormationArea"></div>
                 </div>
             `;
-        };
-    
-        // Função para iniciar uma categoria de palavras
-        window.startWordCategory = function(category) {
-            const selectedGroup = wordGroups.find(g => g.category === category);
-            const wordFormationArea = document.getElementById('wordFormationArea');
-            
-            // Seleciona uma palavra aleatória do grupo
-            const targetWord = selectedGroup.words[Math.floor(Math.random() * selectedGroup.words.length)];
-            const syllables = splitIntoSyllables(targetWord);
-            
-            // Embaralha as sílabas
-            const shuffledSyllables = shuffleArray([...syllables]);
-            
-            wordFormationArea.innerHTML = `
+    };
+
+    // Função para iniciar uma categoria de palavras
+    window.startWordCategory = function (category) {
+        const selectedGroup = wordGroups.find(g => g.category === category);
+        const wordFormationArea = document.getElementById('wordFormationArea');
+
+        // Seleciona uma palavra aleatória do grupo
+        const targetWord = selectedGroup.words[Math.floor(Math.random() * selectedGroup.words.length)];
+        const syllables = splitIntoSyllables(targetWord);
+
+        // Embaralha as sílabas
+        const shuffledSyllables = shuffleArray([...syllables]);
+
+        wordFormationArea.innerHTML = `
                 <h4>${category}: Forme a palavra</h4>
                 <div class="target-word" id="targetWord">${'_ '.repeat(syllables.length)}</div>
                 <div class="syllables-container" id="syllablesContainer">
@@ -949,120 +990,120 @@ function showLetterDetails(letter) {
                     <i class="fas fa-arrow-left"></i> Voltar
                 </button>
             `;
-            
-            setupDragAndDrop();
-        };
-    
-        // Função para dividir palavras em sílabas (simplificado)
-        function splitIntoSyllables(word) {
-            // Esta é uma implementação simplificada - na prática seria mais complexa
-            const vowels = ['a', 'e', 'i', 'o', 'u', 'á', 'é', 'í', 'ó', 'ú', 'ã', 'õ', 'â', 'ê', 'ô'];
-            let syllables = [];
-            let currentSyllable = '';
-            
-            for (let i = 0; i < word.length; i++) {
-                currentSyllable += word[i];
-                if (vowels.includes(word[i].toLowerCase())) {
-                    syllables.push(currentSyllable);
-                    currentSyllable = '';
-                }
+
+        setupDragAndDrop();
+    };
+
+    // Função para dividir palavras em sílabas (simplificado)
+    function splitIntoSyllables(word) {
+        // Esta é uma implementação simplificada - na prática seria mais complexa
+        const vowels = ['a', 'e', 'i', 'o', 'u', 'á', 'é', 'í', 'ó', 'ú', 'ã', 'õ', 'â', 'ê', 'ô'];
+        let syllables = [];
+        let currentSyllable = '';
+
+        for (let i = 0; i < word.length; i++) {
+            currentSyllable += word[i];
+            if (vowels.includes(word[i].toLowerCase())) {
+                syllables.push(currentSyllable);
+                currentSyllable = '';
             }
-            
-            if (currentSyllable) {
-                syllables[syllables.length - 1] += currentSyllable;
+        }
+
+        if (currentSyllable) {
+            syllables[syllables.length - 1] += currentSyllable;
+        }
+
+        return syllables.length > 0 ? syllables : [word];
+    }
+
+    // Configura o arrastar e soltar
+    function setupDragAndDrop() {
+        const syllables = document.querySelectorAll('.syllable');
+        const targetWord = document.getElementById('targetWord');
+        let droppedSyllables = [];
+
+        syllables.forEach(syllable => {
+            syllable.addEventListener('dragstart', function (e) {
+                e.dataTransfer.setData('text/plain', this.id);
+            });
+        });
+
+        targetWord.addEventListener('dragover', function (e) {
+            e.preventDefault();
+        });
+
+        targetWord.addEventListener('drop', function (e) {
+            e.preventDefault();
+            const id = e.dataTransfer.getData('text/plain');
+            const draggedSyllable = document.getElementById(id);
+            const syllable = draggedSyllable.dataset.syllable;
+
+            if (!droppedSyllables.includes(id)) {
+                droppedSyllables.push(id);
+                this.textContent = this.textContent.replace('_', syllable);
+                draggedSyllable.style.visibility = 'hidden';
+                playSound('click');
             }
-            
-            return syllables.length > 0 ? syllables : [word];
-        }
-    
-        // Configura o arrastar e soltar
-        function setupDragAndDrop() {
-            const syllables = document.querySelectorAll('.syllable');
-            const targetWord = document.getElementById('targetWord');
-            let droppedSyllables = [];
-            
-            syllables.forEach(syllable => {
-                syllable.addEventListener('dragstart', function(e) {
-                    e.dataTransfer.setData('text/plain', this.id);
-                });
-            });
-            
-            targetWord.addEventListener('dragover', function(e) {
-                e.preventDefault();
-            });
-            
-            targetWord.addEventListener('drop', function(e) {
-                e.preventDefault();
-                const id = e.dataTransfer.getData('text/plain');
-                const draggedSyllable = document.getElementById(id);
-                const syllable = draggedSyllable.dataset.syllable;
-                
-                if (!droppedSyllables.includes(id)) {
-                    droppedSyllables.push(id);
-                    this.textContent = this.textContent.replace('_', syllable);
-                    draggedSyllable.style.visibility = 'hidden';
-                    playSound('click');
-                }
-            });
-        }
-    
-        // Função para verificar a palavra formada
-        window.checkFormedWord = function(targetWord, audioPrefix) {
-            const targetWordElement = document.getElementById('targetWord');
-            const syllablesContainer = document.getElementById('syllablesContainer');
-            const formedWord = targetWordElement.textContent.replace(/\s/g, '');
-            
-            if (formedWord === targetWord) {
-                targetWordElement.innerHTML = `<span style="color: #2ecc71">${formedWord}</span>`;
-                playSound('success');
-                
-                // Toca o áudio da palavra correta
-                try {
-                    const audio = new Audio(`${audioPrefix}${targetWord.toLowerCase().replace(/[^a-z]/g, '')}.mp3`);
-                    audio.play().catch(e => console.log("Não foi possível tocar o áudio:", e));
-                } catch (e) {
-                    console.log("Erro ao carregar áudio:", e);
-                }
-                
-                // Atualiza o progresso
-                updateProgress(5, `word_formed_${targetWord}`);
-                
-                // Mostra mensagem de sucesso
-                setTimeout(() => {
-                    syllablesContainer.innerHTML += `
+        });
+    }
+
+    // Função para verificar a palavra formada
+    window.checkFormedWord = function (targetWord, audioPrefix) {
+        const targetWordElement = document.getElementById('targetWord');
+        const syllablesContainer = document.getElementById('syllablesContainer');
+        const formedWord = targetWordElement.textContent.replace(/\s/g, '');
+
+        if (formedWord === targetWord) {
+            targetWordElement.innerHTML = `<span style="color: #2ecc71">${formedWord}</span>`;
+            playSound('success');
+
+            // Toca o áudio da palavra correta
+            try {
+                const audio = new Audio(`${audioPrefix}${targetWord.toLowerCase().replace(/[^a-z]/g, '')}.mp3`);
+                audio.play().catch(e => console.log("Não foi possível tocar o áudio:", e));
+            } catch (e) {
+                console.log("Erro ao carregar áudio:", e);
+            }
+
+            // Atualiza o progresso
+            updateProgress(5, `word_formed_${targetWord}`);
+
+            // Mostra mensagem de sucesso
+            setTimeout(() => {
+                syllablesContainer.innerHTML += `
                         <div class="feedback success">
                             Parabéns! Você formou a palavra corretamente!
                         </div>
                     `;
-                    
-                    // Mostra a próxima palavra após 3 segundos
-                    setTimeout(() => {
-                        const currentCategory = wordGroups.find(g => 
-                            g.words.includes(targetWord))?.category;
-                        if (currentCategory) {
-                            startWordCategory(currentCategory);
-                        }
-                    }, 3000);
-                }, 500);
-            } else {
-                playSound('error');
-                targetWordElement.innerHTML = `<span style="color: #e74c3c">${formedWord}</span>`;
-                
-                // Mostra mensagem de erro
-                syllablesContainer.innerHTML += `
-                    <div class="feedback error">
-                        Tente novamente! A palavra correta é: ${targetWord}
-                    </div>
-                `;
-                
-                // Reseta após 2 segundos
+
+                // Mostra a próxima palavra após 3 segundos
                 setTimeout(() => {
-                    const currentCategory = wordGroups.find(g => 
+                    const currentCategory = wordGroups.find(g =>
                         g.words.includes(targetWord))?.category;
                     if (currentCategory) {
                         startWordCategory(currentCategory);
                     }
-                }, 2000);
-            }
-        };
-    } 
+                }, 3000);
+            }, 500);
+        } else {
+            playSound('error');
+            targetWordElement.innerHTML = `<span style="color: #e74c3c">${formedWord}</span>`;
+
+            // Mostra mensagem de erro
+            syllablesContainer.innerHTML += `
+                    <div class="feedback error">
+                        Tente novamente! A palavra correta é: ${targetWord}
+                    </div>
+                `;
+
+            // Reseta após 2 segundos
+            setTimeout(() => {
+                const currentCategory = wordGroups.find(g =>
+                    g.words.includes(targetWord))?.category;
+                if (currentCategory) {
+                    startWordCategory(currentCategory);
+                }
+            }, 2000);
+        }
+    };
+} 
