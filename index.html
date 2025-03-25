@@ -23,7 +23,9 @@
             <p class="subtitle">Aprendendo a ler e escrever de um jeito fácil e divertido!</p>
         </div>
         <div class="character">
-            <img src="imagens/mascote.png" alt="Mascote Amigo" id="mascote">
+            <a href="index.html" title="Voltar para a página inicial">
+                <img src="imagens/mascote.png" alt="Mascote Amigo" id="mascote">
+            </a>
         </div>
     </header>
 
@@ -217,16 +219,20 @@
         </div>
     </div>
 
-    
-
     <div class="floating-help" id="floatingHelp">
-        <button onclick="toggleHelp()"><i class="fas fa-question"></i></button>
+        <button onclick="redirectToHelp()"><i class="fas fa-question"></i></button>
         <div class="help-box" id="helpBox">
             <h4>Precisa de ajuda?</h4>
             <p id="helpText">Clique nas seções acima para explorar diferentes atividades!</p>
             <button onclick="speakHelp()"><i class="fas fa-volume-up"></i> Ouvir ajuda</button>
         </div>
     </div>
+    
+    <script>
+    function redirectToHelp() {
+        window.location.href = '/ajuda.html'; // Altere para o URL da sua página de ajuda
+    }
+    </script>
 
     <!-- Elemento para detalhes dos troféus -->
     <div id="trophyDetails" class="trophy-details" style="display: none;"></div>

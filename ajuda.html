@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajuda - ABC da Diversão</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Baloo+2:wght@600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+        <p>Preparando a ajuda...</p>
+    </div>
+
+    <header class="main-header">
+        <div class="header-content">
+            <h1><i class="fas fa-question-circle"></i> Central de Ajuda</h1>
+            <p class="subtitle">Tire todas as suas dúvidas sobre o ABC da Diversão</p>
+        </div>
+        <div class="character">
+            <a href="index.html" title="Voltar para a página inicial">
+                <img src="imagens/mascote.png" alt="Mascote Amigo" id="mascote">
+            </a>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#como-usar" class="nav-link active"><i class="fas fa-play-circle"></i> Como Usar</a></li>
+            <li><a href="#atividades" class="nav-link"><i class="fas fa-tasks"></i> Atividades</a></li>
+            <li><a href="#jogos" class="nav-link"><i class="fas fa-gamepad"></i> Jogos</a></li>
+            <li><a href="#problemas" class="nav-link"><i class="fas fa-bug"></i> Problemas</a></li>
+            <li><a href="#contato" class="nav-link"><i class="fas fa-envelope"></i> Contato</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <section id="como-usar" class="content-section active-section">
+            <h2><i class="fas fa-play-circle"></i> Como Usar o ABC da Diversão</h2>
+            
+            <div class="help-card">
+                <h3><i class="fas fa-compass"></i> Guia Rápido</h3>
+                <p>O ABC da Diversão foi criado para ajudar crianças no processo de alfabetização de forma lúdica e interativa. Aqui está um guia rápido para começar:</p>
+                
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Navegação</h4>
+                            <p>Use o menu no topo da página para acessar as diferentes seções: Aprender, Praticar, Jogar, Histórias e Prêmios.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Progresso</h4>
+                            <p>Seu progresso é salvo automaticamente. Conclua atividades para desbloquear conquistas na seção Prêmios.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Interação</h4>
+                            <p>Clique nos botões com ícones de som para ouvir as letras e palavras. Use o mouse ou o dedo (em tablets) para escrever.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="help-card">
+                <h3><i class="fas fa-child"></i> Para Pais e Professores</h3>
+                <p>O ABC da Diversão foi desenvolvido especialmente para crianças com dificuldades de aprendizagem, como meu filho Dave Henrique. Aqui estão algumas dicas:</p>
+                
+                <ul class="tips-list">
+                    <li><i class="fas fa-check-circle"></i> Comece pelas vogais na seção "Aprender"</li>
+                    <li><i class="fas fa-check-circle"></i> Use a seção "Praticar" para reforçar o aprendizado</li>
+                    <li><i class="fas fa-check-circle"></i> Os jogos ajudam a fixar o conhecimento de forma divertida</li>
+                    <li><i class="fas fa-check-circle"></i> Leia as histórias junto com a criança</li>
+                    <li><i class="fas fa-check-circle"></i> Celebre as conquistas na seção "Prêmios"</li>
+                </ul>
+            </div>
+            
+            <div class="video-tutorial">
+                <h3><i class="fas fa-video"></i> Vídeo Tutorial</h3>
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p class="video-caption">Assista este vídeo para ver como aproveitar ao máximo o ABC da Diversão</p>
+            </div>
+        </section>
+
+        <section id="atividades" class="content-section">
+            <h2><i class="fas fa-tasks"></i> Ajuda com Atividades</h2>
+            
+            <div class="help-accordion">
+                <div class="accordion-item">
+                    <button class="accordion-btn">
+                        <i class="fas fa-graduation-cap"></i> Como funciona a seção "Aprender"?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>A seção "Aprender" é dividida em três partes:</p>
+                        <ol>
+                            <li><strong>Vogais:</strong> A, E, I, O, U - as primeiras letras que as crianças devem aprender</li>
+                            <li><strong>Consoantes:</strong> Todas as outras letras do alfabeto</li>
+                            <li><strong>Sílabas:</strong> Combinações de letras para formar palavras</li>
+                        </ol>
+                        <p>Clique em qualquer letra para ver exemplos de palavras e ouvir seu som.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-btn">
+                        <i class="fas fa-pencil-alt"></i> Como usar a prática de escrita?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Na prática de escrita:</p>
+                        <ol>
+                            <li>Uma letra será mostrada para você copiar</li>
+                            <li>Use o mouse ou o dedo (em tablets) para desenhar a letra na tela</li>
+                            <li>Clique em "Verificar" para ver se você acertou</li>
+                            <li>Use "Limpar" para apagar e tentar novamente</li>
+                        </ol>
+                        <p><strong>Dica:</strong> Tente seguir a ordem correta dos traços, como você aprenderia no papel.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-btn">
+                        <i class="fas fa-book-reader"></i> Como funciona a prática de leitura?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>A prática de leitura tem três níveis:</p>
+                        <ul>
+                            <li><strong>Nível 1:</strong> Palavras simples (casa, bola, gato)</li>
+                            <li><strong>Nível 2:</strong> Frases curtas (O gato mia.)</li>
+                            <li><strong>Nível 3:</strong> Frases mais longas (O carro azul é rápido.)</li>
+                        </ul>
+                        <p>Clique em qualquer palavra ou frase para ouvi-la. Tente ler em voz alta antes de ouvir o áudio!</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="help-card">
+                <h3><i class="fas fa-lightbulb"></i> Dicas para Formação de Palavras</h3>
+                <p>A atividade de formação de palavras ajuda a criança a entender como as sílabas se juntam para formar palavras completas.</p>
+                
+                <div class="activity-steps">
+                    <div class="activity-step">
+                        <div class="step-icon"><i class="fas fa-hand-pointer"></i></div>
+                        <p>Escolha uma categoria (Animais, Frutas, Casa)</p>
+                    </div>
+                    <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="activity-step">
+                        <div class="step-icon"><i class="fas fa-arrows-alt"></i></div>
+                        <p>Arraste as sílabas para a área indicada</p>
+                    </div>
+                    <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="activity-step">
+                        <div class="step-icon"><i class="fas fa-check"></i></div>
+                        <p>Clique em "Verificar" para ver se acertou</p>
+                    </div>
+                </div>
+                
+                <p class="tip"><i class="fas fa-lightbulb"></i> <strong>Dica:</strong> Comece pronunciando cada sílaba em voz alta antes de formar a palavra.</p>
+            </div>
+        </section>
+
+        <section id="jogos" class="content-section">
+            <h2><i class="fas fa-gamepad"></i> Ajuda com Jogos</h2>
+            
+            <div class="games-help-container">
+                <div class="game-help-card">
+                    <div class="game-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Jogo da Memória</h3>
+                    <div class="game-help-content">
+                        <p><strong>Objetivo:</strong> Encontrar todos os pares de letras e imagens correspondentes.</p>
+                        <p><strong>Como jogar:</strong></p>
+                        <ol>
+                            <li>Clique em uma carta para virá-la</li>
+                            <li>Clique em outra carta para tentar encontrar o par</li>
+                            <li>Se as cartas forem iguais, elas ficam viradas</li>
+                            <li>Se forem diferentes, viram de volta</li>
+                            <li>Continue até encontrar todos os pares</li>
+                        </ol>
+                        <p><strong>Dica:</strong> Tente lembrar a posição das letras que já viu.</p>
+                    </div>
+                </div>
+                
+                <div class="game-help-card">
+                    <div class="game-icon"><i class="fas fa-ghost"></i></div>
+                    <h3>Jogo da Forca</h3>
+                    <div class="game-help-content">
+                        <p><strong>Objetivo:</strong> Adivinhar a palavra antes que o boneco seja enforcado.</p>
+                        <p><strong>Como jogar:</strong></p>
+                        <ol>
+                            <li>Escolha letras do teclado na tela</li>
+                            <li>Se a letra estiver na palavra, ela será revelada</li>
+                            <li>Se não estiver, uma parte do boneco será desenhada</li>
+                            <li>Você pode errar até 6 letras antes de perder</li>
+                        </ol>
+                        <p><strong>Dica:</strong> Comece pelas vogais e consoantes mais comuns (A, E, I, O, U, M, S, P, etc.)</p>
+                    </div>
+                </div>
+                
+                <div class="game-help-card">
+                    <div class="game-icon"><i class="fas fa-question-circle"></i></div>
+                    <h3>Quiz das Letras</h3>
+                    <div class="game-help-content">
+                        <p><strong>Objetivo:</strong> Responder corretamente às perguntas sobre letras e palavras.</p>
+                        <p><strong>Como jogar:</strong></p>
+                        <ol>
+                            <li>Leia a pergunta com atenção</li>
+                            <li>Escolha a resposta que achar correta</li>
+                            <li>Você receberá feedback imediato</li>
+                            <li>Continue até responder todas as perguntas</li>
+                        </ol>
+                        <p><strong>Dica:</strong> Se não souber uma resposta, tente eliminar as opções que parecem erradas.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="help-card">
+                <h3><i class="fas fa-trophy"></i> Como Ganhar Prêmios</h3>
+                <p>Conforme você usa o ABC da Diversão, vai desbloqueando conquistas e prêmios. Aqui está como funciona:</p>
+                
+                <div class="trophies-explanation">
+                    <div class="trophy-example">
+                        <div class="trophy-icon"><i class="fas fa-star"></i></div>
+                        <div class="trophy-info">
+                            <h4>Iniciante</h4>
+                            <p>Complete 5 atividades</p>
+                        </div>
+                    </div>
+                    
+                    <div class="trophy-example">
+                        <div class="trophy-icon"><i class="fas fa-medal"></i></div>
+                        <div class="trophy-info">
+                            <h4>Leitor</h4>
+                            <p>Leia 10 palavras corretamente</p>
+                        </div>
+                    </div>
+                    
+                    <div class="trophy-example">
+                        <div class="trophy-icon"><i class="fas fa-crown"></i></div>
+                        <div class="trophy-info">
+                            <h4>Mestre do Alfabeto</h4>
+                            <p>Aprenda todas as letras</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="tip"><i class="fas fa-lightbulb"></i> <strong>Dica:</strong> Clique em qualquer prêmio para ver como conquistá-lo.</p>
+            </div>
+        </section>
+
+        <section id="problemas" class="content-section">
+            <h2><i class="fas fa-bug"></i> Solução de Problemas</h2>
+            
+            <div class="troubleshooting-container">
+                <div class="troubleshooting-card">
+                    <h3><i class="fas fa-volume-mute"></i> Problemas com Áudio</h3>
+                    <div class="solution-steps">
+                        <p><strong>Se você não está ouvindo os sons:</strong></p>
+                        <ol>
+                            <li>Verifique se o volume do seu dispositivo está ligado</li>
+                            <li>Confira se o navegador não está no mudo (procure por um ícone de alto-falante na barra de endereço)</li>
+                            <li>Atualize seu navegador para a versão mais recente</li>
+                            <li>Tente usar outro navegador (Chrome, Firefox, Edge)</li>
+                            <li>Reinicie seu computador ou tablet</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="troubleshooting-card">
+                    <h3><i class="fas fa-mouse-pointer"></i> Problemas com Toque ou Clique</h3>
+                    <div class="solution-steps">
+                        <p><strong>Se os botões não estão respondendo:</strong></p>
+                        <ol>
+                            <li>Atualize seu navegador</li>
+                            <li>Limpe o cache do navegador</li>
+                            <li>Verifique se há atualizações para seu sistema operacional</li>
+                            <li>Se estiver usando um tablet, tente com um stylus em vez do dedo</li>
+                            <li>Reinicie o dispositivo</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="troubleshooting-card">
+                    <h3><i class="fas fa-save"></i> Progresso não está sendo salvo</h3>
+                    <div class="solution-steps">
+                        <p><strong>Se suas conquistas não estão aparecendo:</strong></p>
+                        <ol>
+                            <li>Não use o modo anônimo/privado do navegador</li>
+                            <li>Verifique se os cookies estão habilitados</li>
+                            <li>Tente sempre usar o mesmo navegador</li>
+                            <li>Se possível, não limpe o cache do navegador</li>
+                        </ol>
+                        <p class="warning"><i class="fas fa-exclamation-triangle"></i> O progresso é salvo localmente no navegador. Se você trocar de dispositivo ou navegador, precisará começar de novo.</p>
+                    </div>
+                </div>
+                
+                <div class="troubleshooting-card">
+                    <h3><i class="fas fa-tablet-alt"></i> Problemas em Tablets ou Celulares</h3>
+                    <div class="solution-steps">
+                        <p><strong>Se o site não funciona bem no seu dispositivo móvel:</strong></p>
+                        <ol>
+                            <li>Atualize o sistema operacional do seu dispositivo</li>
+                            <li>Use um navegador atualizado (Chrome ou Safari)</li>
+                            <li>Gire a tela para modo paisagem para melhor experiência</li>
+                            <li>Feche outros aplicativos para liberar memória</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="help-card">
+                <h3><i class="fas fa-question-circle"></i> Perguntas Frequentes</h3>
+                
+                <div class="faq-item">
+                    <h4>O ABC da Diversão é gratuito?</h4>
+                    <p>Sim! O ABC da Diversão foi criado para ajudar crianças no processo de alfabetização e é completamente gratuito.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Para qual idade é recomendado?</h4>
+                    <p>O aplicativo foi desenvolvido para crianças em fase de alfabetização, geralmente entre 4 e 8 anos, mas pode ser útil para qualquer idade que esteja aprendendo a ler e escrever.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Precisa de cadastro ou login?</h4>
+                    <p>Não! O ABC da Diversão não requer cadastro. Seu progresso é salvo localmente no seu navegador.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Funciona sem internet?</h4>
+                    <p>Sim! Depois de acessar o site uma vez, você pode usá-lo offline se adicionar à tela inicial do seu dispositivo (funciona como um PWA - Progressive Web App).</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="content-section">
+            <h2><i class="fas fa-envelope"></i> Entre em Contato</h2>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3><i class="fas fa-info-circle"></i> Informações de Contato</h3>
+                    <p>Se você não encontrou a resposta para sua dúvida na Central de Ajuda, entre em contato conosco:</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <h4>E-mail</h4>
+                            <p>nilsonjosesilvagomes@hotmail.com</p>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <h4>Telefone</h4>
+                            <p>(71) 99938-5205</p>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h4>Localização</h4>
+                            <p>Salvador, Bahia - Brasil</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3><i class="fas fa-paper-plane"></i> Formulário de Contato</h3>
+                    <form id="helpForm">
+                        <div class="form-group">
+                            <label for="name">Seu Nome:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Seu E-mail:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Assunto:</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Selecione...</option>
+                                <option value="duvida">Dúvida</option>
+                                <option value="sugestao">Sugestão</option>
+                                <option value="problema">Problema Técnico</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensagem:</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="feedback-message">
+                <h3><i class="fas fa-comment-dots"></i> Seu Feedback é Importante!</h3>
+                <p>O ABC da Diversão foi criado com amor para ajudar meu filho Dave Henrique e outras crianças com dificuldade no aprendizado. Suas sugestões e comentários nos ajudam a melhorar o aplicativo para todos.</p>
+                <p>Juntos, podemos tornar o aprendizado da leitura e escrita uma experiência divertida e gratificante!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Sobre Nós</h4>
+                <p>ABC da Diversão é uma plataforma educacional criada para ajudar crianças com dificuldade no aprendizado, tornando o processo de alfabetização de forma lúdica e interativa.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <ul class="quick-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Página Inicial</a></li>
+                    <li><a href="#como-usar"><i class="fas fa-question-circle"></i> Ajuda</a></li>
+                    <li><a href="#contato"><i class="fas fa-envelope"></i> Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Siga-nos</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ABC da Diversão (Nilson Gomes). Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+
+    <!-- Áudios -->
+    <audio id="soundEffect" src="sons/click.mp3"></audio>
+    <audio id="backgroundMusic" loop src="sons/background.mp3"></audio>
+
+    <script src="ajuda.js"></script>
+</body>
+
+</html>
