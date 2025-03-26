@@ -559,7 +559,7 @@ function showLetterDetails(letter) {
                 examples = [`${letter}la`, `${letter}to`, `${letter}ca`, `${letter}rin`, `${letter}de`];
         }
     }
-    
+
 
     examples.forEach(example => {
         const li = document.createElement('li');
@@ -614,9 +614,9 @@ function setupWritingCanvas() {
 
     // Eventos do mouse/touch
     canvas.addEventListener('mousedown', startDrawing);
-    canvas.addEventListener('touchstart', handleTouchStart, {passive: false});
+    canvas.addEventListener('touchstart', handleTouchStart, { passive: false });
     canvas.addEventListener('mousemove', draw);
-    canvas.addEventListener('touchmove', handleTouchMove, {passive: false});
+    canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
     canvas.addEventListener('mouseup', stopDrawing);
     canvas.addEventListener('touchend', stopDrawing);
     canvas.addEventListener('mouseout', stopDrawing);
@@ -722,9 +722,9 @@ function checkWriting() {
 }
 
 // Função para iniciar atividades de prática (ATUALIZADA)
-window.startPractice = function(type) {
+window.startPractice = function (type) {
     const practiceArea = document.getElementById('practiceArea');
-    
+
     // Esconde todas as práticas
     document.querySelectorAll('.practice-section').forEach(div => {
         div.style.display = 'none';
@@ -752,19 +752,19 @@ window.startPractice = function(type) {
             } else {
                 writingPractice.style.display = 'block';
             }
-            
+
             // Define uma letra aleatória para praticar
             const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
             const randomLetter = letters[Math.floor(Math.random() * letters.length)];
-            
+
             document.getElementById('letterToWrite').textContent = randomLetter;
             clearCanvas();
             break;
-            
+
         case 'leitura':
             showReadingPractice();
             break;
-            
+
         case 'formacao':
             showWordFormation();
             break;
@@ -797,7 +797,7 @@ function setupReadingPractice() {
     ];
 
     // Função para iniciar um nível de leitura
-    window.startReadingLevel = function(level) {
+    window.startReadingLevel = function (level) {
         const selectedLevel = readingLevels.find(l => l.level === level);
         const readingContent = document.getElementById('readingContent');
 
@@ -821,7 +821,7 @@ function setupReadingPractice() {
     };
 
     // Função para mostrar a prática de leitura
-    window.showReadingPractice = function() {
+    window.showReadingPractice = function () {
         const practiceArea = document.getElementById('practiceArea');
         practiceArea.innerHTML = `
             <div class="reading-practice practice-section">
@@ -840,7 +840,7 @@ function setupReadingPractice() {
 }
 
 // Função para falar a palavra/frase
-window.speakWord = function(word, audioPrefix) {
+window.speakWord = function (word, audioPrefix) {
     // Tenta usar a API de síntese de voz
     if ('speechSynthesis' in window) {
         const utterance = new SpeechSynthesisUtterance(word);
@@ -883,7 +883,7 @@ function setupWordFormation() {
     ];
 
     // Função para mostrar a formação de palavras
-    window.showWordFormation = function() {
+    window.showWordFormation = function () {
         const practiceArea = document.getElementById('practiceArea');
         practiceArea.innerHTML = `
             <div class="word-formation practice-section">
@@ -901,7 +901,7 @@ function setupWordFormation() {
     };
 
     // Função para iniciar uma categoria de palavras
-    window.startWordCategory = function(category) {
+    window.startWordCategory = function (category) {
         const selectedGroup = wordGroups.find(g => g.category === category);
         const wordFormationArea = document.getElementById('wordFormationArea');
 
@@ -962,16 +962,16 @@ function setupWordFormation() {
         let droppedSyllables = [];
 
         syllables.forEach(syllable => {
-            syllable.addEventListener('dragstart', function(e) {
+            syllable.addEventListener('dragstart', function (e) {
                 e.dataTransfer.setData('text/plain', this.id);
             });
         });
 
-        targetWord.addEventListener('dragover', function(e) {
+        targetWord.addEventListener('dragover', function (e) {
             e.preventDefault();
         });
 
-        targetWord.addEventListener('drop', function(e) {
+        targetWord.addEventListener('drop', function (e) {
             e.preventDefault();
             const id = e.dataTransfer.getData('text/plain');
             const draggedSyllable = document.getElementById(id);
@@ -987,7 +987,7 @@ function setupWordFormation() {
     }
 
     // Função para verificar a palavra formada
-    window.checkFormedWord = function(targetWord, audioPrefix) {
+    window.checkFormedWord = function (targetWord, audioPrefix) {
         const targetWordElement = document.getElementById('targetWord');
         const syllablesContainer = document.getElementById('syllablesContainer');
         const formedWord = targetWordElement.textContent.replace(/\s/g, '');
@@ -1017,7 +1017,7 @@ function setupWordFormation() {
 
                 // Mostra a próxima palavra após 3 segundos
                 setTimeout(() => {
-                    const currentCategory = wordGroups.find(g => 
+                    const currentCategory = wordGroups.find(g =>
                         g.words.includes(targetWord))?.category;
                     if (currentCategory) {
                         startWordCategory(currentCategory);
@@ -1037,7 +1037,7 @@ function setupWordFormation() {
 
             // Reseta após 2 segundos
             setTimeout(() => {
-                const currentCategory = wordGroups.find(g => 
+                const currentCategory = wordGroups.find(g =>
                     g.words.includes(targetWord))?.category;
                 if (currentCategory) {
                     startWordCategory(currentCategory);
@@ -1059,9 +1059,9 @@ function shuffleArray(array) {
 // Configura os jogos (ATUALIZADO com Jogo da Forca e Quiz)
 function setupGames() {
     // Implementação do jogo da memória
-    window.startGame = function(gameType) {
+    window.startGame = function (gameType) {
         const gameArea = document.getElementById('gameArea');
-        
+
         if (gameType === 'memoria') {
             gameArea.innerHTML = `
                 <div class="memory-game">
@@ -1072,7 +1072,7 @@ function setupGames() {
                     </button>
                 </div>
             `;
-            
+
             setupMemoryGame();
         } else if (gameType === 'forca') {
             gameArea.innerHTML = `
@@ -1110,7 +1110,7 @@ function setupGames() {
                     </button>
                 </div>
             `;
-            
+
             setupHangmanGame();
         } else if (gameType === 'quiz') {
             gameArea.innerHTML = `
@@ -1122,7 +1122,7 @@ function setupGames() {
                     </button>
                 </div>
             `;
-            
+
             setupQuizGame();
         }
     };
@@ -1135,13 +1135,13 @@ function setupGames() {
             { letter: 'C', image: 'imagens/letra_c.png' },
             { letter: 'D', image: 'imagens/letra_d.png' }
         ];
-        
+
         // Duplica as cartas para formar pares
         const gameCards = [...cards, ...cards];
-        
+
         // Embaralha as cartas
         shuffleArray(gameCards);
-        
+
         // Cria as cartas no grid
         memoryGrid.innerHTML = '';
         gameCards.forEach((card, index) => {
@@ -1159,34 +1159,34 @@ function setupGames() {
             cardElement.addEventListener('click', flipCard);
             memoryGrid.appendChild(cardElement);
         });
-        
+
         let flippedCards = [];
         let matchedPairs = 0;
-        
+
         function flipCard() {
             if (flippedCards.length < 2 && !this.classList.contains('flipped')) {
                 this.classList.add('flipped');
                 flippedCards.push(this);
                 playSound('flip');
-                
+
                 if (flippedCards.length === 2) {
                     checkForMatch();
                 }
             }
         }
-        
+
         function checkForMatch() {
             const card1 = flippedCards[0];
             const card2 = flippedCards[1];
             const letter1 = card1.querySelector('.memory-card-front img').alt;
             const letter2 = card2.querySelector('.memory-card-front img').alt;
-            
+
             if (letter1 === letter2) {
                 card1.classList.add('matched');
                 card2.classList.add('matched');
                 matchedPairs++;
                 playSound('match');
-                
+
                 if (matchedPairs === cards.length) {
                     setTimeout(() => {
                         alert('Parabéns! Você completou o jogo!');
@@ -1200,7 +1200,7 @@ function setupGames() {
                     playSound('error');
                 }, 1000);
             }
-            
+
             flippedCards = [];
         }
     }
@@ -1211,11 +1211,11 @@ function setupGames() {
         const maxWrong = 6;
         let wrongGuesses = 0;
         let guessedLetters = [];
-        
+
         const hangmanWord = document.getElementById('hangmanWord');
         const hangmanWrongLetters = document.getElementById('hangmanWrongLetters');
         const hangmanKeyboard = document.getElementById('hangmanKeyboard');
-        
+
         // Mostra as letras escondidas
         function displayWord() {
             hangmanWord.innerHTML = word
@@ -1223,13 +1223,13 @@ function setupGames() {
                 .map(letter => guessedLetters.includes(letter) ? letter : '_')
                 .join(' ');
         }
-        
+
         // Mostra as letras erradas
         function displayWrongLetters() {
             const wrongLetters = guessedLetters.filter(letter => !word.includes(letter));
             hangmanWrongLetters.textContent = `Letras erradas: ${wrongLetters.join(', ')}`;
         }
-        
+
         // Cria o teclado
         function createKeyboard() {
             hangmanKeyboard.innerHTML = '';
@@ -1242,15 +1242,15 @@ function setupGames() {
                 hangmanKeyboard.appendChild(button);
             }
         }
-        
+
         // Adivinha uma letra
         function guessLetter(letter) {
             if (guessedLetters.includes(letter)) return;
-            
+
             guessedLetters.push(letter);
             const letterButton = Array.from(hangmanKeyboard.children)
                 .find(btn => btn.textContent === letter);
-            
+
             if (word.includes(letter)) {
                 letterButton.style.backgroundColor = '#2ecc71';
                 playSound('correct');
@@ -1260,19 +1260,19 @@ function setupGames() {
                 updateHangmanDrawing();
                 playSound('error');
             }
-            
+
             letterButton.disabled = true;
             displayWord();
             displayWrongLetters();
             checkGameStatus();
         }
-        
+
         // Atualiza o desenho da forca
         function updateHangmanDrawing() {
             const parts = ['head', 'body', 'leftArm', 'rightArm', 'leftLeg', 'rightLeg'];
             document.getElementById(parts[wrongGuesses - 1]).style.visibility = 'visible';
         }
-        
+
         // Verifica o status do jogo
         function checkGameStatus() {
             // Verifica se ganhou
@@ -1283,7 +1283,7 @@ function setupGames() {
                 }, 500);
                 return;
             }
-            
+
             // Verifica se perdeu
             if (wrongGuesses >= maxWrong) {
                 setTimeout(() => {
@@ -1291,7 +1291,7 @@ function setupGames() {
                 }, 500);
             }
         }
-        
+
         // Inicializa o jogo
         displayWord();
         displayWrongLetters();
@@ -1316,11 +1316,11 @@ function setupGames() {
                 answer: "5"
             }
         ];
-        
+
         let currentQuestion = 0;
         let score = 0;
         const quizContainer = document.getElementById('quizContainer');
-        
+
         function showQuestion() {
             const question = quizQuestions[currentQuestion];
             quizContainer.innerHTML = `
@@ -1341,13 +1341,13 @@ function setupGames() {
         }
 
         // Função global para verificar a resposta
-        window.checkAnswer = function(index, selectedOption) {
+        window.checkAnswer = function (index, selectedOption) {
             const question = quizQuestions[currentQuestion];
             const options = document.querySelectorAll('.quiz-option');
-            
+
             // Desabilita todos os botões
             options.forEach(btn => btn.disabled = true);
-            
+
             if (selectedOption === question.answer) {
                 options[index].style.backgroundColor = '#2ecc71';
                 score++;
@@ -1377,9 +1377,9 @@ function setupGames() {
                 <div class="quiz-result">
                     <h4>Quiz Concluído!</h4>
                     <p>Você acertou ${score} de ${quizQuestions.length} perguntas (${percentage}%)</p>
-                    ${percentage >= 70 ? 
-                        '<p class="success">Parabéns! Você foi muito bem!</p>' : 
-                        '<p class="error">Você pode melhorar! Tente novamente.</p>'}
+                    ${percentage >= 70 ?
+                    '<p class="success">Parabéns! Você foi muito bem!</p>' :
+                    '<p class="error">Você pode melhorar! Tente novamente.</p>'}
                     <button class="quiz-restart-btn" onclick="setupQuizGame()">
                         <i class="fas fa-redo"></i> Jogar Novamente
                     </button>
@@ -1400,50 +1400,162 @@ function setupGames() {
 
 // Configura as histórias (ATUALIZADO com João e o Pé de Feijão)
 function setupStories() {
-const stories = [
-    {
-        id: 'chapeuzinho',
-        title: 'Chapeuzinho Vermelho',
-        content: `
-            <p>Era uma vez uma menina chamada Chapeuzinho Vermelho.</p>
-            <p>Sua mãe pediu que ela levasse uma cesta de doces para sua avó.</p>
-            <p>No caminho, ela encontrou o Lobo Mau...</p>
-        `,
-        audio: 'sons/chapeuzinho.mp3',
-        image: 'imagens/chapeuzinho.jpg'
-    },
-    {
-        id: 'tres-porquinhos',
-        title: 'Os Três Porquinhos',
-        content: `
-            <p>Era uma vez três porquinhos que construíram suas casas.</p>
-            <p>Um fez de palha, outro de madeira e o terceiro de tijolos.</p>
-            <p>O Lobo Mau veio e soprou as casas...</p>
-        `,
-        audio: 'sons/porquinhos.mp3',
-        image: 'imagens/porquinhos.jpg'
-    },
-    {
-        id: 'joao-feijao',
-        title: 'João e o Pé de Feijão',
-        content: `
-            <p>Era uma vez um menino chamado João que vivia com sua mãe.</p>
-            <p>Eles eram muito pobres e a mãe pediu que João vendesse a vaca.</p>
-            <p>No caminho, João encontrou um homem que lhe ofereceu feijões mágicos...</p>
-            <p>João plantou os feijões que cresceram até o céu, formando um pé de feijão gigante.</p>
-            <p>Ele subiu e encontrou um castelo onde vivia um gigante malvado.</p>
-        `,
-        audio: 'sons/joao-feijao.mp3',
-        image: 'imagens/joao-feijao.jpg'
-    }
-];
-
-window.readStory = function(storyId) {
-    const story = stories.find(s => s.id === storyId);
-    const storyReader = document.getElementById('storyReader');
-    const storyContent = document.getElementById('storyContent');
+    const stories = [
+        {
+            id: 'chapeuzinho',
+            title: 'Chapeuzinho Vermelho',
+            content: `
+             <p>Era uma vez uma menina chamada <span class="highlight">Chapeuzinho Vermelho</span>. Ela ganhou esse nome porque sempre usava uma capa vermelha com um chapeuzinho.</p>
     
-    storyContent.innerHTML = `
+    <p>Um dia, sua mãe disse:</p>
+    <p class="dialog">— Chapeuzinho, leve esta cesta de doces para a vovó. Ela está doentinha.</p>
+    
+    <p class="dialog">— Vou, sim! — disse Chapeuzinho.</p>
+    
+    <p>A mamãe avisou:</p>
+    <p class="dialog warning">— Não entre na floresta e não fale com estranhos!</p>
+    
+    <p>Chapeuzinho saiu cantando. No caminho, apareceu o <span class="highlight">Lobo Mau</span>.</p>
+    
+    <p class="dialog">— Onde você vai, menina? — perguntou o lobo.</p>
+    
+    <p class="dialog">— Vou levar doces para minha vovó — respondeu Chapeuzinho, esquecendo o aviso da mãe.</p>
+    
+    <p>O lobo sorriu e pensou: "Hum, vou comer a vovó e depois a neta!"</p>
+    
+    <p>Ele correu até a casa da vovó, bateu na porta e fingiu ser Chapeuzinho. A vovó abriu e... <span class="highlight">GLUP!</span> O lobo a engoliu!</p>
+    
+    <p>Depois, vestiu a roupa dela e deitou na cama.</p>
+    
+    <p>Quando Chapeuzinho chegou, estranhou:</p>
+    
+    <p class="dialog">— Vovó, que orelhas grandes!<br>
+    — É para te ouvir melhor!</p>
+    
+    <p class="dialog">— Vovó, que olhos grandes!<br>
+    — É para te ver melhor!</p>
+    
+    <p class="dialog warning">— Vovó, que dentes grandes!<br>
+    — É PARA TE COMER!</p>
+    
+    <p>O lobo pulou, mas <span class="highlight">um caçador</span> ouviu o barulho e entrou correndo. Ele salvou a vovó e prendeu o lobo.</p>
+    
+    <p>Chapeuzinho aprendeu a lição: <span class="warning">nunca desobedeça sua mãe!</span></p>
+    
+    <p class="end">E todos viveram felizes para sempre.</p>
+    
+    <p class="end"><strong>Fim.</strong></p>
+        `,
+            audio: 'sons/chapeuzinho.mp3',
+            image: 'imagens/chapeuzinho.jpg'
+        },
+        {
+            id: 'tres-porquinhos',
+            title: 'Os Três Porquinhos',
+            content: `
+            <p>Era uma vez <span class="highlight">três porquinhos</span> que decidiram construir suas próprias casas.</p>
+    
+    <p>O <span class="highlight">primeiro porquinho</span>, que era muito preguiçoso, fez sua casa de <span class="house">palha</span>.</p>
+    <p class="dialog">— Pronto! Já terminei! — disse ele, deitando para descansar.</p>
+    
+    <p>O <span class="highlight">segundo porquinho</span> fez sua casa de <span class="house">madeira</span>.</p>
+    <p class="dialog">— Assim fica mais forte! — pensou ele.</p>
+    
+    <p>O <span class="highlight">terceiro porquinho</span>, trabalhador, construiu sua casa de <span class="house">tijolos</span>.</p>
+    <p class="dialog">— Vai demorar, mas ficará segura! — disse ele.</p>
+    
+    <p>No dia seguinte, apareceu o <span class="highlight">Lobo Mau</span>.</p>
+    <p class="dialog">— Porquinhos, abram a porta! Quero entrar! — rugiu ele.</p>
+    
+    <p>Os porquinhos responderam:</p>
+    <p class="dialog warning">— De jeito nenhum!</p>
+    
+    <p>O lobo então <span class="highlight">soprou</span> com toda a força:</p>
+    <p class="dialog">— HUFF! PUFF!</p>
+    
+    <p>A casa de <span class="house">palha</span> voou! O primeiro porquinho correu para a casa de madeira.</p>
+    
+    <p>O lobo soprou de novo:</p>
+    <p class="dialog">— HUFF! PUFF!</p>
+    
+    <p>A casa de <span class="house">madeira</span> caiu! Os dois porquinhos fugiram para a casa de tijolos.</p>
+    
+    <p>O lobo soprou mais forte ainda:</p>
+    <p class="dialog">— HUFF! PUFF! HUFF! PUFF!</p>
+    
+    <p>Mas a casa de <span class="house">tijolos</span> não caiu! O lobo ficou furioso e tentou entrar pela chaminé...</p>
+    
+    <p>Mas os porquinhos eram espertos! Colocaram um <span class="highlight">caldeirão de água fervente</span> no fogão.</p>
+    
+    <p class="warning">PLAF! O lobo caiu dentro e saiu correndo queimado!</p>
+    
+    <p>Os três porquinhos comemoraram:</p>
+    <p class="dialog">— Viva! O lobo nunca mais vai nos perturbar!</p>
+    
+    <p class="end">E assim, os porquinhos viveram felizes e seguros em suas casas.</p>
+    
+    <p class="end"><strong>Fim.</strong></p>
+        `,
+            audio: 'sons/porquinhos.mp3',
+            image: 'imagens/porquinhos.jpg'
+        },
+        {
+            id: 'joao-feijao',
+            title: 'João e o Pé de Feijão',
+            content: `
+            <p>Era uma vez um menino chamado <span class="highlight">João</span> que vivia com sua mãe em uma casinha pobre.</p>
+    
+    <p>Um dia, a mãe disse:</p>
+    <p class="dialog">— João, vamos passar fome! Venda a vaca no mercado.</p>
+    
+    <p>No caminho, João encontrou um velhinho:</p>
+    <p class="dialog magic">— Troco sua vaca por estes <span class="magic">feijões mágicos</span>!</p>
+    
+    <p>A mãe ficou furiosa:</p>
+    <p class="dialog warning">— Feijões? Jogou tudo fora!</p>
+    
+    <p>Na manhã seguinte... <span class="magic">UAU!</span> Os feijões tinham virado um <span class="highlight">pé gigante</span> que subia até as nuvens!</p>
+    
+    <p>João escalou e chegou a um castelo no céu. Lá vivia um <span class="warning">gigante terrível</span>!</p>
+    
+    <p class="dialog">— FEDOR DE HUMANO! — rugiu o gigante.</p>
+    
+    <p>João se escondeu e viu:</p>
+    <ul>
+        <li>Uma <span class="magic">galinha que botava ovos de ouro</span></li>
+        <li>Um <span class="magic">saco de moedas de prata</span></li>
+        <li>Uma <span class="magic">harpa que tocava sozinha</span></li>
+    </ul>
+    
+    <p>Quando o gigante dormiu, João pegou a galinha e fugiu!</p>
+    
+    <p>No dia seguinte, voltou e levou o saco de moedas.</p>
+    
+    <p>Na terceira vez, a harpa gritou:</p>
+    <p class="dialog warning">— SOCORRO, MESTRE!</p>
+    
+    <p>O gigante acordou e perseguiu João! Ele desceu o pé de feijão a toda velocidade.</p>
+    
+    <p class="warning">CRÁÁÁC!</p>
+    <p>Sua mãe cortou o pé com um machado, e o gigante caiu para nunca mais voltar!</p>
+    
+    <p>Com os tesouros, João e sua mãe ficaram <span class="highlight">ricos e felizes</span>.</p>
+    
+    <p class="end">E viveram com muitas histórias para contar!</p>
+    
+    <p class="end"><strong>Fim.</strong></p>
+        `,
+            audio: 'sons/joao-feijao.mp3',
+            image: 'imagens/joao-feijao.jpg'
+        }
+    ];
+
+    window.readStory = function (storyId) {
+        const story = stories.find(s => s.id === storyId);
+        const storyReader = document.getElementById('storyReader');
+        const storyContent = document.getElementById('storyContent');
+
+        storyContent.innerHTML = `
         <div class="story-header">
             <img src="${story.image}" alt="${story.title}" class="story-image">
             <h3>${story.title}</h3>
@@ -1452,140 +1564,140 @@ window.readStory = function(storyId) {
             ${story.content}
         </div>
     `;
-    
-    document.getElementById('storyAudio').src = story.audio;
-    storyReader.style.display = 'block';
-    
-    // Atualiza o progresso
-    updateProgress(2, `story_${storyId}_read`);
-};
 
-window.playStoryAudio = function() {
-    const audio = document.getElementById('storyAudio');
-    audio.play();
-    playSound('story-open');
-};
+        document.getElementById('storyAudio').src = story.audio;
+        storyReader.style.display = 'block';
 
-window.stopStoryAudio = function() {
-    const audio = document.getElementById('storyAudio');
-    audio.pause();
-    audio.currentTime = 0;
-    playSound('click');
-};
+        // Atualiza o progresso
+        updateProgress(2, `story_${storyId}_read`);
+    };
+
+    window.playStoryAudio = function () {
+        const audio = document.getElementById('storyAudio');
+        audio.play();
+        playSound('story-open');
+    };
+
+    window.stopStoryAudio = function () {
+        const audio = document.getElementById('storyAudio');
+        audio.pause();
+        audio.currentTime = 0;
+        playSound('click');
+    };
 }
 
 // Configura a ajuda flutuante
 function setupFloatingHelp() {
-const helpButton = document.getElementById('floatingHelp');
-const helpBox = document.getElementById('helpBox');
+    const helpButton = document.getElementById('floatingHelp');
+    const helpBox = document.getElementById('helpBox');
 
-helpButton.addEventListener('click', function() {
-    helpBox.style.display = helpBox.style.display === 'block' ? 'none' : 'block';
-    playSound('help');
-});
+    helpButton.addEventListener('click', function () {
+        helpBox.style.display = helpBox.style.display === 'block' ? 'none' : 'block';
+        playSound('help');
+    });
 
-window.speakHelp = function() {
-    const helpText = document.getElementById('helpText').textContent;
-    
-    if ('speechSynthesis' in window) {
-        const utterance = new SpeechSynthesisUtterance(helpText);
-        utterance.lang = 'pt-BR';
-        speechSynthesis.speak(utterance);
-    }
-    
-    playSound('help');
-};
+    window.speakHelp = function () {
+        const helpText = document.getElementById('helpText').textContent;
+
+        if ('speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance(helpText);
+            utterance.lang = 'pt-BR';
+            speechSynthesis.speak(utterance);
+        }
+
+        playSound('help');
+    };
 }
 
 // Configura o mascote interativo
 function setupMascot() {
-const mascote = document.getElementById('mascote');
+    const mascote = document.getElementById('mascote');
 
-mascote.addEventListener('click', function() {
-    playSound('mascot');
-    
-    // Animações aleatórias
-    const animations = ['jump', 'spin', 'shake', 'dance'];
-    const randomAnim = animations[Math.floor(Math.random() * animations.length)];
-    
-    this.style.animation = `${randomAnim} 0.5s ease`;
-    
-    setTimeout(() => {
-        this.style.animation = '';
-    }, 500);
-});
+    mascote.addEventListener('click', function () {
+        playSound('mascot');
+
+        // Animações aleatórias
+        const animations = ['jump', 'spin', 'shake', 'dance'];
+        const randomAnim = animations[Math.floor(Math.random() * animations.length)];
+
+        this.style.animation = `${randomAnim} 0.5s ease`;
+
+        setTimeout(() => {
+            this.style.animation = '';
+        }, 500);
+    });
 }
 
 // Configura o sistema de progresso
 function initProgressSystem() {
-if (!localStorage.getItem('userProgress')) {
-    localStorage.setItem('userProgress', JSON.stringify({
-        points: 0,
-        achievements: []
-    }));
-}
+    if (!localStorage.getItem('userProgress')) {
+        localStorage.setItem('userProgress', JSON.stringify({
+            points: 0,
+            achievements: []
+        }));
+    }
 }
 
 // Atualiza o progresso do usuário
 function updateProgress(points, achievement) {
-const progress = JSON.parse(localStorage.getItem('userProgress'));
+    const progress = JSON.parse(localStorage.getItem('userProgress'));
 
-progress.points += points;
+    progress.points += points;
 
-if (achievement && !progress.achievements.includes(achievement)) {
-    progress.achievements.push(achievement);
-}
+    if (achievement && !progress.achievements.includes(achievement)) {
+        progress.achievements.push(achievement);
+    }
 
-localStorage.setItem('userProgress', JSON.stringify(progress));
-updateProgressUI();
+    localStorage.setItem('userProgress', JSON.stringify(progress));
+    updateProgressUI();
 }
 
 // Atualiza a UI do progresso
 function updateProgressUI() {
-const progress = JSON.parse(localStorage.getItem('userProgress'));
-const progressFill = document.getElementById('progressFill');
-const progressText = document.getElementById('progressText');
-const trophiesGrid = document.getElementById('trophiesGrid');
+    const progress = JSON.parse(localStorage.getItem('userProgress'));
+    const progressFill = document.getElementById('progressFill');
+    const progressText = document.getElementById('progressText');
+    const trophiesGrid = document.getElementById('trophiesGrid');
 
-// Atualiza a barra de progresso (max 100 pontos)
-const progressPercent = Math.min(100, progress.points);
-progressFill.style.width = `${progressPercent}%`;
-progressText.textContent = `Você completou ${progressPercent}% das atividades!`;
+    // Atualiza a barra de progresso (max 100 pontos)
+    const progressPercent = Math.min(100, progress.points);
+    progressFill.style.width = `${progressPercent}%`;
+    progressText.textContent = `Você completou ${progressPercent}% das atividades!`;
 
-// Atualiza as conquistas
-trophiesGrid.innerHTML = '';
+    // Atualiza as conquistas
+    trophiesGrid.innerHTML = '';
 
-const allAchievements = [
-    { id: 'write_A', name: 'Letra A', icon: 'fas fa-a' },
-    { id: 'memory_game_completed', name: 'Jogo da Memória', icon: 'fas fa-brain' },
-    { id: 'hangman_game_won', name: 'Forca', icon: 'fas fa-ghost' },
-    { id: 'quiz_completed', name: 'Quiz', icon: 'fas fa-question' },
-    { id: 'story_chapeuzinho_read', name: 'Chapeuzinho', icon: 'fas fa-book' },
-    { id: 'story_tres-porquinhos_read', name: 'Três Porquinhos', icon: 'fas fa-book' },
-    { id: 'story_joao-feijao_read', name: 'João e o Pé de Feijão', icon: 'fas fa-book' }
-];
+    const allAchievements = [
+        { id: 'write_A', name: 'Letra A', icon: 'fas fa-a' },
+        { id: 'memory_game_completed', name: 'Jogo da Memória', icon: 'fas fa-brain' },
+        { id: 'hangman_game_won', name: 'Forca', icon: 'fas fa-ghost' },
+        { id: 'quiz_completed', name: 'Quiz', icon: 'fas fa-question' },
+        { id: 'story_chapeuzinho_read', name: 'Chapeuzinho', icon: 'fas fa-book' },
+        { id: 'story_tres-porquinhos_read', name: 'Três Porquinhos', icon: 'fas fa-book' },
+        { id: 'story_joao-feijao_read', name: 'João e o Pé de Feijão', icon: 'fas fa-book' }
+    ];
 
-allAchievements.forEach(ach => {
-    const trophy = document.createElement('div');
-    trophy.className = `trophy ${progress.achievements.includes(ach.id) ? '' : 'locked'}`;
-    trophy.innerHTML = `
+    allAchievements.forEach(ach => {
+        const trophy = document.createElement('div');
+        trophy.className = `trophy ${progress.achievements.includes(ach.id) ? '' : 'locked'}`;
+        trophy.innerHTML = `
         <i class="${ach.icon}"></i>
         <span>${ach.name}</span>
     `;
-    
-    trophy.addEventListener('click', function() {
-        showTrophyDetails(ach, progress.achievements.includes(ach.id));
+
+        trophy.addEventListener('click', function () {
+            showTrophyDetails(ach, progress.achievements.includes(ach.id));
+        });
+
+        trophiesGrid.appendChild(trophy);
     });
-    
-    trophiesGrid.appendChild(trophy);
-});
 }
 
 // Mostra detalhes do troféu
 function showTrophyDetails(achievement, unlocked) {
-const trophyDetails = document.getElementById('trophyDetails');
+    const trophyDetails = document.getElementById('trophyDetails');
 
-trophyDetails.innerHTML = `
+    trophyDetails.innerHTML = `
     <div class="trophy-details-content">
         <i class="${achievement.icon} ${unlocked ? '' : 'locked'}"></i>
         <h4>${achievement.name}</h4>
@@ -1596,6 +1708,6 @@ trophyDetails.innerHTML = `
     </div>
 `;
 
-trophyDetails.style.display = 'flex';
-playSound(unlocked ? 'win' : 'click');
+    trophyDetails.style.display = 'flex';
+    playSound(unlocked ? 'win' : 'click');
 }
