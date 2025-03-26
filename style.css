@@ -41,8 +41,13 @@ body {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Cabeçalho */
@@ -149,8 +154,15 @@ body {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 h2 {
@@ -1067,14 +1079,29 @@ h2 i {
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 @keyframes glow {
-    0% { box-shadow: 0 0 5px #f1c40f; }
-    50% { box-shadow: 0 0 20px #f1c40f; }
-    100% { box-shadow: 0 0 5px #f1c40f; }
+    0% {
+        box-shadow: 0 0 5px #f1c40f;
+    }
+
+    50% {
+        box-shadow: 0 0 20px #f1c40f;
+    }
+
+    100% {
+        box-shadow: 0 0 5px #f1c40f;
+    }
 }
 
 .trophy-details {
@@ -1289,131 +1316,283 @@ h2 i {
 
 /* Animação do Mascote */
 @keyframes jump {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    75% { transform: translateX(5px); }
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
 }
 
 @keyframes dance {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-5deg); }
-    75% { transform: rotate(5deg); }
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-5deg);
+    }
+
+    75% {
+        transform: rotate(5deg);
+    }
 }
 
-/* Responsividade */
+/* Responsividade para tablets (768px) */
 @media (max-width: 768px) {
+    /* Layout geral */
     .main-header {
         flex-direction: column;
         text-align: center;
+        padding: 1rem;
     }
-    
+
+    .header-content h1 {
+        font-size: 2rem;
+        margin-bottom: 0.3rem;
+    }
+
     .character {
         margin-top: 1rem;
     }
-    
+
+    /* Navegação */
     .main-nav ul {
         flex-wrap: wrap;
+        justify-content: space-around;
     }
-    
+
     .main-nav a {
-        padding: 0.8rem;
-        font-size: 0.9rem;
+        padding: 0.5rem;
+        font-size: 0.85rem;
     }
-    
+
+    /* Conteúdo principal */
+    .main-content {
+        padding: 1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Seção Aprender */
+    .alphabet-nav {
+        overflow-x: auto;
+        padding-bottom: 10px;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+
+    .alphabet-nav-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+
+    .letters-display {
+        grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+        gap: 8px;
+    }
+
+    .letter-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+
     .letter-card h3 {
         font-size: 3rem;
     }
-    
+
     .letter-image {
         width: 150px;
         height: 150px;
     }
-    
-    .practice-options, .games-container, .stories-container {
+
+    /* Seção Praticar */
+    .practice-options,
+    .games-container,
+    .stories-container {
         grid-template-columns: 1fr;
     }
-    
+
+    .practice-card {
+        padding: 1rem;
+    }
+
     #writingCanvas {
         width: 250px;
         height: 250px;
     }
-    
+
+    /* Jogos */
     .memory-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
-    
+
     .memory-card {
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
     }
-    
+
+    /* Prêmios */
     .trophies-grid {
         grid-template-columns: repeat(3, 1fr);
     }
+
+    /* Rodapé */
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Ajuda flutuante */
+    .floating-help {
+        bottom: 15px;
+        right: 15px;
+    }
 }
 
+/* Responsividade para celulares (480px) */
 @media (max-width: 480px) {
+    /* Cabeçalho */
     .header-content h1 {
-        font-size: 1.8rem;
-    }
-    
-    .subtitle {
-        font-size: 0.9rem;
-    }
-    
-    .character img {
-        height: 80px;
-    }
-    
-    .main-nav a {
-        padding: 0.5rem;
-        font-size: 0.8rem;
-    }
-    
-    .main-content {
-        padding: 1rem;
-    }
-    
-    h2 {
         font-size: 1.5rem;
     }
-    
+
+    .subtitle {
+        font-size: 0.8rem;
+    }
+
+    .character img {
+        height: 60px;
+    }
+
+    /* Navegação */
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-nav li {
+        width: 100%;
+    }
+
+    .main-nav a {
+        padding: 0.8rem;
+        font-size: 0.8rem;
+        border-bottom: 1px solid #f1f1f1;
+    }
+
+    /* Seção Aprender */
+    .letters-display {
+        grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    }
+
     .letter-btn {
         width: 40px;
         height: 40px;
         font-size: 1.2rem;
     }
-    
-    .floating-help {
-        bottom: 20px;
-        right: 20px;
+
+    .letter-card h3 {
+        font-size: 2.5rem;
     }
-    
-    .floating-help button {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
+
+    .letter-image {
+        width: 120px;
+        height: 120px;
     }
-    
-    .help-box {
+
+    /* Seção Praticar */
+    .practice-options {
+        gap: 10px;
+    }
+
+    #writingCanvas {
         width: 200px;
+        height: 200px;
     }
-    
+
+    /* Jogos */
     .memory-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
     }
-    
+
+    .memory-card {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* Quiz */
+    .quiz-options {
+        grid-template-columns: 1fr;
+    }
+
+    /* Prêmios */
     .trophies-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Rodapé */
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    /* Ajuda flutuante */
+    .floating-help {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .floating-help button {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+
+    .help-box {
+        width: 90vw;
+        right: -30px;
     }
 }

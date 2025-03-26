@@ -1398,7 +1398,6 @@ function setupGames() {
 }
 
 
-// Configura as histórias (ATUALIZADO com João e o Pé de Feijão)
 function setupStories() {
     const stories = [
         {
@@ -1449,6 +1448,8 @@ function setupStories() {
             audio: 'sons/chapeuzinho.mp3',
             image: 'imagens/chapeuzinho.jpg'
         },
+
+
         {
             id: 'tres-porquinhos',
             title: 'Os Três Porquinhos',
@@ -1499,6 +1500,9 @@ function setupStories() {
             audio: 'sons/porquinhos.mp3',
             image: 'imagens/porquinhos.jpg'
         },
+
+
+
         {
             id: 'joao-feijao',
             title: 'João e o Pé de Feijão',
