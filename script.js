@@ -813,7 +813,7 @@ function setupWordFormation() {
         },
         {
             category: "Frutas",
-            words: ["maçã", "banana", "uva", "laranja", "tangerina", "caju", "manga", "úmbu", "siriguela", "pêra"],
+            words: ["maçã", "banana", "uva", "laranja", "tangerina", "caju", "manga", "umbu", "siriguela", "pêra"],
             audio: "sons/frutas/"
         },
         {
@@ -823,8 +823,8 @@ function setupWordFormation() {
         }
     ];
 
-    // Função para mostrar a formação de palavras
-    window.showWordFormation = function () {
+    // Função principal para mostrar a formação de palavras
+    window.showWordFormation = function() {
         const practiceArea = document.getElementById('practiceArea');
         practiceArea.innerHTML = `
             <div class="word-formation practice-section">
@@ -841,14 +841,14 @@ function setupWordFormation() {
         `;
     };
 
-    // Função para iniciar uma categoria de palavras
-    window.startWordCategory = function (category) {
+    // Inicia uma categoria de palavras
+    window.startWordCategory = function(category) {
         const selectedGroup = wordGroups.find(g => g.category === category);
         const wordFormationArea = document.getElementById('wordFormationArea');
-
+        
         // Seleciona uma palavra aleatória do grupo
         const targetWord = selectedGroup.words[Math.floor(Math.random() * selectedGroup.words.length)];
-        const syllables = splitIntoSyllables(targetWord);
+        const syllables = correctSyllableSeparation(targetWord);
 
         // Embaralha as sílabas
         const shuffledSyllables = shuffleArray([...syllables]);
@@ -863,37 +863,176 @@ function setupWordFormation() {
                     </div>
                 `).join('')}
             </div>
-            <button class="check-word-btn" onclick="checkFormedWord('${targetWord}', '${selectedGroup.audio}')">
-                <i class="fas fa-check"></i> Verificar
-            </button>
-            <button class="back-btn" onclick="showWordFormation()">
-                <i class="fas fa-arrow-left"></i> Voltar
-            </button>
+            <div class="word-formation-buttons">
+                <button class="check-word-btn" onclick="checkFormedWord('${targetWord}', '${selectedGroup.audio}')">
+                    <i class="fas fa-check"></i> Verificar
+                </button>
+                <button class="hint-btn" onclick="giveHint()">
+                    <i class="fas fa-lightbulb"></i> Dica
+                </button>
+                <button class="back-btn" onclick="showWordFormation()">
+                    <i class="fas fa-arrow-left"></i> Voltar
+                </button>
+            </div>
+            <div id="hintArea"></div>
+            <div id="feedbackArea"></div>
         `;
 
         setupDragAndDrop();
+        setupSyllableClick();
     };
 
-    // Função para dividir palavras em sílabas (simplificado)
-    function splitIntoSyllables(word) {
-        // Esta é uma implementação simplificada - na prática seria mais complexa
-        const vowels = ['a', 'e', 'i', 'o', 'u', 'á', 'é', 'í', 'ó', 'ú', 'ã', 'õ', 'â', 'ê', 'ô'];
-        let syllables = [];
+    // Divisão silábica correta segundo as regras do português brasileiro
+    function correctSyllableSeparation(word) {
+        // Normaliza a palavra (remove acentos e converte para minúsculas)
+        const normalized = word.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+        const syllables = [];
         let currentSyllable = '';
-
-        for (let i = 0; i < word.length; i++) {
-            currentSyllable += word[i];
-            if (vowels.includes(word[i].toLowerCase())) {
+        let position = 0;
+        
+        // Regras de divisão silábica
+        while (position < normalized.length) {
+            const currentChar = normalized[position];
+            const nextChar = normalized[position + 1] || '';
+            const nextNextChar = normalized[position + 2] || '';
+            
+            // 1. Vogais formam núcleos silábicos
+            if (isVowel(currentChar)) {
+                currentSyllable += word[position]; // Usa o caractere original (pode ter acento)
+                position++;
+                
+                // 2. Ditongos e tritongos (vogais + semivogais na mesma sílaba)
+                if (position < normalized.length && isSemiVowel(normalized[position])) {
+                    currentSyllable += word[position];
+                    position++;
+                    
+                    // Tritongo (raro, ex: 'quão')
+                    if (position < normalized.length && isSemiVowel(normalized[position])) {
+                        currentSyllable += word[position];
+                        position++;
+                    }
+                }
+                
                 syllables.push(currentSyllable);
                 currentSyllable = '';
+                continue;
             }
+            
+            // 3. Consoantes
+            if (isConsonant(currentChar)) {
+                // 3.1. Consoantes não seguem sozinhas (exceto no final)
+                if (currentSyllable === '') {
+                    currentSyllable += word[position];
+                    position++;
+                    
+                    // 3.2. Encontros consonantais
+                    if (position < normalized.length && isConsonant(normalized[position])) {
+                        const consonantGroup = currentChar + normalized[position];
+                        
+                        // Grupos consonantais inseparáveis (br, cr, dr, etc.)
+                        if (isInseparableConsonantGroup(consonantGroup)) {
+                            currentSyllable += word[position];
+                            position++;
+                            
+                            // Se for 'qu' ou 'gu' seguido de vogal, trata separadamente
+                            if ((consonantGroup === 'qu' || consonantGroup === 'gu') && 
+                                position < normalized.length && isVowel(normalized[position])) {
+                                syllables.push(currentSyllable);
+                                currentSyllable = '';
+                                continue;
+                            }
+                        } 
+                        // Grupos separáveis (ex: 'cn', 'tm', 'ps')
+                        else {
+                            syllables.push(currentSyllable);
+                            currentSyllable = word[position];
+                            position++;
+                            continue;
+                        }
+                    }
+                    
+                    // Se a próxima letra é vogal, completa a sílaba
+                    if (position < normalized.length && isVowel(normalized[position])) {
+                        continue;
+                    } else {
+                        syllables.push(currentSyllable);
+                        currentSyllable = '';
+                        continue;
+                    }
+                }
+                
+                // Consoante no final da sílaba (ex: 'cantar' -> can-tar)
+                if (currentSyllable !== '' && isVowel(currentSyllable[currentSyllable.length - 1])) {
+                    syllables.push(currentSyllable);
+                    currentSyllable = word[position];
+                    position++;
+                    continue;
+                }
+            }
+            
+            // Caracteres não reconhecidos (não deve acontecer com palavras válidas)
+            currentSyllable += word[position];
+            position++;
         }
-
-        if (currentSyllable) {
-            syllables[syllables.length - 1] += currentSyllable;
+        
+        // Adiciona qualquer sílaba restante
+        if (currentSyllable !== '') {
+            syllables.push(currentSyllable);
         }
+        
+        // Ajustes finais para palavras com hífen ou apóstrofo
+        return adjustSpecialCases(syllables, word);
+    }
 
-        return syllables.length > 0 ? syllables : [word];
+    // Funções auxiliares para divisão silábica
+    function isVowel(char) {
+        return /[aeiouáéíóúâêîôûãõäëïöüàèìòù]/.test(char.toLowerCase());
+    }
+
+    function isSemiVowel(char) {
+        return /[iíîïuúûü]/.test(char.toLowerCase()) || char.toLowerCase() === 'y';
+    }
+
+    function isConsonant(char) {
+        return /[bcçdfghjklmnpqrstvwxyz]/.test(char.toLowerCase());
+    }
+
+    function isInseparableConsonantGroup(group) {
+        const inseparableGroups = [
+            'bl', 'br', 'cl', 'cr', 'dr', 'fl', 'fr', 'gl', 'gr', 'pl', 'pr', 'tr', 'vr',
+            'qu', 'gu'
+        ];
+        return inseparableGroups.includes(group.toLowerCase());
+    }
+
+    function adjustSpecialCases(syllables, originalWord) {
+        // Trata casos especiais como hífens e apóstrofos
+        const result = [];
+        let currentSyllable = '';
+        
+        for (let i = 0; i < syllables.length; i++) {
+            const syl = syllables[i];
+            
+            // Se a sílaba contém hífen, divide
+            if (syl.includes('-')) {
+                const parts = syl.split('-');
+                result.push(parts[0]);
+                if (parts[1]) result.push('-' + parts[1]);
+                continue;
+            }
+            
+            // Se a sílaba contém apóstrofo, divide
+            if (syl.includes("'")) {
+                const parts = syl.split("'");
+                result.push(parts[0]);
+                if (parts[1]) result.push("'" + parts[1]);
+                continue;
+            }
+            
+            result.push(syl);
+        }
+        
+        return result;
     }
 
     // Configura o arrastar e soltar
@@ -903,23 +1042,32 @@ function setupWordFormation() {
         let droppedSyllables = [];
 
         syllables.forEach(syllable => {
-            syllable.addEventListener('dragstart', function (e) {
+            syllable.addEventListener('dragstart', function(e) {
                 e.dataTransfer.setData('text/plain', this.id);
             });
         });
 
-        targetWord.addEventListener('dragover', function (e) {
+        targetWord.addEventListener('dragover', function(e) {
             e.preventDefault();
+            this.classList.add('drag-over');
         });
 
-        targetWord.addEventListener('drop', function (e) {
+        targetWord.addEventListener('dragleave', function() {
+            this.classList.remove('drag-over');
+        });
+
+        targetWord.addEventListener('drop', function(e) {
             e.preventDefault();
+            this.classList.remove('drag-over');
+            
             const id = e.dataTransfer.getData('text/plain');
             const draggedSyllable = document.getElementById(id);
-            const syllable = draggedSyllable.dataset.syllable;
-
-            if (!droppedSyllables.includes(id)) {
+            
+            if (draggedSyllable && !droppedSyllables.includes(id)) {
+                const syllable = draggedSyllable.dataset.syllable;
                 droppedSyllables.push(id);
+                
+                // Substitui o primeiro underline pela sílaba
                 this.textContent = this.textContent.replace('_', syllable);
                 draggedSyllable.style.visibility = 'hidden';
                 playSound('click');
@@ -927,65 +1075,138 @@ function setupWordFormation() {
         });
     }
 
-    // Função para verificar a palavra formada
-    window.checkFormedWord = function (targetWord, audioPrefix) {
-        const targetWordElement = document.getElementById('targetWord');
+    // Configura clique nas sílabas como alternativa ao drag and drop
+    function setupSyllableClick() {
+        const syllables = document.querySelectorAll('.syllable');
+        const targetWord = document.getElementById('targetWord');
+        let droppedSyllables = [];
+
+        syllables.forEach(syllable => {
+            syllable.addEventListener('click', function() {
+                if (!droppedSyllables.includes(this.id)) {
+                    const syllableText = this.dataset.syllable;
+                    droppedSyllables.push(this.id);
+                    
+                    // Substitui o primeiro underline pela sílaba
+                    targetWord.textContent = targetWord.textContent.replace('_', syllableText);
+                    this.style.visibility = 'hidden';
+                    playSound('click');
+                }
+            });
+        });
+    }
+
+    // Função para dar dica
+    window.giveHint = function() {
+        const targetWord = document.querySelector('.target-word').textContent;
         const syllablesContainer = document.getElementById('syllablesContainer');
+        const syllables = Array.from(syllablesContainer.querySelectorAll('.syllable'));
+        
+        // Encontra a primeira sílaba que ainda não foi usada
+        const unusedSyllable = syllables.find(syl => 
+            !syl.style.visibility || syl.style.visibility !== 'hidden');
+        
+        if (unusedSyllable) {
+            const hintArea = document.getElementById('hintArea');
+            hintArea.innerHTML = `
+                <div class="hint-message">
+                    Dica: A próxima sílaba é <strong>${unusedSyllable.dataset.syllable}</strong>
+                </div>
+            `;
+            
+            // Destaque visual na sílaba
+            unusedSyllable.classList.add('hint-highlight');
+            setTimeout(() => {
+                unusedSyllable.classList.remove('hint-highlight');
+            }, 2000);
+            
+            playSound('hint');
+            updateProgress(-1, 'used_hint'); // Penaliza por usar dica
+        }
+    };
+
+    // Função para verificar a palavra formada
+    window.checkFormedWord = function(targetWord, audioPrefix) {
+        const targetWordElement = document.getElementById('targetWord');
+        const feedbackArea = document.getElementById('feedbackArea');
         const formedWord = targetWordElement.textContent.replace(/\s/g, '');
+        const normalizedFormed = formedWord.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+        const normalizedTarget = targetWord.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
-        if (formedWord === targetWord) {
-            targetWordElement.innerHTML = `<span style="color: #2ecc71">${formedWord}</span>`;
+        // Limpa feedback anterior
+        feedbackArea.innerHTML = '';
+
+        if (normalizedFormed === normalizedTarget) {
+            // Resposta correta
+            targetWordElement.innerHTML = `<span class="correct-word">${formedWord}</span>`;
             playSound('success');
-
+            
             // Toca o áudio da palavra correta
             try {
-                const audio = new Audio(`${audioPrefix}${targetWord.toLowerCase().replace(/[^a-z]/g, '')}.mp3`);
+                const audio = new Audio(`${audioPrefix}${normalizedTarget}.mp3`);
                 audio.play().catch(e => console.log("Não foi possível tocar o áudio:", e));
             } catch (e) {
                 console.log("Erro ao carregar áudio:", e);
             }
-
+            
             // Atualiza o progresso
             updateProgress(5, `word_formed_${targetWord}`);
-
-            // Mostra mensagem de sucesso
-            setTimeout(() => {
-                syllablesContainer.innerHTML += `
-                    <div class="feedback success">
-                        Parabéns! Você formou a palavra corretamente!
-                    </div>
-                `;
-
-                // Mostra a próxima palavra após 3 segundos
-                setTimeout(() => {
-                    const currentCategory = wordGroups.find(g =>
-                        g.words.includes(targetWord))?.category;
-                    if (currentCategory) {
-                        startWordCategory(currentCategory);
-                    }
-                }, 1000);
-            }, 500);
-        } else {
-            playSound('error');
-            targetWordElement.innerHTML = `<span style="color: #e74c3c">${formedWord}</span>`;
-
-            // Mostra mensagem de erro
-            syllablesContainer.innerHTML += `
-                <div class="feedback error">
-                    Tente novamente! A palavra correta é: ${targetWord}
+            
+            // Feedback positivo
+            feedbackArea.innerHTML = `
+                <div class="feedback success">
+                    <i class="fas fa-check-circle"></i> Parabéns! Você formou a palavra corretamente!
                 </div>
             `;
-
-            // Reseta após 2 segundos
+            
+            // Mostra a próxima palavra após 3 segundos
             setTimeout(() => {
-                const currentCategory = wordGroups.find(g =>
+                const currentCategory = wordGroups.find(g => 
                     g.words.includes(targetWord))?.category;
                 if (currentCategory) {
                     startWordCategory(currentCategory);
                 }
-            }, 1000);
+            }, 3000);
+        } else {
+            // Resposta incorreta
+            playSound('error');
+            targetWordElement.innerHTML = `<span class="incorrect-word">${formedWord}</span>`;
+            
+            // Feedback com a palavra correta
+            feedbackArea.innerHTML = `
+                <div class="feedback error">
+                    <i class="fas fa-times-circle"></i> Tente novamente! A palavra correta é: 
+                    <strong>${targetWord}</strong>
+                </div>
+            `;
+            
+            // Mostra a pronúncia correta
+            try {
+                const audio = new Audio(`${audioPrefix}${normalizedTarget}.mp3`);
+                audio.play().catch(e => console.log("Não foi possível tocar o áudio:", e));
+            } catch (e) {
+                console.log("Erro ao carregar áudio:", e);
+            }
+            
+            // Reseta após 3 segundos
+            setTimeout(() => {
+                const currentCategory = wordGroups.find(g => 
+                    g.words.includes(targetWord))?.category;
+                if (currentCategory) {
+                    startWordCategory(currentCategory);
+                }
+            }, 3000);
         }
     };
+
+    // Função para embaralhar array
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
 }
 
 // Função auxiliar para embaralhar array
