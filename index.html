@@ -93,9 +93,10 @@
                     <p>Junte sílabas para formar palavras</p>
                 </div>
             </div>
-
+        
             <div class="practice-area" id="practiceArea">
-                <div class="writing-practice" id="writingPractice">
+                <!-- Área de escrita (visível por padrão) -->
+                <div class="writing-practice practice-section" id="writingPractice" style="display: block;">
                     <h3>Escreva a letra: <span id="letterToWrite">A</span></h3>
                     <div class="writing-canvas-container">
                         <canvas id="writingCanvas" width="300" height="300"></canvas>
@@ -106,6 +107,8 @@
                     </div>
                     <div class="writing-feedback" id="writingFeedback"></div>
                 </div>
+                
+                <!-- Outras seções de prática serão carregadas dinamicamente -->
             </div>
         </section>
 
