@@ -172,7 +172,7 @@ function showLetters(category) {
                 'GE', 'GI', 'GO', 'GU', 'HA', 'HE', 'HI', 'HO', 'HU', 'JA', 'JE',
                 'JI', 'JO', 'JU', 'LA', 'LE', 'LI', 'LO', 'LU', 'MA', 'ME', 'MI',
                 'MO', 'MU', 'NA', 'NE', 'NI', 'NO', 'NU', 'PA', 'PE', 'PI', 'PO',
-                'PU', 'QUA', 'QUE', 'QUI', 'SA','RA', 'RE', 'RI', 'RO', 'RU', 'SA', 'SE', 'SI', 'SO', 'SU',
+                'PU', 'QUA', 'QUE', 'QUI', 'RA', 'RE', 'RI', 'RO', 'RU', 'SA', 'SE', 'SI', 'SO', 'SU',
                 'TA', 'TE', 'TI', 'TO', 'TU', 'VA', 'VE', 'VI', 'VO', 'VU', 'XA',
                 'XE', 'XI', 'XO', 'XU', 'ZA', 'ZE', 'ZI', 'ZO', 'ZU'];
             break;
@@ -206,7 +206,360 @@ function showLetterDetails(letter) {
 
     let examples = [];
 
-    // ... (código de exemplos permanece o mesmo) ...
+    if (letter.length === 1) { // Letra única
+        switch (letter.toUpperCase()) {
+            case 'A':
+                examples = ['Abacaxi', 'Amigo', 'Arara', 'Árvore', 'Avião'];
+                break;
+            case 'B':
+                examples = ['Bola', 'Bala', 'Bicicleta', 'Banana', 'Brinquedo'];
+                break;
+            case 'C':
+                examples = ['Cama', 'Caixa', 'Casa', 'Chiclete', 'Cinza'];
+                break;
+            case 'D':
+                examples = ['Dado', 'Dedo', 'Dia', 'Direita', 'Doce'];
+                break;
+            case 'E':
+                examples = ['Elefante', 'Escova', 'Escola', 'Estádio', 'Esquerda'];
+                break;
+            case 'F':
+                examples = ['Faca', 'Foice', 'Foca', 'Folha', 'Flexa'];
+                break;
+            case 'G':
+                examples = ['Gato', 'Galho', 'Galinha', 'Goleiro', 'Gol'];
+                break;
+            case 'H':
+                examples = ['Hamburguer', 'Helicoptero', 'Hortelã', 'Hino', 'Higiêne'];
+                break;
+            case 'I':
+                examples = ['Igreja', 'Inteligência', 'Impacto', 'Infinito', 'Inocente'];
+                break;
+            case 'J':
+                examples = ['Justiça', 'Jaula', 'Jegue', 'Jeguinho', 'Janela'];
+                break;
+            case 'K':
+                examples = ['kanga', 'kart', 'ketchup', 'Km', 'kg'];
+                break;
+            case 'L':
+                examples = ['Lápis', 'Lazer', 'Livro', 'Limão', 'Língua'];
+                break;
+            case 'M':
+                examples = ['Mesa', 'Menssagem', 'Molho', 'Menino', 'Menina'];
+                break;
+            case 'N':
+                examples = ['Navio', 'Nuvem', 'Nave', 'Norte', 'Ninho'];
+                break;
+            case 'O':
+                examples = ['Óculos', 'Olho', 'Orelha', 'Ontem', 'Ofato'];
+                break;
+            case 'P':
+                examples = ['Palha', 'Palhaço', 'Panela', 'Pânico', 'Pé'];
+                break;
+            case 'Q':
+                examples = ['Queijo', 'Quantidade', 'Quiabo', 'Qualificação', 'Quest'];
+                break;
+            case 'R':
+                examples = ['Rato', 'Rosa', 'Ruim', 'Raposa', 'Rinoceronte'];
+                break;
+            case 'S':
+                examples = ['Sapo', 'Sandália', 'Shampoo', 'Sala', 'Sistema'];
+                break;
+            case 'T':
+                examples = ['Tarantula', 'Tênis', 'Toalha', 'Tacape', 'Tampa'];
+                break;
+            case 'U':
+                examples = ['Unha', 'União', 'Unicórnio', 'Utensílios', 'Único'];
+                break;
+            case 'V':
+                examples = ['Você', 'Vaso', 'Veneno', 'Voltar', 'Vê'];
+                break;
+            case 'W':
+                examples = ['Wafe', 'webcam', 'website', 'walkie-talkie', 'walkman'];
+                break;
+            case 'X':
+                examples = ['Xadrez', 'xarope', 'xeque-mate', 'Xaveco', 'Xenofobia'];
+                break;
+            case 'Y':
+                examples = ['Youtube', 'Yahoo', 'Yakut', 'Yamaha', 'Yoki'];
+                break;
+            case 'Z':
+                examples = ['Zebra', 'Zangado', 'Zagueiro', 'Zangão', 'Zarpar'];
+                break;
+            default:
+                examples = [`${letter}ato`, `${letter}ola`, `${letter}aca`, `${letter}arte`, `${letter}isco`];
+        }
+    } else { // Sílabas
+        switch (letter.toUpperCase()) {
+            case 'BA':
+                examples = ['Banana', 'Bananeira', 'Bacia', 'Balde', 'Bala'];
+                break;
+            case 'BE':
+                examples = ['Bêbe', 'Bebida', 'Beliche', 'Berço', 'Beleza'];
+                break;
+            case 'BI':
+                examples = ['Bicicleta', 'Biscoito', 'Bife', 'Bigode', 'Binóculo'];
+                break;
+            case 'BO':
+                examples = ['Bola', 'Boliche', 'Boneco', 'Boneca', 'Boné'];
+                break;
+            case 'BU':
+                examples = ['Bússola', 'Buraco', 'Bule', 'Bunda', 'Búfalo'];
+                break;
+            case 'CA':
+                examples = ['Casa', 'Chuveiro', 'Colher', 'Capa', 'Cachorro'];
+                break;
+            case 'CE':
+                examples = ['Céu', 'Cereja', 'Cesto', 'Cego', 'Cérebro'];
+                break;
+            case 'CI':
+                examples = ['Cidade', 'Cimento', 'Cinema', 'Círculo', 'Cicatriz'];
+                break;
+            case 'CO':
+                examples = ['Coelho', 'Colher', 'Coração', 'Comida', 'Corajoso'];
+                break;
+            case 'CU':
+                examples = ['Cultura', 'Cuidade', 'Culpa', 'Culto', 'Cubo'];
+                break;
+            case 'DA':
+                examples = ['Dado', 'Dama', 'Dança', 'Dardo', 'Danação'];
+                break;
+            case 'DE':
+                examples = ['Dedo', 'Deus', 'Desenho', 'Defeito', 'Destino'];
+                break;
+            case 'DI':
+                examples = ['Dia', 'Dica', 'Dinheiro', 'Dificuldade', 'Direita'];
+                break;
+            case 'DO':
+                examples = ['Documento', 'Dono', 'Doce', 'Doido', 'Dominó'];
+                break;
+            case 'DU':
+                examples = ['Dúvida', 'Duração', 'Dúzia', 'Dublê', 'Dublagem'];
+                break;
+            case 'FA':
+                examples = ['Faca', 'Fada', 'Fala', 'Fama', 'Farol'];
+                break;
+            case 'FE':
+                examples = ['Fé', 'Febre', 'Fechar', 'Feira', 'Feijão'];
+                break;
+            case 'FI':
+                examples = ['Fila', 'Filho', 'Filha', 'Ficha', 'Filme'];
+                break;
+            case 'FO':
+                examples = ['Folha', 'Fogo', 'Foca', 'Fofo', 'Forno'];
+                break;
+            case 'FU':
+                examples = ['Fumaça', 'Fungo', 'Fundo', 'Funil', 'Fuzil'];
+                break;
+            case 'GA':
+                examples = ['Gato', 'Gata', 'Garra', 'Galo', 'Galinha'];
+                break;
+            case 'GE':
+                examples = ['Gelo', 'Gema', 'Gente', 'Gesto', 'Gesso'];
+                break;
+            case 'GI':
+                examples = ['Girafa', 'Gíz', 'Gincana', 'Gilete', 'Ginástica'];
+                break;
+            case 'GO':
+                examples = ['Gol', 'Goleiro', 'Gosto', 'Gostoso', 'Golpe'];
+                break;
+            case 'GU':
+                examples = ['Guitarra', 'Guitarrista', 'Guarda', 'Guloseima', 'Guerreiro'];
+                break;
+            case 'HA':
+                examples = ['Habilidade', 'Habitante', 'Hábito', 'Hambúrguer', 'Harmonia'];
+                break;
+            case 'HE':
+                examples = ['Hebraico', 'Hegemonia', 'Hélice', 'Herói', 'Heterogêneo'];
+                break;
+            case 'HI':
+                examples = ['Hino', 'Hidrico', 'Higiene', 'Hipnose', 'Hipopótamo'];
+                break;
+            case 'HO':
+                examples = ['Hoje', 'Homem', 'Honra', 'Hora', 'Horizontal'];
+                break;
+            case 'HU':
+                examples = ['Humano', 'Humilde', 'Humor', 'Húmus', 'Húngaro'];
+                break;
+            case 'JA':
+                examples = ['Janela', 'Jarro', 'Jardim', 'Jato', 'Jantar'];
+                break;
+            case 'JE':
+                examples = ['Jejum', 'Jesus', 'Jegue', 'Jeguinho', 'Jequitibá'];
+                break;
+            case 'JI':
+                examples = ['Jiboia', 'Jiló', 'Jipe', 'Jinga', 'Jiboia-Verde'];
+                break;
+            case 'JO':
+                examples = ['Jogo', 'Joelho', 'Jóia', 'Jornal', 'Jovem'];
+                break;
+            case 'JU':
+                examples = ['Juiz', 'Júri', 'Justiça', 'Juramento', 'Junho'];
+                break;
+            case 'LA':
+                examples = ['Lagarto', 'Lâmpada', 'Lago', 'Lagoa', 'Lápis'];
+                break;
+            case 'LE':
+                examples = ['Leão', 'Leoa', 'Leitura', 'Leite', 'Lenha'];
+                break;
+            case 'LI':
+                examples = ['Livro', 'Liberdade', 'Licença', 'Lixo', 'Lixeira'];
+                break;
+            case 'LO':
+                examples = ['Loja', 'Loucura', 'Louco', 'Lobisomem', 'Local'];
+                break;
+            case 'LU':
+                examples = ['Luz', 'Lugar', 'Luxo', 'Lutador', 'Luta'];
+                break;
+            case 'MA':
+                examples = ['Mamãe', 'Mãe', 'Maçã', 'Manta', 'Manhâ'];
+                break;
+            case 'ME':
+                examples = ['Memória', 'Medo', 'Melodia', 'Mesa', 'Mercado'];
+                break;
+            case 'MI':
+                examples = ['Milho', 'Misterio', 'Milagre', 'Minuto', 'Miúdo'];
+                break;
+            case 'MO':
+                examples = ['Moça', 'Montanha', 'Monumento', 'Moço', 'Morte'];
+                break;
+            case 'MU':
+                examples = ['Múmia', 'Muralha', 'Muro', 'Música', 'Mundo'];
+                break;
+            case 'NA':
+                examples = ['Nadar', 'Nada', 'Návio', 'Nascimento', 'Namorada'];
+                break;
+            case 'NE':
+                examples = ['Névoa', 'Negócio', 'Necessário', 'Nenhum', 'Nervoso'];
+                break;
+            case 'NI':
+                examples = ['Ninho', 'Nível', 'Nitidez', 'Nitrogênio', 'Nítido'];
+                break;
+            case 'NO':
+                examples = ['Noite', 'Notícia', 'Normas', 'Nota', 'Nome'];
+                break;
+            case 'NU':
+                examples = ['Número', 'Nuvem', 'Nutrição', 'Núcleo', 'Nudez'];
+                break;
+            case 'PA':
+                examples = ['Palavra', 'Pássaro', 'Pano', 'Palco', 'Papel'];
+                break;
+            case 'PE':
+                examples = ['Pessoa', 'Personagem', 'Pássaro', 'Paredão', 'Pastel'];
+                break;
+            case 'PI':
+                examples = ['Picolé', 'Piano', 'Pintura', 'Pilha', 'Pipoca'];
+                break;
+            case 'PO':
+                examples = ['Poder', 'Poema', 'Polícia', 'Poço', 'Porta'];
+                break;
+            case 'PU':
+                examples = ['Pulga', 'Pulmão', 'Pular', 'Pulso', 'Pudim'];
+                break;
+            case 'QUA':
+                examples = ['Quadro', 'Quarto', 'Quando', 'Quasar', 'Quadrado'];
+                break;
+            case 'QUE':
+                examples = ['Quente', 'Queijo', 'Quem', 'Quebrar', 'Queda'];
+                break;
+            case 'QUI':
+                examples = ['Quilo', 'Quinta', 'Quiosque', 'Quiabo', 'Quimono'];
+                break;
+            case 'RA':
+                examples = ['Raio', 'Rainha', 'Rato', 'Ração', 'Raposa'];
+                break;
+            case 'RE':
+                examples = ['Resposta', 'Refeição', 'Residência', 'Reset', 'Restart'];
+                break;
+            case 'RI':
+                examples = ['Ridículo', 'Ritmo', 'Risada', 'Rima', 'Risco'];
+                break;
+            case 'RO':
+                examples = ['Rosa', 'Roda', 'Rosto', 'Roupa', 'Robô'];
+                break;
+            case 'RU':
+                examples = ['Rua', 'Rumo', 'Rugido', 'Ruína', 'Rumor'];
+                break;
+            case 'SA':
+                examples = ['Sapo', 'Sapato', 'Saboneteira', 'Sal', 'Salvador'];
+                break;
+            case 'SE':
+                examples = ['Semana', 'Segredo', 'Selva', 'Sentido', 'Seguro'];
+                break;
+            case 'SI':
+                examples = ['Sinal', 'Sistema', 'Sílaba', 'Simples', 'Símbolo'];
+                break;
+            case 'SO':
+                examples = ['Sol', 'Som', 'Soldado', 'Sorriso', 'Sociedade'];
+                break;
+            case 'SU':
+                examples = ['Submarino', 'Sul', 'Sucesso', 'Surpresa', 'Suporte'];
+                break;
+            case 'TA':
+                examples = ['Tarde', 'Tabuleiro', 'Tatuagem', 'Talento', 'Tarefa'];
+                break;
+            case 'TE':
+                examples = ['Terra', 'Terreno', 'Tempo', 'Texto', 'Telefone'];
+                break;
+            case 'TI':
+                examples = ['Time', 'Tinta', 'Tijolo', 'Timido', 'Tigre'];
+                break;
+            case 'TO':
+                examples = ['Torneio', 'Toalha', 'Total', 'Tomada', 'Tocar'];
+                break;
+            case 'TU':
+                examples = ['Tulipa', 'Tucano', 'Turista', 'Túnel', 'Tumulto'];
+                break;
+            case 'VA':
+                examples = ['Vaca', 'Vaso', 'Varanda', 'Vaqueiro', 'Vassoura'];
+                break;
+            case 'VE':
+                examples = ['Velocidade', 'Verdade', 'Ventania', 'Vento', 'Vegetal'];
+                break;
+            case 'VI':
+                examples = ['Vida', 'Visão', 'Vitamina', 'Vingança', 'Visinho'];
+                break;
+            case 'VO':
+                examples = ['Você', 'Vontade', 'Voz', 'Voltar', 'Volante'];
+                break;
+            case 'VU':
+                examples = ['Vulcão', 'Vulto', 'Vulgar', 'Vudu', 'Vulcanismo'];
+                break;
+            case 'XA':
+                examples = ['Xadrez', 'Xarope', 'Xale', 'Xará', 'Xamego'];
+                break;
+            case 'XE':
+                examples = ['Xerife', 'Xereta', 'Xerocópia', 'Xenofobia', 'Xerém'];
+                break;
+            case 'XI':
+                examples = ['Xícara', 'Xique', 'Xilocaína', 'Xilofone', 'Xisto'];
+                break;
+            case 'XO':
+                examples = ['Xodó', 'Xoxo', 'Xonar', 'Xopotó', 'Xoque'];
+                break;
+            case 'XU':
+                examples = ['Xuxa', 'Xucro', 'Xuvisco', 'Xulé', 'Xulipa'];
+                break;
+            case 'ZA':
+                examples = ['Zangão', 'Zangado', 'Zarpar', 'Zarcão', 'Zabumba'];
+                break;
+            case 'ZE':
+                examples = ['Zebra', 'Zelador', 'Zelo', 'Zero', 'Zerar'];
+                break;
+            case 'ZI':
+                examples = ['Zíper', 'Zigoto', 'Zimbro', 'Zinco', 'Zigue'];
+                break;
+            case 'ZO':
+                examples = ['Zoológico', 'Zona', 'Zombaria', 'Zoom', 'Zodíaco'];
+                break;
+            case 'ZU':
+                examples = ['Zumbido', 'Zumbi', 'Zunir', 'Zumir', 'Zumbo'];
+                break;
+            default:
+                examples = [`${letter}la`, `${letter}to`, `${letter}ca`, `${letter}rin`, `${letter}de`];
+        }
+    }
+    
 
     examples.forEach(example => {
         const li = document.createElement('li');
