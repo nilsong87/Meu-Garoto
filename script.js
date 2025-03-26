@@ -1492,7 +1492,82 @@ function setupStories() {
         `,
             audio: 'sons/joao-feijao.mp3',
             image: 'imagens/joao-feijao.jpg'
-        }
+        },
+
+
+        {
+        id: 'abraco',
+            title: 'O Abraço do Urso',
+            content: `
+             <p> Num bosque tranquilo, vivia um urso grande e peludo chamado Bruno.</p>
+             <p> Todos os animais tinham medo dele, pois seu tamanho e seus rugidos eram assustadores.</p> 
+             <p> Mas Bruno tinha um coração bondoso e só queria fazer amigos.</p>
+             
+             <p> Um dia, um coelho machucado tentava fugir quando Bruno se aproximou.</p>
+             <p> Em vez de atacar, o urso simplesmente o envolveu em um abraço enorme e quentinho.</p>
+             
+             <p> — Uau! — disse o coelho, surpreso. — Seu abraço é tão aconchegante!</p>
+             
+             <p> A notícia se espalhou, e logo os outros animais perderam o medo.</p>
+             <p> Bruno ensinou a todos que um gesto de carinho pode quebrar qualquer preconceito.</p>
+             
+             <p> "Moral" = A verdadeira força está na gentileza.</p>
+        `,
+            audio: 'sons/abraco.mp3',
+            image: 'imagens/abraco.jpg'
+        },
+
+        {
+            id: 'sementinha',
+                title: 'A sementinha Teimosa',
+                content: `
+                 <p> No meio de um jardim bem cuidado, uma pequena semente caiu em um lugar cheio de pedras.</p>
+
+                 <p> — Você nunca vai crescer aí! — diziam as outras plantas.</p>
+
+                 <p> Mas a sementinha teimosa não desistiu. Enfrentou o vento, a chuva forte e até o sol escaldante, sempre dizendo:</p>
+
+                 <p> — Eu consigo!</p>
+
+                 <p> Dias, meses e anos se passaram, e um belo dia, ela rompeu as pedras e se transformou numa árvore forte e frondosa, dando sombra e frutos para todos.</p>
+
+                 <p> — Ninguém acreditava em você, mas você provou que era capaz! — disseram as flores, admiradas.</p>
+
+                 <p> "Moral": Persistência transforma dificuldades em conquistas.</p>
+            `,
+                audio: 'sons/sementinha.mp3',
+                image: 'imagens/sementinha.jpg'
+            },
+
+
+            {
+                id: 'patinho',
+                    title: 'O Patinho Féio',
+                    content: `
+                    <p> Num tranquilo lago da floresta, uma mamãe pata aguardava ansiosa o nascimento de seus filhotes.</p>
+                    <p> Um por um, os ovos se quebraram, revelando patinhos amarelos e fofos.</p>
+                    <p> Mas o último ovo era maior e mais escuro. Quando finalmente se abriu, </p>
+                    <p>saiu um patinho diferente: cinza, desengonçado e com um pescoço mais comprido.</p>
+
+                    <p>— Que patinho esquisito! — riam os outros animais.</p>
+
+                    <p> O patinho feio sentia-se triste e sozinho.</p>
+                    <p> Mesmo sua própria família o evitava.</p> 
+                    <p> Decidiu então partir, enfrentando o frio e a solidão,</p>
+                    <p> até que um dia avistou um grupo de belas aves brancas nadando graciosamente no lago.</p>
+
+                    <p>— Quem são vocês? — perguntou, com voz tímida.</p>
+
+                    <p>— Somos cisnes — responderam. — E você também é um de nós!</p>
+
+                    <p> Olhando seu reflexo na água, o patinho viu que havia se transformado num lindo cisne.</p>
+                    <p> Os outros animais, agora admirados, perceberam que a verdadeira beleza estava em aceitar quem ele sempre foi.</p>
+
+                    <p> "Moral": Nossa diferença não é defeito, mas nossa maior força.</p>
+                `,
+                    audio: 'sons/patinho.mp3',
+                    image: 'imagens/patinho.jpg'
+                },
     ];
 
     window.readStory = function (storyId) {
