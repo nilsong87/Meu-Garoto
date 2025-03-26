@@ -6,69 +6,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Inicializa a aplicação
         initApp();
-
-        // Toca música de fundo (opcional)
-        const bgMusic = document.getElementById('backgroundMusic');
-        bgMusic.volume = 0.3;
-        // bgMusic.play(); // Descomente para ativar música automática
+         
     }, 2000);
 });
 
-// Configura efeitos sonoros
-function setupSoundEffects() {
-    // Função global para tocar sons
-    window.playSound = function (sound) {
-        const soundEffect = document.getElementById('soundEffect');
-
-        // Mapeamento de sons
-        switch (sound) {
-            case 'click':
-                soundEffect.src = 'sons/click.mp3';
-                break;
-            case 'flip':
-                soundEffect.src = 'sons/flip.mp3';
-                break;
-            case 'match':
-                soundEffect.src = 'sons/match.mp3';
-                break;
-            case 'win':
-                soundEffect.src = 'sons/win.mp3';
-                break;
-            case 'lose':
-                soundEffect.src = 'sons/lose.mp3';
-                break;
-            case 'correct':
-                soundEffect.src = 'sons/correct.mp3';
-                break;
-            case 'error':
-                soundEffect.src = 'sons/error.mp3';
-                break;
-            case 'success':
-                soundEffect.src = 'sons/success.mp3';
-                break;
-            case 'erase':
-                soundEffect.src = 'sons/erase.mp3';
-                break;
-            case 'game-start':
-                soundEffect.src = 'sons/game-start.mp3';
-                break;
-            case 'story-open':
-                soundEffect.src = 'sons/story-open.mp3';
-                break;
-            case 'help':
-                soundEffect.src = 'sons/help.mp3';
-                break;
-            case 'mascot':
-                soundEffect.src = 'sons/mascot.mp3';
-                break;
-            default:
-                soundEffect.src = 'sons/click.mp3';
-        }
-
-        soundEffect.currentTime = 0;
-        soundEffect.play();
-    };
-}
 
 // Inicializa a aplicação
 function initApp() {
