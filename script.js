@@ -808,17 +808,17 @@ function setupWordFormation() {
     const wordGroups = [
         {
             category: "Animais",
-            words: ["gato", "cachorro", "pássaro", "peixe"],
+            words: ["gato", "cachorro", "pássaro", "peixe", "elefante", "vaca", "leão", "zebra", "macaco", "tigre"],
             audio: "sons/animais/"
         },
         {
             category: "Frutas",
-            words: ["maçã", "banana", "uva", "laranja"],
+            words: ["maçã", "banana", "uva", "laranja", "tangerina", "caju", "manga", "úmbu", "siriguela", "pêra"],
             audio: "sons/frutas/"
         },
         {
             category: "Casa",
-            words: ["casa", "porta", "janela", "mesa"],
+            words: ["casa", "porta", "janela", "mesa", "pia", "cama", "sofá", "parede", "geladeira", "televisão"],
             audio: "sons/casa/"
         }
     ];
@@ -963,7 +963,7 @@ function setupWordFormation() {
                     if (currentCategory) {
                         startWordCategory(currentCategory);
                     }
-                }, 3000);
+                }, 1000);
             }, 500);
         } else {
             playSound('error');
@@ -983,7 +983,7 @@ function setupWordFormation() {
                 if (currentCategory) {
                     startWordCategory(currentCategory);
                 }
-            }, 2000);
+            }, 1000);
         }
     };
 }

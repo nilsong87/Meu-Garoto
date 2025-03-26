@@ -1482,6 +1482,10 @@ h2 i {
         bottom: 15px;
         right: 15px;
     }
+
+    .video-ajuda {
+        width: 450px;
+    }
 }
 
 /* Responsividade para celulares (480px) */
@@ -1594,5 +1598,9 @@ h2 i {
     .help-box {
         width: 90vw;
         right: -30px;
+    }
+
+    .video-ajuda {
+        width: 380px;
     }
 }
