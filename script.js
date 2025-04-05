@@ -709,9 +709,7 @@ window.startPractice = function (type) {
         case 'formacao':
             showWordFormation();
             break;
-    }
-
-    playSound('click');
+    };
 };
 
 // Configura a prática de leitura
